@@ -1,4 +1,6 @@
-# quantecon-example  -- copied from https://github.com/ExecutableBookProject/quantecon-example.git
+# quantecon-example
+
+- copied from https://github.com/ExecutableBookProject/quantecon-example.git
 
 A demonstration of Jupyter Book functionality using QuantEcon Python
 programming source material.
@@ -15,7 +17,7 @@ MyST-syntax markdown, then build the book by following the instructions in the
 ### Creating an environment
 
 1. `conda env create -f environment.yml`
-2.  `conda activte edp`
+2.  `conda activte ebp`
 
 ### Building a Jupyter Book
 
@@ -24,3 +26,6 @@ Run the following command in your terminal: `jb build book/`.
 ### Publishing this Jupyter Book
 
 Run `ghp-import -n -p -f book/_build/html`
+
+open https://eoas-ubc.github.io/eoas_tlef/docs/index.html
+
