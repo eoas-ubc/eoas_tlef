@@ -21,11 +21,11 @@ MyST-syntax markdown, then build the book by following the instructions in the
 
 ### Building a Jupyter Book
 
-Run the following commands in your terminal: 
+Run the following commands in your (Unix) terminal: 
 
 ```
 cd quantecon-example
-jb build book/
+./build_website.sh
 ```
 
 ### Publishing this Jupyter Book
@@ -33,4 +33,6 @@ jb build book/
 Run `ghp-import -n -p -f book/_build/html`
 
 open https://eoas-ubc.github.io/eoas_tlef/ebp/docs/index.html
+to see a sample build -- substitute your forked repo-address for
+https://eoas-ubc.github.io  to see your build
 
