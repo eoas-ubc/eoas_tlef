@@ -25,5 +25,4 @@ dependencies:
     - git+https://github.com/mwouts/jupytext.git
     - git+https://github.com/ExecutableBookProject/cli
     - git+https://github.com/ExecutableBookProject/sphinx-book-theme
-    - git+https://github.com/mwouts/jupytext.git
     
