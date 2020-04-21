@@ -11,7 +11,7 @@
 
 2. Port the EOSC 211 matlab intro course to python/jupyter
 
-3. Develop [Voilà dashboards)(https://github.com/voila-dashboards/voila) for EOSC 340 and ENVR 300
+3. Develop [Voilà dashboards](https://github.com/voila-dashboards/voila) for EOSC 340 and ENVR 300
 
 4. Develop a jupyter to canvas quiz converter based on [r-exams](http://www.r-exams.org/)
 
@@ -21,7 +21,7 @@
 
 ## Getting started
 
-1. [Our project board](https://github.com/eoas-ubc/eoas_tlef/projects/2)
+1. Here is [our project board](https://github.com/eoas-ubc/eoas_tlef/projects/2)
 
 2. Fork this repository
 
