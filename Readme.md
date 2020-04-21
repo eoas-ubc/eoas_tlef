@@ -25,4 +25,4 @@
 
 2. Fork this repository
 
-3. Hopefully following [this ebp readme](quantecon-example/README.md) will create am html version of a jupyter book and [this myst-nb readme](pyman/README.md) will create an html version of a notebook collection -- file an issue if there's a problem.
+3. Hopefully following [this ebp readme](quantecon-example/README.md) will create an html version of a jupyter book and [this myst-nb readme](pyman/README.md) will create an html version of a notebook collection -- file an issue if there's a problem.
