@@ -1,0 +1,1120 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Input and Output &#8212; Numeric course 0.1 documentation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Plotting" href="chap5_plot.html" />
+    <link rel="prev" title="Strings, Lists, Arrays, and Dictionaries" href="chap3_arrays.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+</button>
+
+<div id="navbar-menu" class="collapse navbar-collapse">
+  <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+    <li class="nav-item">
+        <a class="nav-link" href="../index.html">Home</a>
+    </li>
+    
+    
+    <li class="nav-item ">
+        <a class="nav-link" href="chap1_intro.html">Chapter 1: Introduction</a>
+    </li>
+    
+    <li class="nav-item ">
+        <a class="nav-link" href="chap2_basics.html">Chapter 2: First Steps</a>
+    </li>
+    
+    <li class="nav-item ">
+        <a class="nav-link" href="chap3_arrays.html">Chapter 3: Arrays</a>
+    </li>
+    
+    <li class="nav-item active">
+        <a class="nav-link" href="">Chapter 4: Input and Output</a>
+    </li>
+    
+    <li class="nav-item ">
+        <a class="nav-link" href="chap5_plot.html">Chapter 5: Plotting</a>
+    </li>
+    
+    <li class="nav-item ">
+        <a class="nav-link" href="chap6_loopsconds.html">Chapter 6: Flow control</a>
+    </li>
+    
+    <li class="nav-item ">
+        <a class="nav-link" href="chap7_funcs.html">Chapter 7: Functions</a>
+    </li>
+    
+    <li class="nav-item ">
+        <a class="nav-link" href="chap8_fitting.html">Chapter 8: Curve Fitting</a>
+    </li>
+    
+    <li class="nav-item ">
+        <a class="nav-link" href="chap9_scipy.html">Chapter 9: Scipy</a>
+    </li>
+    
+    <li class="nav-item ">
+        <a class="nav-link" href="apdx1_install.html">Appendix 1: Installation</a>
+    </li>
+    
+    <li class="nav-item ">
+        <a class="nav-link" href="apdx2_ipynb.html">Appendix 2: Jupyter</a>
+    </li>
+    
+    <li class="nav-item ">
+        <a class="nav-link" href="apdx3_resources.html">Appendix 3: Resources</a>
+    </li>
+    
+    
+  </ul>
+  <ul class="navbar-nav ml-auto">
+    
+    
+  </ul>
+</div>
+    </nav>
+    
+
+    <div class="container-fluid">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 col-xl-2 bd-sidebar">
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+  <div class="bd-toc-item active">
+  
+
+  <ul class="nav bd-sidenav">
+      
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+
+</nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+
+<div class="tocsection onthispage"><i class="fas fa-list"></i> On this page</div>
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#keyboard-input" class="nav-link">Keyboard input</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#screen-output" class="nav-link">Screen output</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#formatting-output-with-str-format" class="nav-link">Formatting output with str.format()</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#printing-arrays" class="nav-link">Printing arrays</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#file-input" class="nav-link">File input</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#reading-data-from-a-text-file" class="nav-link">Reading data from a text file</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#reading-data-from-a-csv-file" class="nav-link">Reading data from a CSV file</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#file-output" class="nav-link">File output</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#writing-data-to-a-text-file" class="nav-link">Writing data to a text file</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#writing-data-to-a-csv-file" class="nav-link">Writing data to a CSV file</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#exercises" class="nav-link">Exercises</a>
+        </li>
+    
+    </ul>
+</nav>
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+              
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="input-and-output">
+<h1>Input and Output<a class="headerlink" href="#input-and-output" title="Permalink to this headline">¶</a></h1>
+<p>A good relationship depends on good communication. In this chapter you
+learn how to communicate with Python. Of course, communicating is a
+two-way street: input and output. Generally, when you have Python
+perform some task, you need to feed it information—input. When it is
+done with that task, it reports back to you the results of its
+calculations—output.</p>
+<p>There are two venues for input that concern us: the computer keyboard
+and the input data file. Similarly, there are two venues for output: the
+computer screen and the output data file. We start with input from the
+keyboard and output to the computer screen. Then we deal with data file
+input and output—or “io.”</p>
+<div class="section" id="keyboard-input">
+<h2>Keyboard input<a class="headerlink" href="#keyboard-input" title="Permalink to this headline">¶</a></h2>
+<p>Many computer programs need input from the user. In <code class="docutils literal notranslate"><span class="pre">chap2:ScriptExmp1</span></code>,
+the program needed the distance traveled as an input in order to
+determine the duration of the trip and the cost of the gasoline. As you
+might like to use this same script to determine the cost of several
+different trips, it would be useful if the program requested that input
+when it was run from the IPython shell.</p>
+<p>Python has a function called <code class="docutils literal notranslate"><span class="pre">input</span></code>
+for getting input from the user and assigning it a variable name. It has
+the form</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">strname</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;prompt to user &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>prompt to user 
+</pre></div>
+</div>
+</div>
+</div>
+<p>When the <code class="docutils literal notranslate"><span class="pre">input</span></code> statement is executed, it prints the text in the
+quotes to the computer screen and waits for input from the user. The
+user types a string of characters and presses the return key. The
+<code class="docutils literal notranslate"><span class="pre">input</span></code> function then assigns that string to the variable name on
+the right of the assignment operator <code class="docutils literal notranslate"><span class="pre">=</span></code>.</p>
+<p>Let’s try it out this snippet of code in the IPython shell.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">distance</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Input distance of trip in miles: &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Input distance of trip in miles: 450
+</pre></div>
+</div>
+</div>
+</div>
+<p>Python prints out the string argument of the <code class="docutils literal notranslate"><span class="pre">input</span></code> function and
+waits for a response from you. Let’s go ahead and type <code class="docutils literal notranslate"><span class="pre">450</span></code> for “450
+miles” and press return. Now type the variable name <code class="docutils literal notranslate"><span class="pre">distance</span></code> to see
+its value</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">distance</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;450&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The value of the <code class="docutils literal notranslate"><span class="pre">distance</span></code> is <code class="docutils literal notranslate"><span class="pre">450</span></code> as expected, but it is a string
+(the <code class="docutils literal notranslate"><span class="pre">u</span></code> stands for “unicode” which refers to the string coding system
+Python uses). Because we want to use <code class="docutils literal notranslate"><span class="pre">450</span></code> as a number and not a
+distance, we need to convert it from a string to a number. We can do
+that with the <code class="docutils literal notranslate"><span class="pre">eval</span></code> function by writing</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">distance</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">distance</span><span class="p">)</span>
+<span class="n">distance</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>450
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">eval</span></code> function has converted <code class="docutils literal notranslate"><span class="pre">distance</span></code> to an integer. This is fine
+and we are ready to move on. However, we might prefer that <code class="docutils literal notranslate"><span class="pre">distance</span></code> be
+a float instead of an integer. There are two ways to do this. We could
+assume the user is very smart and will type “<code class="docutils literal notranslate"><span class="pre">450.</span></code>” instead of “<code class="docutils literal notranslate"><span class="pre">450</span></code>”,
+which will cause distance to be a float when <code class="docutils literal notranslate"><span class="pre">eval</span></code> does the conversion.
+That is, the number 450 is dynamically typed to be a float or an integer
+depending on whether or not the user uses a decimal point.
+Alternatively, we could use the function <code class="docutils literal notranslate"><span class="pre">float</span></code> in place of <code class="docutils literal notranslate"><span class="pre">eval</span></code>,
+which would ensure that <code class="docutils literal notranslate"><span class="pre">distance</span></code> is a floating point variable. Thus,
+our code would look like this (including the user response):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">distance</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Input distance of trip in miles: &quot;</span><span class="p">)</span>
+<span class="n">distance</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Input distance of trip in miles: 450
+</pre></div>
+</div>
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;450&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">distance</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">distance</span><span class="p">)</span>
+<span class="n">distance</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>450.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s incorporate what we have learned into the code we wrote for
+<code class="docutils literal notranslate"><span class="pre">chap2:ScriptExmp1</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculates time, gallons of gas used, and cost of gasoline for a trip</span>
+
+<span class="n">distance</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Input distance of trip in miles: &quot;</span><span class="p">)</span>
+<span class="n">distance</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">distance</span><span class="p">)</span>
+
+<span class="n">mpg</span> <span class="o">=</span> <span class="mf">30.</span>               <span class="c1"># car mileage</span>
+<span class="n">speed</span> <span class="o">=</span> <span class="mf">60.</span>             <span class="c1"># average speed</span>
+<span class="n">costPerGallon</span> <span class="o">=</span> <span class="mf">4.10</span>    <span class="c1"># price of gas</span>
+
+<span class="n">time</span> <span class="o">=</span> <span class="n">distance</span><span class="o">/</span><span class="n">speed</span>
+<span class="n">gallons</span> <span class="o">=</span> <span class="n">distance</span><span class="o">/</span><span class="n">mpg</span>
+<span class="n">cost</span> <span class="o">=</span> <span class="n">gallons</span><span class="o">*</span><span class="n">costPerGallon</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Input distance of trip in miles: 450
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lines 4 and 5 can be combined into a single line, which is a little more
+efficient:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">distance</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Input distance of trip in miles: &quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Input distance of trip in miles: 450
+</pre></div>
+</div>
+</div>
+</div>
+<p>Whether you use <code class="docutils literal notranslate"><span class="pre">float</span></code> or <code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">eval</span></code> depends on whether you want a
+float, an integer, or a dynamically typed variable. In this program, it
+doesn’t matter.</p>
+<p>Now you can simply run the program and then type <code class="docutils literal notranslate"><span class="pre">time</span></code>, <code class="docutils literal notranslate"><span class="pre">gallons</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">cost</span></code> to view the results of the calculations done by the program.</p>
+<p>Before moving on to output, we note that sometimes you may want string
+input rather that numerical input. For example, you might want the user
+to input their name, in which case you would simply use the <code class="docutils literal notranslate"><span class="pre">input</span></code>
+function without converting its output.</p>
+</div>
+<div class="section" id="screen-output">
+<h2>Screen output<a class="headerlink" href="#screen-output" title="Permalink to this headline">¶</a></h2>
+<p>It would be much more convenient if the program in the previous section
+would simply write its output to the computer screen, instead of
+requiring the user to type <code class="docutils literal notranslate"><span class="pre">time</span></code>, <code class="docutils literal notranslate"><span class="pre">gallons</span></code>, and <code class="docutils literal notranslate"><span class="pre">cost</span></code> to view the
+results. Fortunately, this can be accomplished very simply using
+Python’s <code class="docutils literal notranslate"><span class="pre">print</span></code> function. For example, simply including the statement
+<code class="docutils literal notranslate"><span class="pre">print(time,</span> <span class="pre">gallons,</span> <span class="pre">cost)</span></code> after line 12, running the program would
+give the following result:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">run</span> <span class="n">myTripIO</span><span class="o">.</span><span class="n">py</span>
+
+<span class="n">What</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">distance</span> <span class="n">of</span> <span class="n">your</span> <span class="n">trip</span> <span class="ow">in</span> <span class="n">miles</span><span class="err">?</span> <span class="mi">450</span>
+<span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mf">15.0</span><span class="p">,</span> <span class="mf">61.49999999999999</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The program prints out the results as a tuple of time (in hours),
+gasoline used (in gallons), and cost (in dollars). Of course, the
+program doesn’t give the user a clue as to which quantity is which. The
+user has to know.</p>
+<div class="section" id="formatting-output-with-str-format">
+<h3>Formatting output with <code class="docutils literal notranslate"><span class="pre">str.format()</span></code><a class="headerlink" href="#formatting-output-with-str-format" title="Permalink to this headline">¶</a></h3>
+<p>We can clean up the output of the example above and make it considerably
+more user friendly. The program below demonstrates how to do this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculates time, gallons of gas used, and cost of gasoline for</span>
+<span class="c1"># a trip</span>
+
+<span class="n">distance</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Input distance of trip in miles: &quot;</span><span class="p">))</span>
+<span class="n">mpg</span> <span class="o">=</span> <span class="mf">30.</span>               <span class="c1"># car mileage</span>
+<span class="n">speed</span> <span class="o">=</span> <span class="mf">60.</span>             <span class="c1"># average speed</span>
+<span class="n">costPerGallon</span> <span class="o">=</span> <span class="mf">4.10</span>    <span class="c1"># price of gas</span>
+
+<span class="n">time</span> <span class="o">=</span> <span class="n">distance</span><span class="o">/</span><span class="n">speed</span>
+<span class="n">gallons</span> <span class="o">=</span> <span class="n">distance</span><span class="o">/</span><span class="n">mpg</span>
+<span class="n">cost</span> <span class="o">=</span> <span class="n">gallons</span><span class="o">*</span><span class="n">costPerGallon</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Duration of trip = </span><span class="si">{0:0.1f}</span><span class="s2"> hours&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gasoline used = </span><span class="si">{0:0.1f}</span><span class="s2"> gallons (@ </span><span class="si">{1:0.0f}</span><span class="s2"> mpg)&quot;</span>
+      <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">gallons</span><span class="p">,</span> <span class="n">mpg</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cost of gasoline = $</span><span class="si">{0:0.2f}</span><span class="s2"> (@ $</span><span class="si">{1:0.2f}</span><span class="s2">/gallon)&quot;</span>
+      <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cost</span><span class="p">,</span> <span class="n">costPerGallon</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Input distance of trip in miles: 450
+
+Duration of trip = 7.5 hours
+Gasoline used = 15.0 gallons (@ 30 mpg)
+Cost of gasoline = $61.50 (@ $4.10/gallon)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The final two <code class="docutils literal notranslate"><span class="pre">print</span></code> function calls in this script are continued on a
+second line in order to improve readability. Running this program, with
+the distance provided by the user, gives</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">run</span> <span class="n">myTripNiceIO</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>What is the trip distance in miles? 450
+
+Duration of trip = 7.5 hours
+Gasoline used = 15.0 gallons (@ 30 mpg)
+Cost of gasoline = $61.50 (@ $4.10/gallon)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now the output is presented in a way that is immediately understandable
+to the user. Moreover, the numerical output is formatted with an
+appropriate number of digits to the right of the decimal point. For good
+measure, we also included the assumed mileage (30 mpg) and the cost of
+the gasoline. All of this is controlled by the <code class="docutils literal notranslate"><span class="pre">str.format()</span></code> function
+within the <code class="docutils literal notranslate"><span class="pre">print</span></code> function.</p>
+<p>The argument of the <code class="docutils literal notranslate"><span class="pre">print</span></code> function is of the form <code class="docutils literal notranslate"><span class="pre">str.format()</span></code> where
+<code class="docutils literal notranslate"><span class="pre">str</span></code> is a string that contains text that is written to be the screen,
+as well as certain format specifiers contained in curly braces <code class="docutils literal notranslate"><span class="pre">{}</span></code>. The
+<code class="docutils literal notranslate"><span class="pre">format</span></code> function contains the list of variables that are to be printed.</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">\n</span></code> at the start of the string in the <code class="docutils literal notranslate"><span class="pre">print</span></code> statement on line 12 in the newline character. It creates the blank line before the output is printed.</p></li>
+<li><p>The positions of the curly braces determine where the variables in the <code class="docutils literal notranslate"><span class="pre">format</span></code> function at the end of the statement are printed.</p></li>
+<li><p>The format string inside the curly braces specifies how each variable in the <code class="docutils literal notranslate"><span class="pre">format</span></code> function is printed.</p></li>
+<li><p>The number before the colon in the format string specifies which variable in the list in the <code class="docutils literal notranslate"><span class="pre">format</span></code> function is printed. Remember, Python is zero-indexed, so 0 means the first variable is printed, 1 means the second variable, <em>etc</em>.</p></li>
+<li><p>The zero after the colon specifies the <em>minimum</em> number of spaces reserved for printing out the variable in the format function. A zero means that only as many spaces as needed will be used.</p></li>
+<li><p>The number after the period specifies the number of digits to the right of the decimal point that will be printed: <code class="docutils literal notranslate"><span class="pre">1</span></code> for <code class="docutils literal notranslate"><span class="pre">time</span></code> and <code class="docutils literal notranslate"><span class="pre">gallons</span></code> and <code class="docutils literal notranslate"><span class="pre">2</span></code> for <code class="docutils literal notranslate"><span class="pre">cost</span></code>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">f</span></code> specifies that a number with a fixed number of decimal points. If the <code class="docutils literal notranslate"><span class="pre">f</span></code> format specifier is replaced with <code class="docutils literal notranslate"><span class="pre">e</span></code>, then the number is printed out in exponential format (scientific notation).</p></li>
+</ul>
+<p>In addition to <code class="docutils literal notranslate"><span class="pre">f</span></code> and <code class="docutils literal notranslate"><span class="pre">e</span></code> format types, there are two more that are
+commonly used: <code class="docutils literal notranslate"><span class="pre">d</span></code> for integers (digits) and <code class="docutils literal notranslate"><span class="pre">s</span></code> for strings. There are,
+in fact, many more formatting possibilities. Python has a whole “Format
+Specification Mini-Language” that is documented at
+<a class="reference external" href="http://docs.python.org/library/string.html#formatspec">http://docs.python.org/library/string.html#formatspec</a>. It’s very
+flexible but arcane. You might find it simplest to look at the “Format
+examples” section further down the same web page.</p>
+<p>The program below illustrates most of the formatting you will need for
+writing a few variables, be they strings, integers, or floats, to screen
+or to data files (which we discuss in the next section).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">string1</span> <span class="o">=</span> <span class="s2">&quot;How&quot;</span>
+<span class="n">string2</span> <span class="o">=</span> <span class="s2">&quot;are you my friend?&quot;</span>
+<span class="n">int1</span> <span class="o">=</span> <span class="mi">34</span>
+<span class="n">int2</span> <span class="o">=</span> <span class="mi">942885</span>
+<span class="n">float1</span> <span class="o">=</span> <span class="o">-</span><span class="mf">3.0</span>
+<span class="n">float2</span> <span class="o">=</span> <span class="mf">3.141592653589793e-14</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; ***&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string1</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">string2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; 1. </span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">string1</span><span class="p">,</span> <span class="n">string2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; 2. </span><span class="si">{0:s}</span><span class="s1"> </span><span class="si">{1:s}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">string1</span><span class="p">,</span> <span class="n">string2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; 3. </span><span class="si">{0:s}</span><span class="s1"> </span><span class="si">{0:s}</span><span class="s1"> </span><span class="si">{1:s}</span><span class="s1"> - </span><span class="si">{0:s}</span><span class="s1"> </span><span class="si">{1:s}</span><span class="s1">&#39;</span>
+      <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">string1</span><span class="p">,</span> <span class="n">string2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; 4. </span><span class="si">{0:10s}{1:5s}</span><span class="s1">&#39;</span>
+      <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">string1</span><span class="p">,</span> <span class="n">string2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; ***&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">int1</span><span class="p">,</span> <span class="n">int2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; 6. </span><span class="si">{0:d}</span><span class="s1"> </span><span class="si">{1:d}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">int1</span><span class="p">,</span> <span class="n">int2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; 7. </span><span class="si">{0:8d}</span><span class="s1"> </span><span class="si">{1:10d}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">int1</span><span class="p">,</span> <span class="n">int2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; ***&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; 8. </span><span class="si">{0:0.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">float1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; 9. </span><span class="si">{0:6.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">float1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;10. </span><span class="si">{0:8.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">float1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="s1">&#39;11. </span><span class="si">{0:8.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">float1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; ***&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;12. </span><span class="si">{0:0.3e}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">float2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;13. </span><span class="si">{0:10.3e}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">float2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;14. </span><span class="si">{0:10.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">float2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; ***&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;15. 12345678901234567890&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;16. </span><span class="si">{0:s}</span><span class="s1">--</span><span class="si">{1:8d}</span><span class="s1">,</span><span class="si">{2:10.3e}</span><span class="s1">&#39;</span>
+      <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">string2</span><span class="p">,</span> <span class="n">int1</span><span class="p">,</span> <span class="n">float2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span> ***
+How
+How are you my friend?
+ 1. How are you my friend?
+ 2. How are you my friend?
+ 3. How How are you my friend? - How are you my friend?
+ 4. How       are you my friend?
+ ***
+34 942885
+ 6. 34 942885
+ 7.       34     942885
+ ***
+ 8. -3.000
+ 9. -3.000
+10.   -3.000
+11.   -3.00011.   -3.000
+ ***
+12. 3.142e-14
+13.  3.142e-14
+14.      0.000
+ ***
+15. 12345678901234567890
+16. are you my friend?--      34, 3.142e-14
+</pre></div>
+</div>
+</div>
+</div>
+<p>Successive empty brackets <code class="docutils literal notranslate"><span class="pre">{}</span></code> like those that appear in the statement
+above <code class="docutils literal notranslate"><span class="pre">print('</span> <span class="pre">1.</span> <span class="pre">{}</span> <span class="pre">{}'.format(string1,</span> <span class="pre">string2))</span></code> are numbered
+consecutively starting at 0 and will print out whatever variables appear
+inside the <code class="docutils literal notranslate"><span class="pre">format()</span></code> method using their default format.</p>
+<p>Finally, note that the code starting on lines 14 and 16 each are split
+into two lines. We have done this so that the lines fit on the page
+without running off the edge. Python allows you to break lines up like
+this to improve readability.</p>
+</div>
+<div class="section" id="printing-arrays">
+<h3>Printing arrays<a class="headerlink" href="#printing-arrays" title="Permalink to this headline">¶</a></h3>
+<p>Formatting NumPy arrays for printing requires another approach. As an
+example, let’s create an array and then format it in various ways. From
+the IPython terminal</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[ 3.          5.66666667  8.33333333 11.         13.66666667 16.33333333
+ 19.        ]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Simply using the <code class="docutils literal notranslate"><span class="pre">print</span></code> function does print out the array, but perhaps
+not in the format you desire. To control the output format, you use the
+NumPy function <code class="docutils literal notranslate"><span class="pre">set_printoptions</span></code>. For example, suppose you want to see
+no more than two digits to the right of the decimal point. Then you
+simply write</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[ 3.    5.67  8.33 11.   13.67 16.33 19.  ]
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you want to change the number of digits to the right of the decimal
+point to 4, you set the keyword argument <code class="docutils literal notranslate"><span class="pre">precision</span></code> to 4</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[ 3.      5.6667  8.3333 11.     13.6667 16.3333 19.    ]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Suppose you want to use scientific notation. The method for doing it is
+somewhat arcane, using something called a <code class="docutils literal notranslate"><span class="pre">lambda</span></code> function. For now,
+you don’t need to understand how it works to use it. Just follow the
+examples shown below, which illustrate several different output formats
+using the <code class="docutils literal notranslate"><span class="pre">print</span></code> function with NumPy arrays.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">formatter</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;float&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;6.2e&#39;</span><span class="p">)})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[3.00e+00 5.67e+00 8.33e+00 1.10e+01 1.37e+01 1.63e+01 1.90e+01]
+</pre></div>
+</div>
+</div>
+</div>
+<p>To specify the format of the output, you use the <code class="docutils literal notranslate"><span class="pre">formatter</span></code> keyword
+argument. The first entry to the right of the curly bracket is a string
+that can be <code class="docutils literal notranslate"><span class="pre">'float'</span></code>, as it is above, or <code class="docutils literal notranslate"><span class="pre">'int'</span></code>, or <code class="docutils literal notranslate"><span class="pre">'str'</span></code>, or a
+number of other data types that you can look up in the online NumPy
+documentation. The only other thing you should change is the format
+specifier string. In the above example, it is <code class="docutils literal notranslate"><span class="pre">'6.2e'</span></code>, specifying that
+Python should allocate at least 6 spaces, with 2 digits to the right of
+the decimal point in scientific (exponential) notation. For fixed width
+floats with 3 digits to the right of the decimal point, use the <code class="docutils literal notranslate"><span class="pre">f</span></code> in
+place of the <code class="docutils literal notranslate"><span class="pre">e</span></code> format specifier, as follows</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">formatter</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;float&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;6.3f&#39;</span><span class="p">)})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[ 3.000  5.667  8.333 11.000 13.667 16.333 19.000]
+</pre></div>
+</div>
+</div>
+</div>
+<p>To return to the default format, type the following</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[ 3.          5.66666667  8.33333333 11.         13.66666667 16.33333333
+ 19.        ]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">set_printoptions</span></code> is a NumPy function, so if you use it in a script
+or program, you should call it by writing <code class="docutils literal notranslate"><span class="pre">np.set_printoptions</span></code>.</p>
+</div>
+</div>
+<div class="section" id="file-input">
+<h2>File input<a class="headerlink" href="#file-input" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="reading-data-from-a-text-file">
+<h3>Reading data from a text file<a class="headerlink" href="#reading-data-from-a-text-file" title="Permalink to this headline">¶</a></h3>
+<p>Often you would like to analyze data that you have stored in a text
+file. Consider, for example, the data file below for an experiment
+measuring the free fall of a mass.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Data</span> <span class="k">for</span> <span class="n">falling</span> <span class="n">mass</span> <span class="n">experiment</span>
+<span class="n">Date</span><span class="p">:</span> <span class="mi">16</span><span class="o">-</span><span class="n">Aug</span><span class="o">-</span><span class="mi">2013</span>
+<span class="n">Data</span> <span class="n">taken</span> <span class="n">by</span> <span class="n">Lauren</span> <span class="ow">and</span> <span class="n">John</span>
+
+<span class="n">data</span> <span class="n">point</span>      <span class="n">time</span> <span class="p">(</span><span class="n">sec</span><span class="p">)</span>      <span class="n">height</span> <span class="p">(</span><span class="n">mm</span><span class="p">)</span>     <span class="n">uncertainty</span> <span class="p">(</span><span class="n">mm</span><span class="p">)</span>
+    <span class="mi">0</span>               <span class="mf">0.0</span>             <span class="mi">180</span>             <span class="mf">3.5</span>
+    <span class="mi">1</span>               <span class="mf">0.5</span>             <span class="mi">182</span>             <span class="mf">4.5</span>
+    <span class="mi">2</span>               <span class="mf">1.0</span>             <span class="mi">178</span>             <span class="mf">4.0</span>
+    <span class="mi">3</span>               <span class="mf">1.5</span>             <span class="mi">165</span>             <span class="mf">5.5</span>
+    <span class="mi">4</span>               <span class="mf">2.0</span>             <span class="mi">160</span>             <span class="mf">2.5</span>
+    <span class="mi">5</span>               <span class="mf">2.5</span>             <span class="mi">148</span>             <span class="mf">3.0</span>
+    <span class="mi">6</span>               <span class="mf">3.0</span>             <span class="mi">136</span>             <span class="mf">2.5</span>
+    <span class="mi">7</span>               <span class="mf">3.5</span>             <span class="mi">120</span>             <span class="mf">3.0</span>
+    <span class="mi">8</span>               <span class="mf">4.0</span>              <span class="mi">99</span>             <span class="mf">4.0</span>
+    <span class="mi">9</span>               <span class="mf">4.5</span>              <span class="mi">83</span>             <span class="mf">2.5</span>
+   <span class="mi">10</span>               <span class="mf">5.0</span>              <span class="mi">55</span>             <span class="mf">3.6</span>
+   <span class="mi">11</span>               <span class="mf">5.5</span>              <span class="mi">35</span>             <span class="mf">1.75</span>
+   <span class="mi">12</span>               <span class="mf">6.0</span>               <span class="mi">5</span>             <span class="mf">0.75</span>
+</pre></div>
+</div>
+<p>We would like to read these data into a Python program, associating the
+data in each column with an appropriately named array. While there are a
+multitude of ways to do this in Python, the simplest by far is to use
+the NumPy <code class="docutils literal notranslate"><span class="pre">loadtxt</span></code> function, whose use we illustrate here. Suppose that
+the name of the text file is <code class="docutils literal notranslate"><span class="pre">MyData.txt</span></code>. Then we can read the data
+into four different arrays with the following statement</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dataPt</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;MyData.txt&quot;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">5</span> <span class="p">,</span> <span class="n">unpack</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this case, the <code class="docutils literal notranslate"><span class="pre">loadtxt</span></code> function takes three arguments: the first is
+a string that is the name of the file to be read, the second tells
+<code class="docutils literal notranslate"><span class="pre">loadtxt</span></code> to skip the first 5 lines at the top of file, sometimes called
+the <em>header</em>, and the third tells <code class="docutils literal notranslate"><span class="pre">loadtxt</span></code> to output the data (<em>unpack</em>
+the data) so that it can be directly read into arrays. <code class="docutils literal notranslate"><span class="pre">loadtxt</span></code> reads
+however many columns of data are present in the text file to the array
+names listed to the left of the “<code class="docutils literal notranslate"><span class="pre">=</span></code>” sign. The names labeling the
+columns in the text file are not used, but you are free to choose the
+same or similar names, of course, as long as they are legal array names.
+By the way, for the above <code class="docutils literal notranslate"><span class="pre">loadtxt</span></code> call to work, the file <code class="docutils literal notranslate"><span class="pre">MyData.txt</span></code>
+should be in the current working directory of the IPython shell.
+Otherwise, you need to specify the directory path with the file name.</p>
+<p>It is critically important that the data file be a <em>text</em> file. It
+cannot be a MSWord file, for example, or an Excel file, or anything
+other than a plain text file. Such files can be created by a text editor
+programs like <code class="docutils literal notranslate"><span class="pre">Notepad</span></code> and <code class="docutils literal notranslate"><span class="pre">Notepad++</span></code> (for a PC) or <code class="docutils literal notranslate"><span class="pre">TextEdit</span></code> and
+<code class="docutils literal notranslate"><span class="pre">TextWrangler</span></code> (for a Mac). They can also be created by MSWord and Excel
+provided you explicitly save the files as text files. <strong>Beware</strong>: You
+should exit any text file you make and save it with a program that
+allows you to save the text file using <strong>UNIX</strong>-type formatting, which
+uses a <em>line feed</em> (LF) to end a line. Some programs, like MSWord under
+Windows, may include a carriage return (CR) character, which can confuse
+<code class="docutils literal notranslate"><span class="pre">loadtxt</span></code>. Note that we give the file name a <code class="docutils literal notranslate"><span class="pre">.txt</span></code> <em>extension</em>, which
+indicates to most operating systems that this is a <em>text</em> file, as
+opposed to an Excel file, for example, which might have a <code class="docutils literal notranslate"><span class="pre">.xlsx</span></code> or
+<code class="docutils literal notranslate"><span class="pre">.xls</span></code> extension.</p>
+<p>If you don’t want to read in all the columns of data, you can specify
+which columns to read in using the <code class="docutils literal notranslate"><span class="pre">usecols</span></code> key word. For example, the
+call</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">time</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;MyData.txt&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">usecols</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">unpack</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>reads in only columns 1 and 2; columns 0 and 3 are skipped. As a
+consequence, only two array names are included to the left of the “<code class="docutils literal notranslate"><span class="pre">=</span></code>”
+sign, corresponding to the two column that are read. Writing
+<code class="docutils literal notranslate"><span class="pre">usecols</span> <span class="pre">=</span> <span class="pre">(0,2,3)</span></code> would skip column 1 and read in only the data in
+colums 0, 2, and 3. In this case, 3 array names would need to be
+provided on the left hand side of the “<code class="docutils literal notranslate"><span class="pre">=</span></code>” sign.</p>
+<p>One convenient feature of the <code class="docutils literal notranslate"><span class="pre">loadtxt</span></code> function is that it recognizes
+any <em>white space</em> as a column separator: spaces, tabs, <em>etc.</em></p>
+<p>Finally you should remember that <code class="docutils literal notranslate"><span class="pre">loadtxt</span></code> is a NumPy function. So if
+you are using it in a Python module, you must be sure to include an
+“<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code>” statement before calling “<code class="docutils literal notranslate"><span class="pre">np.loadtxt</span></code>”.</p>
+</div>
+<div class="section" id="reading-data-from-a-csv-file">
+<h3>Reading data from a CSV file<a class="headerlink" href="#reading-data-from-a-csv-file" title="Permalink to this headline">¶</a></h3>
+<p>Sometimes you have data stored in a spreadsheet program like Excel that
+you would like to read into a Python program. The <code class="docutils literal notranslate"><span class="pre">fig-ExcelWindow</span></code>
+shown here contains the same data set we saw above in a text file.</p>
+<figure>
+<img src="attachment:ExcelDataFile.png" class="align-center" alt="" /><figcaption>Excel data sheet</figcaption>
+</figure>
+<p>While there are a number of different approaches one can use to reading
+such files, one of the simplest of most robust is to save the
+spreadsheet as a CSV (“comma separated value”) file, a format which all
+common spreadsheet programs can create and read. So, if your Excel
+spreadsheet was called <code class="docutils literal notranslate"><span class="pre">MyData.xlsx</span></code>, the CSV file saved using Excel’s
+<code class="docutils literal notranslate"><span class="pre">Save</span> <span class="pre">As</span></code> command would by default be <code class="docutils literal notranslate"><span class="pre">MyData.csv</span></code>. It would look like
+this</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Data</span> <span class="k">for</span> <span class="n">falling</span> <span class="n">mass</span> <span class="n">experiment</span><span class="p">,,,</span>
+<span class="n">Date</span><span class="p">:</span> <span class="mi">16</span><span class="o">-</span><span class="n">Aug</span><span class="o">-</span><span class="mi">2013</span><span class="p">,,,</span>
+<span class="n">Data</span> <span class="n">taken</span> <span class="n">by</span> <span class="n">Lauren</span> <span class="ow">and</span> <span class="n">John</span><span class="p">,,,</span>
+<span class="p">,,,</span>
+<span class="n">data</span> <span class="n">point</span><span class="p">,</span><span class="n">time</span> <span class="p">(</span><span class="n">sec</span><span class="p">),</span><span class="n">height</span> <span class="p">(</span><span class="n">mm</span><span class="p">),</span><span class="n">uncertainty</span> <span class="p">(</span><span class="n">mm</span><span class="p">)</span>
+<span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">180</span><span class="p">,</span><span class="mf">3.5</span>
+<span class="mi">1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">182</span><span class="p">,</span><span class="mf">4.5</span>
+<span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">178</span><span class="p">,</span><span class="mi">4</span>
+<span class="mi">3</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="mi">165</span><span class="p">,</span><span class="mf">5.5</span>
+<span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">160</span><span class="p">,</span><span class="mf">2.5</span>
+<span class="mi">5</span><span class="p">,</span><span class="mf">2.5</span><span class="p">,</span><span class="mi">148</span><span class="p">,</span><span class="mi">3</span>
+<span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">136</span><span class="p">,</span><span class="mf">2.5</span>
+<span class="mi">7</span><span class="p">,</span><span class="mf">3.5</span><span class="p">,</span><span class="mi">120</span><span class="p">,</span><span class="mi">3</span>
+<span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">99</span><span class="p">,</span><span class="mi">4</span>
+<span class="mi">9</span><span class="p">,</span><span class="mf">4.5</span><span class="p">,</span><span class="mi">83</span><span class="p">,</span><span class="mf">2.5</span>
+<span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">55</span><span class="p">,</span><span class="mf">3.6</span>
+<span class="mi">11</span><span class="p">,</span><span class="mf">5.5</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mf">1.75</span>
+<span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mf">0.75</span>
+</pre></div>
+</div>
+<p>As its name suggests, the CSV file is simply a text file with the data
+that was formerly in spreadsheet columns now separated by commas. We can
+read the data in this file into a Python program using the <code class="docutils literal notranslate"><span class="pre">loadtxt</span></code>
+NumPy function once again. Here is the code</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dataPt</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;MyData.csv&quot;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">5</span> <span class="p">,</span> <span class="n">unpack</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The form of the function is exactly the same as before except we have
+added the argument <code class="docutils literal notranslate"><span class="pre">delimiter=','</span></code> that tells <code class="docutils literal notranslate"><span class="pre">loadtxt</span></code> that the columns
+are separated by commas instead of white space (spaces or tabs), which
+is the default. Once again, we set the <code class="docutils literal notranslate"><span class="pre">skiprows</span></code> argument to skip the
+header at the beginning of the file and to start reading at the first
+row of data. The data are output to the arrays to the right of the
+assignment operator <code class="docutils literal notranslate"><span class="pre">=</span></code> exactly as in the previous example.</p>
+</div>
+</div>
+<div class="section" id="file-output">
+<h2>File output<a class="headerlink" href="#file-output" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="writing-data-to-a-text-file">
+<h3>Writing data to a text file<a class="headerlink" href="#writing-data-to-a-text-file" title="Permalink to this headline">¶</a></h3>
+<p>There is a plethora of ways to write data to a data file in Python. We
+will stick to one very simple one that’s suitable for writing data files
+in text format. It uses the NumPy <code class="docutils literal notranslate"><span class="pre">savetxt</span></code> routine, which is the
+counterpart of the <code class="docutils literal notranslate"><span class="pre">loadtxt</span></code> routine introduced in the previous section.
+The general form of the routine is</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">array</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%0.18e</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">footer</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">comments</span><span class="o">=</span><span class="s2">&quot;# &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We illustrate <code class="docutils literal notranslate"><span class="pre">savetext</span></code> below with a script that first creates four
+arrays by reading in the data file <code class="docutils literal notranslate"><span class="pre">MyData.txt</span></code>, as discussed in the
+previous section, and then writes that same data set to another file
+<code class="docutils literal notranslate"><span class="pre">MyDataOut.txt</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">dataPt</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;MyData.txt&quot;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">unpack</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s1">&#39;MyDataOut.txt&#39;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">dataPt</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">error</span><span class="p">)),</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%12.1f</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Unlike in Python 2, `zip` in Python 3 returns an iterator. For the sake of </span>
+<span class="c1"># this exercise, I have exhausted the iterator with `list` -- Loren.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The first argument of of <code class="docutils literal notranslate"><span class="pre">savetxt</span></code> is a string, the name of the data
+file to be created. Here we have chosen the name <code class="docutils literal notranslate"><span class="pre">MyDataOut.txt</span></code>,
+inserted with quotes, which designates it as a string literal. Beware,
+if there is already a file of that name on your computer, it will be
+overwritten—the old file will be destroyed and a new one will be
+created.</p>
+<p>The second argument is the data array the is to be written to the data
+file. Because we want to write not one but four data arrays to the file,
+we have to package the four data arrays as one, which we do using the
+<code class="docutils literal notranslate"><span class="pre">zip</span></code> function, a Python function that combines returns a list of
+tuples, where the <span class="math notranslate nohighlight">\(i^\mathrm{th}\)</span> tuple contains the <span class="math notranslate nohighlight">\(i^\mathrm{th}\)</span>
+element from each of the arrays (or lists, or tuples) listed as its
+arguments. Since there are four arrays, each row will be a tuple with
+four entries, producing a table with four columns. Note that the first
+two arguments, the filename and data array, are regular arguments and
+thus must appear as the first and second arguments in the correct order.
+The remaining arguments are all keyword arguments, meaning that they are
+optional and can appear in any order, provided you use the keyword.</p>
+<p>The next argument is a format string that determines how the elements of
+the array are displayed in the data file. The argument is optional and,
+if left out, is the format <code class="docutils literal notranslate"><span class="pre">0.18e</span></code>, which displays numbers as 18 digit
+floats in exponential (scientific) notation. Here we choose a different
+format, <code class="docutils literal notranslate"><span class="pre">12.1f</span></code>, which is a float displayed with 1 digit to the right of
+the decimal point and a minimum width of 12. By choosing 12, which is
+more digits than any of the numbers in the various arrays have, we
+ensure that all the columns will have the same width. It also ensures
+that the decimal points in column of numbers are aligned. This is
+evident in the data file below, <span
+class="title-ref">MyDataOut.txt</span>, which was produced by the above
+script.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">0.0</span>          <span class="mf">0.0</span>        <span class="mf">180.0</span>          <span class="mf">3.5</span>
+<span class="mf">1.0</span>          <span class="mf">0.5</span>        <span class="mf">182.0</span>          <span class="mf">4.5</span>
+<span class="mf">2.0</span>          <span class="mf">1.0</span>        <span class="mf">178.0</span>          <span class="mf">4.0</span>
+<span class="mf">3.0</span>          <span class="mf">1.5</span>        <span class="mf">165.0</span>          <span class="mf">5.5</span>
+<span class="mf">4.0</span>          <span class="mf">2.0</span>        <span class="mf">160.0</span>          <span class="mf">2.5</span>
+<span class="mf">5.0</span>          <span class="mf">2.5</span>        <span class="mf">148.0</span>          <span class="mf">3.0</span>
+<span class="mf">6.0</span>          <span class="mf">3.0</span>        <span class="mf">136.0</span>          <span class="mf">2.5</span>
+<span class="mf">7.0</span>          <span class="mf">3.5</span>        <span class="mf">120.0</span>          <span class="mf">3.0</span>
+<span class="mf">8.0</span>          <span class="mf">4.0</span>         <span class="mf">99.0</span>          <span class="mf">4.0</span>
+<span class="mf">9.0</span>          <span class="mf">4.5</span>         <span class="mf">83.0</span>          <span class="mf">2.5</span>
+</pre></div>
+</div>
+<p>We omitted the optional <code class="docutils literal notranslate"><span class="pre">delimiter</span></code> keyword argument, which leaves the
+delimiter as the default space.</p>
+<p>We also omitted the optional <code class="docutils literal notranslate"><span class="pre">header</span></code> keyword argument, which is a
+string variable that allows you to write header text above the data. For
+example, you might want to label the data columns and also include the
+information that was in the header of the original data file. To do so,
+you just need to create a string with the information you want to
+include and then use the <code class="docutils literal notranslate"><span class="pre">header</span></code> keyword argument. The code below
+illustrates how to do this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">dataPt</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;MyData.txt&quot;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">unpack</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">info</span> <span class="o">=</span> <span class="s1">&#39;Data for falling mass experiment&#39;</span>
+<span class="n">info</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Date: 16-Aug-2013&#39;</span>
+<span class="n">info</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Data taken by Lauren and John&#39;</span>
+<span class="n">info</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">   data point    time (sec) height (mm)  &#39;</span>
+<span class="n">info</span> <span class="o">+=</span> <span class="s1">&#39;uncertainty (mm)&#39;</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s1">&#39;MyDataOut.txt&#39;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">dataPt</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">error</span><span class="p">)),</span> <span class="n">header</span><span class="o">=</span><span class="n">info</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%12.1f</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now the data file produces has a header preceding the data. Notice that
+the header rows all start with a <code class="docutils literal notranslate"><span class="pre">#</span></code> comment character, which is the
+default setting for the <code class="docutils literal notranslate"><span class="pre">savetxt</span></code> function. This can be changed using
+the keyword argument <code class="docutils literal notranslate"><span class="pre">comments</span></code>. You can find more information about
+<code class="docutils literal notranslate"><span class="pre">savetxt</span></code> using the IPython <code class="docutils literal notranslate"><span class="pre">help</span></code> function or from the online NumPy
+documentation.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Data for falling mass experiment</span>
+<span class="c1"># Date: 16-Aug-2013</span>
+<span class="c1"># Data taken by Lauren and John</span>
+<span class="c1"># </span>
+<span class="c1">#    data point    time (sec) height (mm)  uncertainty (mm)</span>
+         <span class="mf">0.0</span>          <span class="mf">0.0</span>        <span class="mf">180.0</span>          <span class="mf">3.5</span>
+         <span class="mf">1.0</span>          <span class="mf">0.5</span>        <span class="mf">182.0</span>          <span class="mf">4.5</span>
+         <span class="mf">2.0</span>          <span class="mf">1.0</span>        <span class="mf">178.0</span>          <span class="mf">4.0</span>
+         <span class="mf">3.0</span>          <span class="mf">1.5</span>        <span class="mf">165.0</span>          <span class="mf">5.5</span>
+         <span class="mf">4.0</span>          <span class="mf">2.0</span>        <span class="mf">160.0</span>          <span class="mf">2.5</span>
+         <span class="mf">5.0</span>          <span class="mf">2.5</span>        <span class="mf">148.0</span>          <span class="mf">3.0</span>
+         <span class="mf">6.0</span>          <span class="mf">3.0</span>        <span class="mf">136.0</span>          <span class="mf">2.5</span>
+         <span class="mf">7.0</span>          <span class="mf">3.5</span>        <span class="mf">120.0</span>          <span class="mf">3.0</span>
+         <span class="mf">8.0</span>          <span class="mf">4.0</span>         <span class="mf">99.0</span>          <span class="mf">4.0</span>
+         <span class="mf">9.0</span>          <span class="mf">4.5</span>         <span class="mf">83.0</span>          <span class="mf">2.5</span>
+        <span class="mf">10.0</span>          <span class="mf">5.0</span>         <span class="mf">55.0</span>          <span class="mf">3.6</span>
+        <span class="mf">11.0</span>          <span class="mf">5.5</span>         <span class="mf">35.0</span>          <span class="mf">1.8</span>
+        <span class="mf">12.0</span>          <span class="mf">6.0</span>          <span class="mf">5.0</span>          <span class="mf">0.8</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="writing-data-to-a-csv-file">
+<h3>Writing data to a CSV file<a class="headerlink" href="#writing-data-to-a-csv-file" title="Permalink to this headline">¶</a></h3>
+<p>To produce a CSV file, you would specify a comma as the delimiter. You
+might use the <code class="docutils literal notranslate"><span class="pre">0.1f</span></code> format specifier, which leaves no extra spaces
+between the comma data separators, as the file is to be read by a
+spreadsheet program, which will determine how the numbers are displayed.
+The code, which could be substituted for the <code class="docutils literal notranslate"><span class="pre">savetxt</span></code> line in the above
+code reads</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s1">&#39;MyDataOut.csv&#39;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">dataPt</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">error</span><span class="p">)),</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%0.1f</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>and produces the following data file</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">180.0</span><span class="p">,</span><span class="mf">3.5</span>
+<span class="mf">1.0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">182.0</span><span class="p">,</span><span class="mf">4.5</span>
+<span class="mf">2.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">178.0</span><span class="p">,</span><span class="mf">4.0</span>
+<span class="mf">3.0</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">165.0</span><span class="p">,</span><span class="mf">5.5</span>
+<span class="mf">4.0</span><span class="p">,</span><span class="mf">2.0</span><span class="p">,</span><span class="mf">160.0</span><span class="p">,</span><span class="mf">2.5</span>
+<span class="mf">5.0</span><span class="p">,</span><span class="mf">2.5</span><span class="p">,</span><span class="mf">148.0</span><span class="p">,</span><span class="mf">3.0</span>
+<span class="mf">6.0</span><span class="p">,</span><span class="mf">3.0</span><span class="p">,</span><span class="mf">136.0</span><span class="p">,</span><span class="mf">2.5</span>
+<span class="mf">7.0</span><span class="p">,</span><span class="mf">3.5</span><span class="p">,</span><span class="mf">120.0</span><span class="p">,</span><span class="mf">3.0</span>
+<span class="mf">8.0</span><span class="p">,</span><span class="mf">4.0</span><span class="p">,</span><span class="mf">99.0</span><span class="p">,</span><span class="mf">4.0</span>
+<span class="mf">9.0</span><span class="p">,</span><span class="mf">4.5</span><span class="p">,</span><span class="mf">83.0</span><span class="p">,</span><span class="mf">2.5</span>
+<span class="mf">10.0</span><span class="p">,</span><span class="mf">5.0</span><span class="p">,</span><span class="mf">55.0</span><span class="p">,</span><span class="mf">3.6</span>
+<span class="mf">11.0</span><span class="p">,</span><span class="mf">5.5</span><span class="p">,</span><span class="mf">35.0</span><span class="p">,</span><span class="mf">1.8</span>
+<span class="mf">12.0</span><span class="p">,</span><span class="mf">6.0</span><span class="p">,</span><span class="mf">5.0</span><span class="p">,</span><span class="mf">0.8</span>
+</pre></div>
+</div>
+<p>This data file, with a <code class="docutils literal notranslate"><span class="pre">csv</span></code> extension, can be directly read into a
+spreadsheet program like Excel.</p>
+</div>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Write a Python program that calculates how much money you can spend each day for lunch for the rest of the month based on today’s date and how much money you currently have in your lunch account. The program should ask you: (1) how much money you have in your account, (2) what today’s date is, and (3) how many days there are in month. The program should return your daily allowance. The results of running your program should look like this:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>How much money (in dollars) in your lunch account? 118.39
+
+What day of the month is today? 17
+
+How many days in this month? 30
+
+You can spend $8.46 each day for the rest of the month.
+</pre></div>
+</div>
+<p><em>Extra:</em> Create a dictionary (see <code class="docutils literal notranslate"><span class="pre">chap3dictionaries</span></code>) that stores the number of days in each month (forget about leap years) and have your program ask what month it is rather than the number of days in the month.</p>
+<ol class="simple">
+<li><p>From the IPython terminal, create the following three NumPy arrays:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">8</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now use the <code class="docutils literal notranslate"><span class="pre">zip</span></code> function to create the object <code class="docutils literal notranslate"><span class="pre">d</span></code> defined as</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Print <code class="docutils literal notranslate"><span class="pre">d</span></code> out at the terminal prompt. What kind of object is <code class="docutils literal notranslate"><span class="pre">d</span></code>?
+Hint: It is not a NumPy array. Convert <code class="docutils literal notranslate"><span class="pre">d</span></code> into a NumPy array and
+call that array <code class="docutils literal notranslate"><span class="pre">e</span></code>. Type <code class="docutils literal notranslate"><span class="pre">e</span></code> at the terminal prompt so that <code class="docutils literal notranslate"><span class="pre">e</span></code> is
+printed out on the IPython terminal. One of the elements of <code class="docutils literal notranslate"><span class="pre">e</span></code> is
+<code class="docutils literal notranslate"><span class="pre">-8</span></code>. Show how to address and print out just that element of <code class="docutils literal notranslate"><span class="pre">e</span></code>.
+Show how to address that same element of <code class="docutils literal notranslate"><span class="pre">d</span></code>. What has become of the
+three original arrays <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, and <code class="docutils literal notranslate"><span class="pre">c</span></code>, that is, how do they appear
+in <code class="docutils literal notranslate"><span class="pre">e</span></code>?</p>
+<ol class="simple">
+<li><p>Create the following data file and then write a Python script to read it into a three NumPy arrays with the variable names <code class="docutils literal notranslate"><span class="pre">f</span></code>, <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">da</span></code> for the frequency, amplitude, and amplitude error.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Date</span><span class="p">:</span> <span class="mi">2013</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">16</span>
+<span class="n">Data</span> <span class="n">taken</span> <span class="n">by</span> <span class="n">Liam</span> <span class="ow">and</span> <span class="n">Selena</span>
+<span class="n">frequency</span> <span class="p">(</span><span class="n">Hz</span><span class="p">)</span> <span class="n">amplitude</span> <span class="p">(</span><span class="n">mm</span><span class="p">)</span>  <span class="n">amp</span> <span class="n">error</span> <span class="p">(</span><span class="n">mm</span><span class="p">)</span>
+<span class="mf">0.7500</span>         <span class="mf">13.52</span>           <span class="mf">0.32</span>
+<span class="mf">1.7885</span>         <span class="mf">12.11</span>           <span class="mf">0.92</span>
+<span class="mf">2.8269</span>         <span class="mf">14.27</span>           <span class="mf">0.73</span>
+<span class="mf">3.8654</span>         <span class="mf">16.60</span>           <span class="mf">2.06</span>
+<span class="mf">4.9038</span>         <span class="mf">22.91</span>           <span class="mf">1.75</span>
+<span class="mf">5.9423</span>         <span class="mf">35.28</span>           <span class="mf">0.91</span>
+<span class="mf">6.9808</span>         <span class="mf">60.99</span>           <span class="mf">0.99</span>
+<span class="mf">8.0192</span>         <span class="mf">33.38</span>           <span class="mf">0.36</span>
+<span class="mf">9.0577</span>         <span class="mf">17.78</span>           <span class="mf">2.32</span>
+<span class="mf">10.0962</span>        <span class="mf">10.99</span>           <span class="mf">0.21</span>
+<span class="mf">11.1346</span>         <span class="mf">7.47</span>           <span class="mf">0.48</span>
+<span class="mf">12.1731</span>         <span class="mf">6.72</span>           <span class="mf">0.51</span>
+<span class="mf">13.2115</span>         <span class="mf">4.40</span>           <span class="mf">0.58</span>
+<span class="mf">14.2500</span>         <span class="mf">4.07</span>           <span class="mf">0.63</span>
+</pre></div>
+</div>
+<p>Show that you have correctly read in the data by having your script print out to your computer screen the three arrays. Format the printing so that it produces output like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span>
+<span class="p">[</span>  <span class="mf">0.75</span>     <span class="mf">1.7885</span>   <span class="mf">2.8269</span>   <span class="mf">3.8654</span>   <span class="mf">4.9038</span>   <span class="mf">5.9423</span>
+   <span class="mf">6.9808</span>   <span class="mf">8.0192</span>   <span class="mf">9.0577</span>  <span class="mf">10.0962</span>  <span class="mf">11.1346</span>  <span class="mf">12.1731</span>
+   <span class="mf">13.2115</span>  <span class="mf">14.25</span>  <span class="p">]</span>
+<span class="n">a</span> <span class="o">=</span>
+<span class="p">[</span> <span class="mf">13.52</span>  <span class="mf">12.11</span>  <span class="mf">14.27</span>  <span class="mf">16.6</span>   <span class="mf">22.91</span>  <span class="mf">35.28</span>  <span class="mf">60.99</span>  <span class="mf">33.38</span>
+  <span class="mf">17.78</span>  <span class="mf">10.99</span>   <span class="mf">7.47</span>   <span class="mf">6.72</span>   <span class="mf">4.4</span>    <span class="mf">4.07</span><span class="p">]</span>
+<span class="n">da</span> <span class="o">=</span>
+<span class="p">[</span> <span class="mf">0.32</span>  <span class="mf">0.92</span>  <span class="mf">0.73</span>  <span class="mf">2.06</span>  <span class="mf">1.75</span>  <span class="mf">0.91</span>  <span class="mf">0.99</span>  <span class="mf">0.36</span>  <span class="mf">2.32</span>
+  <span class="mf">0.21</span>  <span class="mf">0.48</span>  <span class="mf">0.51</span>  <span class="mf">0.58</span>  <span class="mf">0.63</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Note that the array <code class="docutils literal notranslate"><span class="pre">f</span></code> is displayed with four digits to the right of the decimal point while the arrays <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">da</span></code> are displayed with only two. The columns of the displayed arrays need not line up as they do above.</p>
+<ol class="simple">
+<li><p>Write a script to read the data from the previous problem into three NumPy arrays with the variable names <code class="docutils literal notranslate"><span class="pre">f</span></code>, <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">da</span></code> for the frequency, amplitude, and amplitude error and then, in the same script, write the data out to a data file, including the header, with the data displayed in three columns, just as its displayed in the problem above. It’s ok if the header lines begin with the <code class="docutils literal notranslate"><span class="pre">#</span></code> comment character. Your data file should have the extension <code class="docutils literal notranslate"><span class="pre">.txt</span></code>.</p></li>
+</ol>
+<ol class="simple">
+<li><p>Write a script to read the data from the previous problem into three NumPy arrays with the variable names <code class="docutils literal notranslate"><span class="pre">f</span></code>, <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">da</span></code> for the frequency, amplitude, and amplitude error and then, in the same script, write the data out to a csv data file, without the header, to a data file with the data displayed in three columns. Use a single format specifier and set it to <code class="docutils literal notranslate"><span class="pre">&quot;%0.16e&quot;</span></code>. If you have access the spreadsheet program (like MS Excel), try opening the file you have created with your Python script and verify that the arrays are displayed in three columns. Note that your csv file should have the extension <code class="docutils literal notranslate"><span class="pre">.csv</span></code>.</p></li>
+</ol>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="chap3_arrays.html" title="previous page">Strings, Lists, Arrays, and Dictionaries</a>
+    <a class='right-next' id="next-link" href="chap5_plot.html" title="next page">Plotting</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    <footer class="footer">
+  <div class="container">
+    <p>
+          &copy; Copyright Numeric project.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

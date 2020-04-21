@@ -1,0 +1,882 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Conditionals and Loops &#8212; Numeric course 0.1 documentation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Functions" href="chap7_funcs.html" />
+    <link rel="prev" title="Plotting" href="chap5_plot.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+</button>
+
+<div id="navbar-menu" class="collapse navbar-collapse">
+  <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+    <li class="nav-item">
+        <a class="nav-link" href="../index.html">Home</a>
+    </li>
+    
+    
+    <li class="nav-item ">
+        <a class="nav-link" href="chap1_intro.html">Chapter 1: Introduction</a>
+    </li>
+    
+    <li class="nav-item ">
+        <a class="nav-link" href="chap2_basics.html">Chapter 2: First Steps</a>
+    </li>
+    
+    <li class="nav-item ">
+        <a class="nav-link" href="chap3_arrays.html">Chapter 3: Arrays</a>
+    </li>
+    
+    <li class="nav-item ">
+        <a class="nav-link" href="chap4_io.html">Chapter 4: Input and Output</a>
+    </li>
+    
+    <li class="nav-item ">
+        <a class="nav-link" href="chap5_plot.html">Chapter 5: Plotting</a>
+    </li>
+    
+    <li class="nav-item active">
+        <a class="nav-link" href="">Chapter 6: Flow control</a>
+    </li>
+    
+    <li class="nav-item ">
+        <a class="nav-link" href="chap7_funcs.html">Chapter 7: Functions</a>
+    </li>
+    
+    <li class="nav-item ">
+        <a class="nav-link" href="chap8_fitting.html">Chapter 8: Curve Fitting</a>
+    </li>
+    
+    <li class="nav-item ">
+        <a class="nav-link" href="chap9_scipy.html">Chapter 9: Scipy</a>
+    </li>
+    
+    <li class="nav-item ">
+        <a class="nav-link" href="apdx1_install.html">Appendix 1: Installation</a>
+    </li>
+    
+    <li class="nav-item ">
+        <a class="nav-link" href="apdx2_ipynb.html">Appendix 2: Jupyter</a>
+    </li>
+    
+    <li class="nav-item ">
+        <a class="nav-link" href="apdx3_resources.html">Appendix 3: Resources</a>
+    </li>
+    
+    
+  </ul>
+  <ul class="navbar-nav ml-auto">
+    
+    
+  </ul>
+</div>
+    </nav>
+    
+
+    <div class="container-fluid">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 col-xl-2 bd-sidebar">
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+  <div class="bd-toc-item active">
+  
+
+  <ul class="nav bd-sidenav">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+
+</nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+
+<div class="tocsection onthispage"><i class="fas fa-list"></i> On this page</div>
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#conditionals" class="nav-link">Conditionals</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#if-elif-and-else-statements" class="nav-link">if, elif, and else statements</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#if-elif-else-example" class="nav-link">if-elif-else example</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#if-else-example" class="nav-link">if-else example</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#if-example" class="nav-link">if example</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#logical-operators" class="nav-link">Logical operators</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#loops" class="nav-link">Loops</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#for-loops" class="nav-link">for loops</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#accumulators" class="nav-link">Accumulators</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#while-loops" class="nav-link">while loops</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#loops-and-array-operations" class="nav-link">Loops and array operations</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#list-comprehensions" class="nav-link">List Comprehensions</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#exercises" class="nav-link">Exercises</a>
+        </li>
+    
+    </ul>
+</nav>
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+              
+              <div>
+                
+  <h1>Table of Contents<span class="tocSkip"></span></h1>
+<div class="toc"><ul class="toc-item"><li><span><a href="#Conditionals-and-Loops" data-toc-modified-id="Conditionals-and-Loops-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Conditionals and Loops</a></span><ul class="toc-item"><li><span><a href="#Conditionals" data-toc-modified-id="Conditionals-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Conditionals</a></span><ul class="toc-item"><li><span><a href="#if,-elif,-and-else-statements" data-toc-modified-id="if,-elif,-and-else-statements-1.1.1"><span class="toc-item-num">1.1.1&nbsp;&nbsp;</span><code>if</code>, <code>elif</code>, and <code>else</code> statements</a></span></li><li><span><a href="#Logical-operators" data-toc-modified-id="Logical-operators-1.1.2"><span class="toc-item-num">1.1.2&nbsp;&nbsp;</span>Logical operators</a></span></li></ul></li><li><span><a href="#Loops" data-toc-modified-id="Loops-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Loops</a></span><ul class="toc-item"><li><span><a href="#for-loops" data-toc-modified-id="for-loops-1.2.1"><span class="toc-item-num">1.2.1&nbsp;&nbsp;</span><code>for</code> loops</a></span></li><li><span><a href="#Accumulators" data-toc-modified-id="Accumulators-1.2.2"><span class="toc-item-num">1.2.2&nbsp;&nbsp;</span>Accumulators</a></span></li><li><span><a href="#while-loops" data-toc-modified-id="while-loops-1.2.3"><span class="toc-item-num">1.2.3&nbsp;&nbsp;</span><code>while</code> loops</a></span></li><li><span><a href="#Loops-and-array-operations" data-toc-modified-id="Loops-and-array-operations-1.2.4"><span class="toc-item-num">1.2.4&nbsp;&nbsp;</span>Loops and array operations</a></span></li></ul></li><li><span><a href="#List-Comprehensions" data-toc-modified-id="List-Comprehensions-1.3"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>List Comprehensions</a></span></li><li><span><a href="#Exercises" data-toc-modified-id="Exercises-1.4"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>Exercises</a></span></li></ul></li></ul></div><p>python</p>
+<div class="section" id="conditionals-and-loops">
+<h1>Conditionals and Loops<a class="headerlink" href="#conditionals-and-loops" title="Permalink to this headline">¶</a></h1>
+<p>Computer programs are useful for performing repetitive tasks. Without
+complaining, getting bored, or growing tired, they can repetitively
+perform the same calculations with minor, but important, variations over
+and over again. Humans share with computers none of these qualities. And
+so we humans employ computers to perform the massive repetitive tasks we
+would rather avoid. However, we need efficient ways of telling the
+computer to do these repetitive tasks; we don’t want to have stop to
+tell the computer each time it finishes one iteration of a task to do
+the task again, but for a slightly different case. We want to tell it
+once, “Do this task 1000 times with slightly different conditions and
+report back to me when you are done.” This is what <strong>loops</strong> were made
+for.</p>
+<p>In the course of doing these repetitive tasks, computers often need to
+make decisions. In general, we don’t want the computer to stop and ask
+us what it should do if a certain result is obtained from its
+calculations. We might prefer to say, “Look, if you get result A during
+your calculations, do this, otherwise, do this other thing.” That is, we
+often want to tell the computer ahead of time what to do if it
+encounters different situations. This is what <strong>conditionals</strong> were made
+for.</p>
+<p>Conditionals and loops control the flow of a program. They are essential
+to performing virtually any significant computational task. Python, like
+most computer languages, provides a variety of ways of implementing
+loops and conditionals.</p>
+<p>single: conditionals</p>
+<div class="section" id="conditionals">
+<h2>Conditionals<a class="headerlink" href="#conditionals" title="Permalink to this headline">¶</a></h2>
+<p>Conditional statements allow a computer program to take different
+actions based on whether some condition, or set of conditions is true or
+false. In this way, the programmer can control the flow of a program.</p>
+<div class="section" id="if-elif-and-else-statements">
+<h3><code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code>, and <code class="docutils literal notranslate"><span class="pre">else</span></code> statements<a class="headerlink" href="#if-elif-and-else-statements" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code>, and <code class="docutils literal notranslate"><span class="pre">else</span></code> statements are used to define conditionals
+in Python. We illustrate their use with a few examples.</p>
+<div class="section" id="if-elif-else-example">
+<h4><code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">elif</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> example<a class="headerlink" href="#if-elif-else-example" title="Permalink to this headline">¶</a></h4>
+<p>Suppose we want to know if the solutions to the quadratic equation</p>
+<div class="math notranslate nohighlight">
+\[ax^2 + bx + c = 0\]</div>
+<p>are real, imaginary, or complex for a given set of coefficients <span class="math notranslate nohighlight">\(a\)</span>,
+<span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span>. Of course, the answer to that question depends on the
+value of the discriminant <span class="math notranslate nohighlight">\(d=b^2-4ac\)</span>. The solutions are real if
+<span class="math notranslate nohighlight">\(d \ge 0\)</span>, imaginary if <span class="math notranslate nohighlight">\(b=0\)</span> and <span class="math notranslate nohighlight">\(d &lt; 0\)</span>, and complex if <span class="math notranslate nohighlight">\(b \ne 0\)</span> and
+<span class="math notranslate nohighlight">\(d &lt; 0\)</span>. The program below implements the above logic in a Python
+program.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;What is the coefficients a? &quot;</span><span class="p">))</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;What is the coefficients b? &quot;</span><span class="p">))</span>
+<span class="n">c</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;What is the coefficients c? &quot;</span><span class="p">))</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">b</span><span class="o">*</span><span class="n">b</span> <span class="o">-</span> <span class="mf">4.</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span>
+
+<span class="k">if</span> <span class="n">d</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Solutions are real&quot;</span><span class="p">)</span>         <span class="c1"># block 1</span>
+<span class="k">elif</span> <span class="n">b</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Solutions are imaginary&quot;</span><span class="p">)</span>    <span class="c1"># block 2</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Solutions are complex&quot;</span><span class="p">)</span>      <span class="c1"># block 3</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Finished!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>After getting the inputs of from the user, the program evaluates the
+discriminant <span class="math notranslate nohighlight">\(d\)</span>. The code <code class="docutils literal notranslate"><span class="pre">d</span> <span class="pre">&gt;=</span> <span class="pre">0.0</span></code> has a boolean truth value of
+either <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> depending on whether or not <span class="math notranslate nohighlight">\(d \ge 0\)</span>. You can
+check this out in the interactive IPython shell by typing the following
+set of commands</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">d</span> <span class="o">&gt;=</span> <span class="mi">2</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="kc">True</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="n">d</span> <span class="o">&gt;=</span> <span class="mi">7</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="kc">False</span>
+</pre></div>
+</div>
+<p>Therefore, the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement in line 7 is simply testing to see if the
+statement <code class="docutils literal notranslate"><span class="pre">d</span> <span class="pre">&gt;=</span> <span class="pre">0.0</span></code> if <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>. If the statement is <code class="docutils literal notranslate"><span class="pre">True</span></code>,
+Python executes the indented block of statements following the <code class="docutils literal notranslate"><span class="pre">if</span></code>
+statement. In this case, there is only one line in indented block. Once
+it executes this statement, Python skips past the <code class="docutils literal notranslate"><span class="pre">elif</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code>
+blocks and executes the <code class="docutils literal notranslate"><span class="pre">print(&quot;Finished!&quot;)</span></code> statement.</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement in line 7 is <code class="docutils literal notranslate"><span class="pre">False</span></code>, Python skips the indented
+block directly below the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement and executes the <code class="docutils literal notranslate"><span class="pre">elif</span></code>
+statement. If the condition <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">==</span> <span class="pre">0.0</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, it executes the
+indented block immediately below the <code class="docutils literal notranslate"><span class="pre">elif</span></code> statement and then skips the
+<code class="docutils literal notranslate"><span class="pre">else</span></code> statement and the indented block below it. It then executes the
+<code class="docutils literal notranslate"><span class="pre">print(&quot;Finished!&quot;)</span></code> statement.</p>
+<p>Finally, if the <code class="docutils literal notranslate"><span class="pre">elif</span></code> statement is <code class="docutils literal notranslate"><span class="pre">False</span></code>, Python skips to the <code class="docutils literal notranslate"><span class="pre">else</span></code>
+statement and executes the block immediately below the <code class="docutils literal notranslate"><span class="pre">else</span></code> statement.
+Once finished with that indented block, it then executes the
+<code class="docutils literal notranslate"><span class="pre">print(&quot;Finished!&quot;)</span></code> statement.</p>
+<p>As you can see, each time a <code class="docutils literal notranslate"><span class="pre">False</span></code> result is obtained in an <code class="docutils literal notranslate"><span class="pre">if</span></code> or
+<code class="docutils literal notranslate"><span class="pre">elif</span></code> statement, Python skips the indented code block associated with
+that statement and drops down to the next conditional statement, that
+is, the next <code class="docutils literal notranslate"><span class="pre">elif</span></code> or <code class="docutils literal notranslate"><span class="pre">else</span></code>. A flowchart of the if-elif-else code is
+shown below.</p>
+<figure>
+<img src="attachment:flow_if_elif_else.png" class="align-center" alt="" /><figcaption>Flowchart for <code>if</code>-<code>elif</code>-<code>else</code> code.</figcaption>
+</figure>
+<p>At the outset of this problem we stated that the solutions to the
+quadratic equation are imaginary only if <span class="math notranslate nohighlight">\(b=0\)</span> and <span class="math notranslate nohighlight">\(d &lt; 0\)</span>. In the
+<code class="docutils literal notranslate"><span class="pre">elif</span> <span class="pre">b</span> <span class="pre">==</span> <span class="pre">0.0</span></code> statement on line 9, however, we only check to see if
+<span class="math notranslate nohighlight">\(b=0\)</span>. The reason that we don’t have to check if <span class="math notranslate nohighlight">\(d &lt; 0\)</span> is that the
+<code class="docutils literal notranslate"><span class="pre">elif</span></code> statement is executed only if the condition <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">d</span> <span class="pre">&gt;=</span> <span class="pre">0.0</span></code> on line
+7 is <code class="docutils literal notranslate"><span class="pre">False</span></code>. Similarly, we don’t have to check if if <span class="math notranslate nohighlight">\(b=0\)</span> and <span class="math notranslate nohighlight">\(d &lt; 0\)</span>
+for the final <code class="docutils literal notranslate"><span class="pre">else</span></code> statement because this part of the <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">else</span></code> block will only be executed if the preceding <code class="docutils literal notranslate"><span class="pre">if</span></code> and <code class="docutils literal notranslate"><span class="pre">elif</span></code>
+statements are <code class="docutils literal notranslate"><span class="pre">False</span></code>. This illustrates a key feature of the <code class="docutils literal notranslate"><span class="pre">if</span></code>,
+<code class="docutils literal notranslate"><span class="pre">elif</span></code>, and <code class="docutils literal notranslate"><span class="pre">else</span></code> statements: these statements are executed
+sequentially until one of the <code class="docutils literal notranslate"><span class="pre">if</span></code> or <code class="docutils literal notranslate"><span class="pre">elif</span></code> statements is found to be
+<code class="docutils literal notranslate"><span class="pre">True</span></code>. Therefore, Python reaches an <code class="docutils literal notranslate"><span class="pre">elif</span></code> or <code class="docutils literal notranslate"><span class="pre">else</span></code> statement only if
+all the preceding <code class="docutils literal notranslate"><span class="pre">if</span></code> and <code class="docutils literal notranslate"><span class="pre">elif</span></code> statements are <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">elif</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> logical structure can accomodate as many <code class="docutils literal notranslate"><span class="pre">elif</span></code>
+blocks as desired. This allows you to set up logic with more than the
+three possible outcomes illustrated in the example above. When designing
+the logical structure you should keep in mind that once Python finds a
+true condition, it skips all subsequent <code class="docutils literal notranslate"><span class="pre">elif</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> statements in
+a given <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code>, and <code class="docutils literal notranslate"><span class="pre">else</span></code> block, irrespective of their truth
+values.</p>
+</div>
+<div class="section" id="if-else-example">
+<h4><code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> example<a class="headerlink" href="#if-else-example" title="Permalink to this headline">¶</a></h4>
+<p>You will often run into situations where you simply want the program to
+execute one of two possible blocks based on the outcome of an <code class="docutils literal notranslate"><span class="pre">if</span></code>
+statement. In this case, the <code class="docutils literal notranslate"><span class="pre">elif</span></code> block is omitted and you simply use
+an <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> structure. The following program testing whether an
+integer is even or odd provides a simple example.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Please input an integer: &quot;</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">a</span><span class="o">%</span><span class="k">2</span> == 0:
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0:0d}</span><span class="s2"> is an even number.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0:0d}</span><span class="s2"> is an odd number.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The flowchart below shows the logical structure of an <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code>
+structure.</p>
+<figure>
+<img src="attachment:flow_if_else.png" class="align-center" alt="" /><figcaption>Flowchart for <code>if</code>-<code>else</code> code.</figcaption>
+</figure>
+</div>
+<div class="section" id="if-example">
+<h4><code class="docutils literal notranslate"><span class="pre">if</span></code> example<a class="headerlink" href="#if-example" title="Permalink to this headline">¶</a></h4>
+<p>The simplest logical structure you can make is a simple <code class="docutils literal notranslate"><span class="pre">if</span></code> statement,
+which executes a block of code if some condition is met but otherwise
+does nothing. The program below, which takes the absolute value of a
+number, provides a simple example of such a case.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Please input a number: &quot;</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="n">a</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The absolute value is </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>When the block of code in an <code class="docutils literal notranslate"><span class="pre">if</span></code> or <code class="docutils literal notranslate"><span class="pre">elif</span></code> statement is only one line
+long, you can write it on the same line as the <code class="docutils literal notranslate"><span class="pre">if</span></code> or <code class="docutils literal notranslate"><span class="pre">elif</span></code> statement.
+For example, the above code can be written as follows.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Please input a number: &quot;</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span> <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="n">a</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The absolute value is </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>This works exactly as the preceding code. Note, however, that if the
+block of code associated with an <code class="docutils literal notranslate"><span class="pre">if</span></code> or <code class="docutils literal notranslate"><span class="pre">elif</span></code> statement is more than
+one line long, the entire block of code should be written as indented
+text below the <code class="docutils literal notranslate"><span class="pre">if</span></code> or <code class="docutils literal notranslate"><span class="pre">elif</span></code> statement.</p>
+<p>The flowchart below shows the logical structure of a simple <code class="docutils literal notranslate"><span class="pre">if</span></code>
+structure.</p>
+<figure>
+<img src="attachment:flow_if.png" class="align-center" alt="" /><figcaption>Flowchart for <code>if</code> code.</figcaption>
+</figure>
+<p>single: logical operators</p>
+</div>
+</div>
+<div class="section" id="logical-operators">
+<h3>Logical operators<a class="headerlink" href="#logical-operators" title="Permalink to this headline">¶</a></h3>
+<p>It is important to understand that “<code class="docutils literal notranslate"><span class="pre">==</span></code>” in Python is not the same as
+“<code class="docutils literal notranslate"><span class="pre">=</span></code>”. The operator “<code class="docutils literal notranslate"><span class="pre">=</span></code>” is the assignment operator: <code class="docutils literal notranslate"><span class="pre">d</span> <span class="pre">=</span> <span class="pre">5</span></code> assigns
+the value of 5 to the valiable <code class="docutils literal notranslate"><span class="pre">d</span></code>. On the other hand “<code class="docutils literal notranslate"><span class="pre">==</span></code>” is the
+<em>logical equals operator</em> and <code class="docutils literal notranslate"><span class="pre">d</span> <span class="pre">==</span> <span class="pre">5</span></code> is a <em>logical truth statement</em>.
+It tells Python to check to see if <code class="docutils literal notranslate"><span class="pre">d</span></code> is equal to <code class="docutils literal notranslate"><span class="pre">5</span></code> or not, and
+assigns a value of <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> to the statement <code class="docutils literal notranslate"><span class="pre">d</span> <span class="pre">==</span> <span class="pre">5</span></code> depending
+on whether or not <code class="docutils literal notranslate"><span class="pre">d</span></code> is equal to <code class="docutils literal notranslate"><span class="pre">5</span></code>. The table below summarizes the
+various logical operators available in Python.</p>
+<blockquote>
+<div><table style="width:53%;">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 37%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>operator</th>
+<th>function</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>&lt;</td>
+<td>less than</td>
+</tr>
+<tr class="even">
+<td>&lt;=</td>
+<td>less than or equal to</td>
+</tr>
+<tr class="odd">
+<td>&gt;</td>
+<td>greater than</td>
+</tr>
+<tr class="even">
+<td>&gt;=</td>
+<td>greater than or equal to</td>
+</tr>
+<tr class="odd">
+<td>==</td>
+<td>equal</td>
+</tr>
+<tr class="even">
+<td>!=</td>
+<td>not equal</td>
+</tr>
+<tr class="odd">
+<td><code>and</code></td>
+<td>both must be true</td>
+</tr>
+<tr class="even">
+<td><code>or</code></td>
+<td>one or both must be true</td>
+</tr>
+<tr class="odd">
+<td><code>not</code></td>
+<td>reverses the truth value</td>
+</tr>
+</tbody>
+</table>
+<p>Logical operators in Python</p>
+</div></blockquote>
+<p>The table above list three logical operators, <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>, and <code class="docutils literal notranslate"><span class="pre">not</span></code>,
+that we haven’t encountered before. There are useful for combining
+different logical conditions. For example, suppose you want to check if
+<span class="math notranslate nohighlight">\(a&gt;2\)</span> and <span class="math notranslate nohighlight">\(b&lt;10\)</span> simultaneously. To do so, you would write
+<code class="docutils literal notranslate"><span class="pre">a&gt;2</span> <span class="pre">and</span> <span class="pre">b&lt;10</span></code>. The code below illustrates the use of the logical
+operators <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>, and <code class="docutils literal notranslate"><span class="pre">not</span></code>.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">6</span><span class="p">]:</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">7</span><span class="p">]:</span> <span class="n">a</span> <span class="o">!=</span> <span class="mi">5</span>          <span class="c1"># a is not equal to 5</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">7</span><span class="p">]:</span> <span class="kc">False</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">8</span><span class="p">]:</span> <span class="n">a</span><span class="o">&gt;</span><span class="mi">2</span> <span class="ow">and</span> <span class="n">b</span><span class="o">&lt;</span><span class="mi">20</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">8</span><span class="p">]:</span> <span class="kc">True</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">9</span><span class="p">]:</span> <span class="n">a</span><span class="o">&gt;</span><span class="mi">2</span> <span class="ow">and</span> <span class="n">b</span><span class="o">&gt;</span><span class="mi">10</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">9</span><span class="p">]:</span> <span class="kc">False</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="n">a</span><span class="o">&gt;</span><span class="mi">2</span> <span class="ow">or</span> <span class="n">b</span><span class="o">&gt;</span><span class="mi">10</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="kc">True</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="n">a</span><span class="o">&gt;</span><span class="mi">2</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="kc">True</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">12</span><span class="p">]:</span> <span class="ow">not</span> <span class="n">a</span><span class="o">&gt;</span><span class="mi">2</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">12</span><span class="p">]:</span> <span class="kc">False</span>
+</pre></div>
+</div>
+<p>Logical statements like those above can be used in <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code>, and, as
+we shall see below, <code class="docutils literal notranslate"><span class="pre">while</span></code> statements, according to your needs.</p>
+<p>single: loops</p>
+</div>
+</div>
+<div class="section" id="loops">
+<h2>Loops<a class="headerlink" href="#loops" title="Permalink to this headline">¶</a></h2>
+<p>In computer programming a <em>loop</em> is statement or block of statements
+that is executed repeatedly. Python has two kinds of loops, a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop
+and a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop. We first introduce the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop and illustrate its
+use for a variety of tasks. We then introduce the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop and,
+after a few illustrative examples, compare the two kinds of loops and
+discuss when to use one or the other.</p>
+<p>single: loops; for loops</p>
+<div class="section" id="for-loops">
+<h3><code class="docutils literal notranslate"><span class="pre">for</span></code> loops<a class="headerlink" href="#for-loops" title="Permalink to this headline">¶</a></h3>
+<p>The general form of a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop in Python is</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="o">&lt;</span><span class="n">itervar</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">sequence</span><span class="o">&gt;</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">&lt;intervar&gt;</span></code> is a variable, <code class="docutils literal notranslate"><span class="pre">&lt;sequence&gt;</span></code> is a sequence such as
+list or string or array, and <code class="docutils literal notranslate"><span class="pre">&lt;body&gt;</span></code> is a series of Python commands to
+be executed repeatedly for each element in the <code class="docutils literal notranslate"><span class="pre">&lt;sequence&gt;</span></code>. The
+<code class="docutils literal notranslate"><span class="pre">&lt;body&gt;</span></code> is indented from the rest of the text, which difines the extent
+of the loop. Let’s look at a few examples.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">dogname</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;Max&quot;</span><span class="p">,</span> <span class="s2">&quot;Molly&quot;</span><span class="p">,</span> <span class="s2">&quot;Buster&quot;</span><span class="p">,</span> <span class="s2">&quot;Maggie&quot;</span><span class="p">,</span> <span class="s2">&quot;Lucy&quot;</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">dogname</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    Arf, arf!&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All done.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Running this program produces the following output.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">run</span> <span class="n">doggyloop</span><span class="o">.</span><span class="n">py</span>
+<span class="n">Max</span>
+    <span class="n">Arf</span><span class="p">,</span> <span class="n">arf</span><span class="err">!</span>
+<span class="n">Molly</span>
+    <span class="n">Arf</span><span class="p">,</span> <span class="n">arf</span><span class="err">!</span>
+<span class="n">Buster</span>
+    <span class="n">Arf</span><span class="p">,</span> <span class="n">arf</span><span class="err">!</span>
+<span class="n">Maggie</span>
+    <span class="n">Arf</span><span class="p">,</span> <span class="n">arf</span><span class="err">!</span>
+<span class="n">Lucy</span>
+    <span class="n">Arf</span><span class="p">,</span> <span class="n">arf</span><span class="err">!</span>
+<span class="n">All</span> <span class="n">done</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">for</span></code> loop works as follows: the <em>iteration variable</em> or <em>loop
+index</em> <code class="docutils literal notranslate"><span class="pre">dogname</span></code> is set equal to the first element in the list, <code class="docutils literal notranslate"><span class="pre">&quot;Max&quot;</span></code>,
+and then the two lines in the indented body are executed. Then <code class="docutils literal notranslate"><span class="pre">dogname</span></code>
+is set equal to second element in the list, <code class="docutils literal notranslate"><span class="pre">&quot;Molly&quot;</span></code>, and the two lines
+in the indented body are executed. The loop cycles through all the
+elements of the list, and then moves on to the code that follows the
+<code class="docutils literal notranslate"><span class="pre">for</span></code> loop and prints <code class="docutils literal notranslate"><span class="pre">All</span> <span class="pre">done.</span></code></p>
+<p>When indenting a block of code in a Python <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, it is critical
+that every line be indented by the same amount. Using the <strong>&lt;tab&gt;</strong>
+key causes the Code Editor to indent 4 spaces. Any amount of indentation
+works, as long as it is the same for all lines in a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop. While
+code editors designed to work with Python (including Canopy and Spyder)
+translate the <strong>&lt;tab&gt;</strong> key to 4 spaces, not all text editors do. In
+those cases, 4 spaces are not equivalent to a <strong>&lt;tab&gt;</strong> character even
+if they appear the same on the display. Indenting some lines by 4 spaces
+and other lines by a <strong>&lt;tab&gt;</strong> character will produce an error. So
+beware!</p>
+<p>The figure below shows the flowchart for a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop. It starts with an
+implicit conditional asking if there are any more elements in the
+sequence. If there are, it sets the iteration variable equal to the next
+element in the sequence and then executes the body—the indented
+text—using that value of the iteration variable. It then returns to
+the beginning to see if there are more elements in the sequence and
+continues the loop until there is none remaining.</p>
+<figure>
+<img src="attachment:flow_for.png" class="align-center" alt="" /><figcaption>Flowchart for <code>for</code>-loop.</figcaption>
+</figure>
+</div>
+<div class="section" id="accumulators">
+<h3>Accumulators<a class="headerlink" href="#accumulators" title="Permalink to this headline">¶</a></h3>
+<p>Let’s look at another application of Python’s <code class="docutils literal notranslate"><span class="pre">for</span></code> loop. Suppose you
+want to calculate the sum of all the odd numbers between 1 and 100.
+Before writing a computer program to do this, let’s think about how you
+would do it by hand. You might start by adding 1+3=4. Then take the
+result 4 and add the next odd integer, 5, to get 4+5=9; then 9+7=16,
+then 16+9=25, and so forth. You are doing repeated additions, starting
+with 1+3, while keeping track of the running sum, until you reach the
+last number 99.</p>
+<p>In developing an algorithm for having the computer sum the series of
+numbers, we are going to do the same thing: add the numbers one at a
+time while keeping track of the running sum, until we reach the last
+number. We will keep track of the running sum with the variable <code class="docutils literal notranslate"><span class="pre">s</span></code>,
+which is called the <em>accumulator</em>. Initially <code class="docutils literal notranslate"><span class="pre">s=0</span></code>, since we haven’t
+adding any numbers yet. Then we add the first number, 1, to <code class="docutils literal notranslate"><span class="pre">s</span></code> and <code class="docutils literal notranslate"><span class="pre">s</span></code>
+becomes 1. Then we add then next number, 3, in our sequence of odd
+numbers to <code class="docutils literal notranslate"><span class="pre">s</span></code> and <code class="docutils literal notranslate"><span class="pre">s</span></code> becomes 4. We continue doing this over and over
+again using a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop while the variable <code class="docutils literal notranslate"><span class="pre">s</span></code> accumulates the running
+sum until we reach the final number. The code below illustrates how to
+do this.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">+</span><span class="n">i</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">range</span></code> function defines the list <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">3,</span> <span class="pre">5,</span> <span class="pre">...,</span> <span class="pre">97,</span> <span class="pre">99]</span></code>. The
+<code class="docutils literal notranslate"><span class="pre">for</span></code> loop successively adds each number in the list to the running sum
+until it reaches the last element in the list and the sum is complete.
+Once the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop finishes, the program exits the loop and the final
+value of <code class="docutils literal notranslate"><span class="pre">s</span></code>, which is the sum of the odd numbers from 1 to 99, is
+printed out. Copy the above program and run it. You should get an answer
+of 2500.</p>
+<p>single: loops; while loops</p>
+</div>
+<div class="section" id="while-loops">
+<h3><code class="docutils literal notranslate"><span class="pre">while</span></code> loops<a class="headerlink" href="#while-loops" title="Permalink to this headline">¶</a></h3>
+<p>The general form of a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop in Python is</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="o">&lt;</span><span class="n">condition</span><span class="o">&gt;</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">&lt;condition&gt;</span></code> is a statement that can be either <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>
+and <code class="docutils literal notranslate"><span class="pre">&lt;body&gt;</span></code> is a series of Python commands that is executed repeatedly
+until <code class="docutils literal notranslate"><span class="pre">&lt;condition&gt;</span></code> becomes false. This means that somewhere in
+<code class="docutils literal notranslate"><span class="pre">&lt;body&gt;</span></code>, the truth value of &lt;condition&gt; must be changed so that it
+becomes false after a finite number of iterations. Consider the
+following example.</p>
+<p>Suppose you want to calculate all the Fibonacci numbers smaller than
+1000. The Fibonacci numbers are determined by starting with the integers
+0 and 1. The next number in the sequence is the sum of the previous two.
+So, starting with 0 and 1, the next Fibonacci number is <span class="math notranslate nohighlight">\(0+1=1\)</span>, giving
+the sequence <span class="math notranslate nohighlight">\(0, 1, 1\)</span>. Continuing this process, we obtain
+<span class="math notranslate nohighlight">\(0, 1, 1, 2, 3, 5, 8, ...\)</span> where each element in the list is the sum of
+the previous two. Using a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to calculate the Fibonacci numbers
+is impractical because we do not know ahead of time how many Fibonacci
+numbers there are smaller than 1000. By contrast a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop is
+perfect for calculating all the Fibonacci numbers because it keeps
+calculating Fibonacci numbers until it reaches the desired goal, in this
+case 1000. Here is the code using a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+</pre></div>
+</div>
+<p>We have used the multiple assignment feature of Python in this code.
+Recall that all the values on the left are assigned using the original
+values of <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+<p>The figure below shows the flowchart for the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop. The loop
+starts with the evaluation of a condition. If the condition is <code class="docutils literal notranslate"><span class="pre">False</span></code>,
+the code in the body is skipped, the flow exits the loop, and then
+continues with the rest of the program. If the condition is <code class="docutils literal notranslate"><span class="pre">True</span></code>, the
+code in the body—the indented text—is executed. Once the body is
+finished, the flow returns to the condition and proceeds along the
+<code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> branches depending on the truth value of the
+condition. Implicit in this loop is the idea that somewhere during the
+execution of the body of the while loop, the variable that is evaluated
+in the condition is changed in some way. Eventually that change will
+cause the condition to return a value of <code class="docutils literal notranslate"><span class="pre">False</span></code> so that the loop will
+end.</p>
+<figure>
+<img src="attachment:flow_while.png" class="align-center" alt="" /><figcaption>Flowchart for <code>while</code> loop.</figcaption>
+</figure>
+<p>One danger of a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop is that it entirely possible to write a
+loop that never terminates—an <em>infinite loop</em>. For example, if we had
+written <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">y</span> <span class="pre">&gt;</span> <span class="pre">0:</span></code>, in place of <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">1000:</span></code>, the loop would
+never end. If you execute code that has an infinite loop, you can often
+terminate the program from the keyboard by typing <strong>ctrl-C</strong> a couple of
+times. If that doesn’t work, you may have to terminate and then restart
+Python.</p>
+<p>For the kind of work we do in science and engineering, we generally find
+that the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop is more useful than the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop. Nevertheless,
+there are times when using a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop is better suited to a task
+than is a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.</p>
+</div>
+<div class="section" id="loops-and-array-operations">
+<h3>Loops and array operations<a class="headerlink" href="#loops-and-array-operations" title="Permalink to this headline">¶</a></h3>
+<p>Loops are often used to sequentially modify the elements of an array.
+For example, suppose we want to square each element of the array
+<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">np.linspace(0,</span> <span class="pre">32,</span> <span class="pre">1e7)</span></code>. This is a hefty array with 10 million
+elements. Nevertheless, the following loop does the trick.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mf">1e7</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)):</span>
+    <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Running this on my computer returns the result in about 8 seconds—not
+bad for having performed 10 million multiplications. Of course we could
+have performed the same calculation using the array multiplication we
+learned in Chapter 3 (<code class="docutils literal notranslate"><span class="pre">chap3</span></code>). Here is the code.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mf">1e7</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">a</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Running this on my computer returns the results faster than I can
+discern, but certainly much less than a second. This illustrates an
+important point: <strong>for loops are slow</strong>. Array operations run much
+faster and are therefore to be preferred in any case where you have a
+choice. Sometimes finding an array operation that is equivalent to a
+loop can be difficult, especially for a novice. Nevertheless, doing so
+pays rich rewards in execution time. Moreover, the array notation is
+usually simpler and clearer, providing further reasons to prefer array
+operations over loops.</p>
+<p>single: list comprehension</p>
+</div>
+</div>
+<div class="section" id="list-comprehensions">
+<h2>List Comprehensions<a class="headerlink" href="#list-comprehensions" title="Permalink to this headline">¶</a></h2>
+<p>List comprehensions are a special feature of core Python for processing
+and constructing lists. We introduce them here because they use a
+looping process. They are used quite commonly in Python coding and they
+often provide elegant compact solutions to some common computing tasks.</p>
+<p>Consider, for example the <span class="math notranslate nohighlight">\(3 \times 3\)</span> matrix</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>Suppose we want to construct a vector from the diagonal elements of this
+matrix. We could do so with a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop with an accumulator as follows</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">diag</span> <span class="o">=</span> <span class="p">[]</span>
+   <span class="o">...</span><span class="p">:</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]:</span>
+   <span class="o">...</span><span class="p">:</span>     <span class="n">diag</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">])</span>
+   <span class="o">...</span><span class="p">:</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">diag</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>List comprehensions provide a simpler, cleaner, and faster way of doing
+the same thing</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="n">diagLC</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="n">diagLC</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>A one-line list comprehension replaces a three-line accumulator plus
+loop code.</p>
+<p>Suppose we now want the square of this list:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">6</span><span class="p">]:</span> <span class="p">[</span><span class="n">y</span><span class="o">*</span><span class="n">y</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">diagLC</span><span class="p">]</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">6</span><span class="p">]:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">81</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Notice here how <code class="docutils literal notranslate"><span class="pre">y</span></code> serves as a dummy variable accessing the various
+elements of the list <code class="docutils literal notranslate"><span class="pre">diagLC</span></code>.</p>
+<p>Extracting a column from a 2-dimensaional array such as <code class="docutils literal notranslate"><span class="pre">x</span></code> is quite
+easy. For example the second row is obtained quite simply in the
+following fashion</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">7</span><span class="p">]:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">7</span><span class="p">]:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Obtaining a column is not as simple, but a list comprehension makes it
+quite straightforward:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">7</span><span class="p">]:</span> <span class="n">c1</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">8</span><span class="p">]:</span> <span class="n">c1</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">8</span><span class="p">]:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Another, slightly less elegant way to accomplish the same thing is</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">9</span><span class="p">]:</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">9</span><span class="p">]:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Suppose you have a list of numbers and you want to extract all the
+elements of the list that are divisible by three. A slightly fancier
+list comprehension accomplishes the task quite simply and demonstrates a
+new feature:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">10</span><span class="p">]:</span>  <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="o">-</span><span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">41</span><span class="p">]</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">14</span><span class="p">]:</span> <span class="p">[</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">y</span> <span class="k">if</span> <span class="n">a</span><span class="o">%</span><span class="k">3</span>==0]
+<span class="n">Out</span><span class="p">[</span><span class="mi">14</span><span class="p">]:</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="o">-</span><span class="mi">9</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>As we see in this example, a conditional statement can be added to a
+list comprehension. Here it serves as a filter to select out only those
+elements that are divisible by three.</p>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<ol>
+<li><p>Write a program to calculate the factorial of a positive integer
+input by the user. Recall that the factorial function is given by
+<span class="math notranslate nohighlight">\(x! = x (x-1) (x-2) ... (2) (1)\)</span> so that <span class="math notranslate nohighlight">\(1!=1\)</span>, <span class="math notranslate nohighlight">\(2!=2\)</span>, <span class="math notranslate nohighlight">\(3!=6\)</span>,
+<span class="math notranslate nohighlight">\(4!=24\)</span>, …</p>
+<ol class="simple">
+<li><p>Write the factorial function using a Python <code class="docutils literal notranslate"><span class="pre">while</span></code> loop.</p></li>
+<li><p>Write the factorial function using a Python <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.</p></li>
+</ol>
+<p>Check your programs to make sure they work for 1, 2, 3, 5, and
+beyond, but especially for the first 5 integers.</p>
+</li>
+<li><p>The following Python program finds the smallest non-trivial (not 1)
+prime factor of a positive integer.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Input an integer &gt; 1: &quot;</span><span class="p">))</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">2</span> 
+
+<span class="k">while</span> <span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The smallest factor of n is:&quot;</span><span class="p">,</span> <span class="n">i</span> <span class="p">)</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Type this program into your computer and verify that it works as
+advertised. Then briefly explain how it works and why the while
+loop always terminates.</p></li>
+<li><p>Modify the program so that it tells you if the integer input is
+a prime number or not. If it is not a prime number, write your
+program so that it prints out the smallest prime factor. Using
+your program verify that the following integers are prime
+numbers: 101, 8191, 947431.</p></li>
+</ol>
+</li>
+<li><p>Consider the matrix list <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">[[1,</span> <span class="pre">2,</span> <span class="pre">3],</span> <span class="pre">[4,</span> <span class="pre">5,</span> <span class="pre">6],</span> <span class="pre">[7,</span> <span class="pre">8,</span> <span class="pre">9]]</span></code>.
+Write a list comprehension to extract the last column of the matrix
+[3, 6, 9]. Write another list comprehension to create a vector of
+twice the square of the middle column <code class="docutils literal notranslate"><span class="pre">[8,</span> <span class="pre">50,</span> <span class="pre">128]</span></code>.</p></li>
+<li><p>Write a program that calculates the value of an investment after
+some number of years specified by the user if</p>
+<ol class="simple">
+<li><p>the principal is compounded annually</p></li>
+<li><p>the principle is compounded monthly</p></li>
+<li><p>the principle is compounded daily</p></li>
+</ol>
+<p>Your program should ask the user for the initial investment
+(principal), the interest rate in percent, and the number of years
+the money will be invested (allow for fractional years). For an
+initial investment of $1000 at an interest rate of 6%, after 10
+years I get $1790.85 when compounded annually, $1819.40 when
+compounded monthly, and $1822.03 when compounded daily, assuming 12
+months in a year and 365.24 days in a year, where the monthly
+interest rate is the annual rate divided by 12 and the daily rate is
+the annual rate divided by 365 (don’t worry about leap years).</p>
+</li>
+<li><p>Write a program that determines the day of the week for any given
+calendar date after January 1, 1900, which was a Monday. Your
+program will need to take into account leap years, which occur in
+every year that is divisible by 4, except for years that are
+divisible by 100 but are not divisible by 400. For example, 1900 was
+not a leap year, but 2000 was a leap year. Test that your program
+gives the following answers: Monday 1900 January 1, Tuesday 1933
+December 5, Wednesday 1993 June 23, Thursday 1953 January 15, Friday
+1963 November 22, Saturday 1919 June 28, Sunday 2005 August 28.</p></li>
+</ol>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="chap5_plot.html" title="previous page">Plotting</a>
+    <a class='right-next' id="next-link" href="chap7_funcs.html" title="next page">Functions</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    <footer class="footer">
+  <div class="container">
+    <p>
+          &copy; Copyright Numeric project.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

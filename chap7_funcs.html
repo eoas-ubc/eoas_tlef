@@ -1,0 +1,924 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Functions &mdash; Numeric course 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Curve Fitting" href="chap8_fitting.html" />
+    <link rel="prev" title="Conditionals and Loops" href="chap6_loopsconds.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Numeric course
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="chap1_intro.html">Chapter 1: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap2_basics.html">Chapter 2: First Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap3_arrays.html">Chapter 3: Arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap4_io.html">Chapter 4: Input and Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap5_plot.html">Chapter 5: Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap6_loopsconds.html">Chapter 6: Flow control</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Chapter 7: Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#User-defined-functions">User-defined functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Looping-over-arrays-in-user-defined-functions">Looping over arrays in user-defined functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Fast-array-processing-in-user-defined-functions">Fast array processing in user-defined functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#The-moral-of-the-story">The moral of the story</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Functions-with-more-(or-less)-than-one-input-or-output">Functions with more (or less) than one input or output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Positional-and-keyword-arguments">Positional and keyword arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Variable-number-of-arguments">Variable number of arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Passing-data-to-and-from-functions">Passing data to and from functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Variables-and-arrays-created-entirely-within-a-function">Variables and arrays created entirely within a function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Passing-variables-and-arrays-to-functions:-mutable-and-immutable-objects">Passing variables and arrays to functions: mutable and immutable objects</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Methods-and-attributes">Methods and attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Example:-linear-least-squares-fitting">Example: linear least squares fitting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Linear-regression">Linear regression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Linear-regression-with-weighting:-\chi^2">Linear regression with weighting: <span class="math notranslate nohighlight">\(\chi^2\)</span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Anonymous-functions-(lambda)">Anonymous functions (lambda)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chap8_fitting.html">Chapter 8: Curve Fitting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap9_scipy.html">Chapter 9: Scipy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apdx1_install.html">Appendix 1: Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apdx2_ipynb.html">Appendix 2: Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apdx3_resources.html">Appendix 3: Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Numeric course</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Functions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/chap7_funcs.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<h1><p>Table of Contents</p>
+</h1><div class="toc"><ul class="toc-item"><li><p>1  Functions</p>
+<ul class="toc-item"><li><p>1.1  User-defined functions</p>
+<ul class="toc-item"><li><p>1.1.1  Looping over arrays in user-defined functions</p>
+</li><li><p>1.1.2  Fast array processing in user-defined functions</p>
+</li><li><p>1.1.3  Functions with more (or less) than one input or output</p>
+</li><li><p>1.1.4  Positional and keyword arguments</p>
+</li><li><p>1.1.5  Variable number of arguments</p>
+</li><li><p>1.1.6  Passing data to and from functions</p>
+</li></ul></li><li><p>1.2  Methods and attributes</p>
+</li><li><p>1.3  Example: linear least squares fitting</p>
+<ul class="toc-item"><li><p>1.3.1  Linear regression</p>
+</li><li><p>1.3.2  Linear regression with weighting: <span class="math notranslate nohighlight">\(\chi^2\)</span></p>
+</li></ul></li><li><p>1.4  Anonymous functions (lambda)</p>
+</li><li><p>1.5  Exercises</p>
+</li></ul></li></ul></div><p>python</p>
+<div class="section" id="Functions">
+<h1>Functions<a class="headerlink" href="#Functions" title="Permalink to this headline">¶</a></h1>
+<p>As you develop more complex computer code, it becomes increasingly important to organize your code into modular blocks. One important means for doing so is <em>user-defined</em> Python functions. User-defined functions are a lot like built-in functions that we have encountered in core Python as well as in NumPy and Matplotlib. The main difference is that user-defined functions are written by you. The idea is to define functions to simplify your code and to allow you to reuse the same code in different
+contexts.</p>
+<p>The number of ways that functions are used in programming is so varied that we cannot possibly enumerate all the possibilities. As our use of Python functions in scientific program is somewhat specialized, we introduce only a few of the possible uses of Python functions, ones that are the most common in scientific programming.</p>
+<p>single: functions; user defined</p>
+<div class="section" id="User-defined-functions">
+<h2>User-defined functions<a class="headerlink" href="#User-defined-functions" title="Permalink to this headline">¶</a></h2>
+<p>The NumPy package contains a plethora of mathematical functions. You can find a listing of the mathematical functions available through NumPy on the web page <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/routines.math.html">http://docs.scipy.org/doc/numpy/reference/routines.math.html</a>. While the list may seem pretty exhaustive, you may nevertheless find that you need a function that is not available in the NumPy Python library. In those cases, you will want to write your own function.</p>
+<p>In studies of optics and signal processing one often runs into the sinc function, which is defined as</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{sinc}\,x \equiv \frac{\sin x}{x} \;.\]</div>
+<p>Let’s write a Python function for the sinc function. Here is our first attempt:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sinc</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">x</span>
+    <span class="k">return</span> <span class="n">y</span>
+</pre></div>
+</div>
+<p>Every function definition begins with the word <code class="docutils literal notranslate"><span class="pre">def</span></code> followed by the name you want to give to the function, <code class="docutils literal notranslate"><span class="pre">sinc</span></code> in this case, then a list of arguments enclosed in parentheses, and finally terminated with a colon. In this case there is only one argument, <code class="docutils literal notranslate"><span class="pre">x</span></code>, but in general there can be as many arguments as you want, including no arguments at all. For the moment, we will consider just the case of a single argument.</p>
+<p>The indented block of code following the first line defines what the function does. In this case, the first line calculates <span class="math notranslate nohighlight">\(\mathrm{sinc}\,x = \sin x/x\)</span> and sets it equal to <code class="docutils literal notranslate"><span class="pre">y</span></code>. The <code class="docutils literal notranslate"><span class="pre">return</span></code> statement of the last line tells Python to return the value of <code class="docutils literal notranslate"><span class="pre">y</span></code> to the user.</p>
+<p>We can try it out in the IPython shell. First we type in the function definition.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="k">def</span> <span class="nf">sinc</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+   <span class="o">...</span><span class="p">:</span>     <span class="n">y</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">x</span>
+   <span class="o">...</span><span class="p">:</span>     <span class="k">return</span> <span class="n">y</span>
+</pre></div>
+</div>
+<p>Because we are doing this from the IPython shell, we don’t need to import NumPy; it’s preloaded. Now the function <span class="math notranslate nohighlight">\(\mathrm{sinc}\,x\)</span> is available to be used from the IPython shell</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">sinc</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="o">-</span><span class="mf">0.18920062382698205</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">a</span> <span class="o">=</span> <span class="n">sinc</span><span class="p">(</span><span class="mf">1.2</span><span class="p">)</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="n">a</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="mf">0.77669923830602194</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="n">sin</span><span class="p">(</span><span class="mf">1.2</span><span class="p">)</span><span class="o">/</span><span class="mf">1.2</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="mf">0.77669923830602194</span>
+</pre></div>
+</div>
+<p>Inputs and outputs 4 and 5 verify that the function does indeed give the same result as an explicit calculation of <span class="math notranslate nohighlight">\(\sin x/x\)</span>.</p>
+<p>You may have noticed that there is a problem with our definition of <span class="math notranslate nohighlight">\(\mathrm{sinc}\,x\)</span> when <code class="docutils literal notranslate"><span class="pre">x=0.0</span></code>. Let’s try it out and see what happens</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">6</span><span class="p">]:</span> <span class="n">sinc</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">6</span><span class="p">]:</span> <span class="n">nan</span>
+</pre></div>
+</div>
+<p>IPython returns <code class="docutils literal notranslate"><span class="pre">nan</span></code> or “not a number”, which occurs when Python attempts a division by zero, which is not defined. This is not the desired response as <span class="math notranslate nohighlight">\(\mathrm{sinc}\,x\)</span> is, in fact, perfectly well defined for <span class="math notranslate nohighlight">\(x=0\)</span>. You can verify this using L’Hopital’s rule, which you may have learned in your study of calculus, or you can ascertain the correct answer by calculating the Taylor series for <span class="math notranslate nohighlight">\(\mathrm{sinc}\,x\)</span>. Here is what we get</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{sinc}\,x = \frac{\sin x}{x}
+                = \frac{x - \frac{x^3}{3!} + \frac{x^5}{5!} + ...}{x}
+                = 1 - \frac{x^2}{3!} + \frac{x^4}{5!} + ... \;.\]</div>
+<p>From the Taylor series, it is clear that <span class="math notranslate nohighlight">\(\mathrm{sinc}\,x\)</span> is well-defined at and near <span class="math notranslate nohighlight">\(x=0\)</span> and that, in fact, <span class="math notranslate nohighlight">\(\mathrm{sinc}(0)=1\)</span>. Let’s modify our function so that it gives the correct value for <code class="docutils literal notranslate"><span class="pre">x=0</span></code>.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">7</span><span class="p">]:</span> <span class="k">def</span> <span class="nf">sinc</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+   <span class="o">...</span><span class="p">:</span>     <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="mf">0.0</span><span class="p">:</span>
+   <span class="o">...</span><span class="p">:</span>         <span class="n">y</span> <span class="o">=</span> <span class="mf">1.0</span>
+   <span class="o">...</span><span class="p">:</span>     <span class="k">else</span><span class="p">:</span>
+   <span class="o">...</span><span class="p">:</span>         <span class="n">y</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">x</span>
+   <span class="o">...</span><span class="p">:</span>     <span class="k">return</span> <span class="n">y</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">8</span><span class="p">]:</span> <span class="n">sinc</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">8</span><span class="p">]:</span> <span class="mf">1.0</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">9</span><span class="p">]:</span> <span class="n">sinc</span><span class="p">(</span><span class="mf">1.2</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">9</span><span class="p">]:</span> <span class="mf">0.77669923830602194</span>
+</pre></div>
+</div>
+<p>Now our function gives the correct value for <code class="docutils literal notranslate"><span class="pre">x=0</span></code> as well as for values different from zero.</p>
+<p>single: functions; looping over arrays</p>
+<div class="section" id="Looping-over-arrays-in-user-defined-functions">
+<h3>Looping over arrays in user-defined functions<a class="headerlink" href="#Looping-over-arrays-in-user-defined-functions" title="Permalink to this headline">¶</a></h3>
+<p>The code for <span class="math notranslate nohighlight">\(\mathrm{sinc}\,x\)</span> works just fine when the argument is a single number or a variable that represents a single number. However, if the argument is a NumPy array, we run into a problem, as illustrated below.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="n">x</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="n">array</span><span class="p">([</span> <span class="mf">0.</span> <span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">1.</span> <span class="p">,</span>  <span class="mf">1.5</span><span class="p">,</span>  <span class="mf">2.</span> <span class="p">,</span>  <span class="mf">2.5</span><span class="p">,</span>  <span class="mf">3.</span> <span class="p">,</span>  <span class="mf">3.5</span><span class="p">,</span>
+                 <span class="mf">4.</span> <span class="p">,</span>  <span class="mf">4.5</span><span class="p">])</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">12</span><span class="p">]:</span> <span class="n">sinc</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="o">----------------------------------------------------------</span>
+<span class="ne">ValueError</span>               <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="n">sinc</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+      <span class="mi">1</span> <span class="k">def</span> <span class="nf">sinc</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="o">----&gt;</span> <span class="mi">2</span>     <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="mf">0.0</span><span class="p">:</span>
+      <span class="mi">3</span>         <span class="n">y</span> <span class="o">=</span> <span class="mf">1.0</span>
+      <span class="mi">4</span>     <span class="k">else</span><span class="p">:</span>
+      <span class="mi">5</span>         <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">x</span>
+
+<span class="ne">ValueError</span><span class="p">:</span> <span class="n">The</span> <span class="n">truth</span> <span class="n">value</span> <span class="n">of</span> <span class="n">an</span> <span class="n">array</span> <span class="k">with</span> <span class="n">more</span> <span class="n">than</span> <span class="n">one</span>
+            <span class="n">element</span> <span class="ow">is</span> <span class="n">ambiguous</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">if</span></code> statement in Python is set up to evaluate the truth value of a single variable, not of multielement arrays. When Python is asked to evaluate the truth value for a multi-element array, it doesn’t know what to do and therefore returns an error.</p>
+<p>An obvious way to handle this problem is to write the code so that it processes the array one element at a time, which you could do using a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, as illustrated below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sinc</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="p">[]</span>              <span class="c1"># creates an empty list to store results</span>
+    <span class="k">for</span> <span class="n">xx</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>        <span class="c1"># loops over all elements in x array</span>
+        <span class="k">if</span> <span class="n">xx</span><span class="o">==</span><span class="mf">0.0</span><span class="p">:</span>     <span class="c1"># adds result of 1.0 to y list if</span>
+            <span class="n">y</span> <span class="o">+=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">]</span>  <span class="c1"># xx is zero</span>
+        <span class="k">else</span><span class="p">:</span>           <span class="c1"># adds result of sin(xx)/xx to y list if</span>
+            <span class="n">y</span> <span class="o">+=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xx</span><span class="p">)</span><span class="o">/</span><span class="n">xx</span><span class="p">]</span>  <span class="c1"># xx is not zero</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>  <span class="c1"># converts y to array and returns array</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">sinc</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">for</span></code> loop evaluates the elements of the <code class="docutils literal notranslate"><span class="pre">x</span></code> array one by one and appends the results to the list <code class="docutils literal notranslate"><span class="pre">y</span></code> one by one. When it is finished, it converts the list to an array and returns the array. The code following the function definition plots <span class="math notranslate nohighlight">\(\mathrm{sinc}\,x\)</span> as a function of <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p>In the program above, you may have noticed that the NumPy library is imported <em>after</em> the <code class="docutils literal notranslate"><span class="pre">sinc(x)</span></code> function definition. As the function uses the NumPy functions <code class="docutils literal notranslate"><span class="pre">sin</span></code> and <code class="docutils literal notranslate"><span class="pre">array</span></code>, you may wonder how this program can work. Doesn’t the <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span></code> statement have to be called before any NumPy functions are used? The answer it an emphatic “YES”. What you need to understand is that the function definition is <em>not executed</em> when it is defined, nor can it be as it has no input <code class="docutils literal notranslate"><span class="pre">x</span></code> data to
+process. That part of the code is just a definition. The first time the code for the <code class="docutils literal notranslate"><span class="pre">sinc(x)</span></code> function is actually executed is when it is called on line 14 of the program, which occurs after the NumPy library is imported in line 10. The figure below shows the plot of the <span class="math notranslate nohighlight">\(\mathrm{sinc}\,x\)</span> function generated by the above code.</p>
+<figure><p><img alt="" class="align-center" src="attachment:sinc.png" /></p>
+<figcaption><p>Plot of user-defined sinc(x) function.</p>
+</figcaption></figure><p>single: functions; fast array processing single: conditionals; applied to arrays</p>
+</div>
+<div class="section" id="Fast-array-processing-in-user-defined-functions">
+<h3>Fast array processing in user-defined functions<a class="headerlink" href="#Fast-array-processing-in-user-defined-functions" title="Permalink to this headline">¶</a></h3>
+<p>While using loops to process arrays works just fine, it is usually not the best way to accomplish the task in Python. The reason is that loops in Python are executed rather slowly. To deal with this problem, the developers of NumPy introduced a number of functions designed to process arrays quickly and efficiently. For the present case, what we need is a conditional statement or function that can process arrays directly. The function we want is called <code class="docutils literal notranslate"><span class="pre">where</span></code> and it is a part of the NumPy
+library. There <code class="docutils literal notranslate"><span class="pre">where</span></code> function has the form</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">where</span><span class="p">(</span><span class="n">condition</span><span class="p">,</span> <span class="n">output</span> <span class="k">if</span> <span class="kc">True</span><span class="p">,</span> <span class="n">output</span> <span class="k">if</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The first argument of the <code class="docutils literal notranslate"><span class="pre">where</span></code> function is a conditional statement involving an array. The <code class="docutils literal notranslate"><span class="pre">where</span></code> function applies the condition to the array element by element, and returns the second argument for those array elements for which the condition is <code class="docutils literal notranslate"><span class="pre">True</span></code>, and returns the third argument for those array elements that are <code class="docutils literal notranslate"><span class="pre">False</span></code>. We can apply it to the <code class="docutils literal notranslate"><span class="pre">sinc(x)</span></code> function as follows</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sinc</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">x</span><span class="o">==</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">z</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">where</span></code> function creates the array <code class="docutils literal notranslate"><span class="pre">y</span></code> and sets the elements of <code class="docutils literal notranslate"><span class="pre">y</span></code> equal to 1.0 where the corresponding elements of <code class="docutils literal notranslate"><span class="pre">x</span></code> are zero, and otherwise sets the corresponding elements to <code class="docutils literal notranslate"><span class="pre">sin(x)/x</span></code>. This code executes much faster, 25 to 100 times, depending on the size of the array, than the code using a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop. Moreover, the new code is much simpler to write and read. An additional benefit of the <code class="docutils literal notranslate"><span class="pre">where</span></code> function is that it can handle single variables and arrays equally well. The
+code we wrote for the sinc function with the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop cannot handle single variables. Of course we could rewrite the code so that it did, but the code becomes even more clunky. It’s better just to use NumPy’s <code class="docutils literal notranslate"><span class="pre">where</span></code> function.</p>
+<div class="section" id="The-moral-of-the-story">
+<h4>The moral of the story<a class="headerlink" href="#The-moral-of-the-story" title="Permalink to this headline">¶</a></h4>
+<p>The moral of the story is that you should avoid using <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops to process arrays in Python programs whenever an array-processing method is available. As a beginning Python programmer, you may not always see how to avoid loops, and indeed, avoiding them is not always possible, but you should look for ways to avoid loops, especially loops that iterate a large number of times. As you become more experienced, you will find that using array-processing methods in Python becomes more
+natural. Using them can greatly speed up the execution of your code, especially when working with large arrays.</p>
+<p>single: functions; multiple inputs and/or outputs</p>
+</div>
+</div>
+<div class="section" id="Functions-with-more-(or-less)-than-one-input-or-output">
+<h3>Functions with more (or less) than one input or output<a class="headerlink" href="#Functions-with-more-(or-less)-than-one-input-or-output" title="Permalink to this headline">¶</a></h3>
+<p>Python functions can have any number of input arguments and can return any number of variables. For example, suppose you want a function that outputs <span class="math notranslate nohighlight">\(n\)</span> <span class="math notranslate nohighlight">\((x,y)\)</span> coordinates around a circle of radius <span class="math notranslate nohighlight">\(r\)</span> centered at the point <span class="math notranslate nohighlight">\((x_0,y_0)\)</span>. The inputs to the function would be <span class="math notranslate nohighlight">\(r\)</span>, <span class="math notranslate nohighlight">\(x_0\)</span>, <span class="math notranslate nohighlight">\(y_0\)</span>, and <span class="math notranslate nohighlight">\(n\)</span>. The outputs would be the <span class="math notranslate nohighlight">\(n\)</span> <span class="math notranslate nohighlight">\((x,y)\)</span> coordinates. The following code implements this function.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">circle</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x0</span><span class="o">+</span><span class="n">x</span><span class="p">,</span> <span class="n">y0</span><span class="o">+</span><span class="n">y</span>
+</pre></div>
+</div>
+<p>This function has four inputs and two outputs. In this case, the four inputs are simple numeric variables and the two outputs are NumPy arrays. In general, the inputs and outputs can be any combination of data types: arrays, lists, strings, <em>etc</em>. Of course, the body of the function must be written to be consistent with the prescribed data types.</p>
+<p>Functions can also return nothing to the calling program but just perform some task. For example, here is a program that clears the terminal screen</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">platform</span>
+
+<span class="k">def</span> <span class="nf">clear</span><span class="p">():</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span> <span class="s2">&quot;cls&quot;</span> <span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="o">==</span>
+                      <span class="s2">&quot;Windows&quot;</span> <span class="k">else</span> <span class="s2">&quot;clear&quot;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The function is invoked by typing <code class="docutils literal notranslate"><span class="pre">clear()</span></code>. It has no inputs and no outputs but it performs a useful task. This function uses two standard Python libraries, <code class="docutils literal notranslate"><span class="pre">subprocess</span></code> and <code class="docutils literal notranslate"><span class="pre">platform</span></code> that are useful for performing computer system tasks. It’s not important that you know anything about them at this point. We simply use them here to demonstrate a useful cross-platform function that has no inputs and returns no values.</p>
+<p>single: functions; arguments; keyword single: functions; arguments; positional</p>
+</div>
+<div class="section" id="Positional-and-keyword-arguments">
+<h3>Positional and keyword arguments<a class="headerlink" href="#Positional-and-keyword-arguments" title="Permalink to this headline">¶</a></h3>
+<p>It is often useful to have function arguments that have some default setting. This happens when you want an input to a function to have some standard value or setting most of the time, but you would like to reserve the possibility of giving it some value other than the default value.</p>
+<p>For example, in the program <code class="docutils literal notranslate"><span class="pre">circle</span></code> from the previous section, we might decide that under most circumstances, we want <code class="docutils literal notranslate"><span class="pre">n=12</span></code> points around the circle, like the points on a clock face, and we want the circle to be centered at the origin. In this case, we would rewrite the code to read</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">circle</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">y0</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">12</span><span class="p">):</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x0</span><span class="o">+</span><span class="n">x</span><span class="p">,</span> <span class="n">y0</span><span class="o">+</span><span class="n">y</span>
+</pre></div>
+</div>
+<p>The default values of the arguments <code class="docutils literal notranslate"><span class="pre">x0</span></code>, <code class="docutils literal notranslate"><span class="pre">y0</span></code>, and <code class="docutils literal notranslate"><span class="pre">n</span></code> are specified in the argument of the function definition in the <code class="docutils literal notranslate"><span class="pre">def</span></code> line. Arguments whose default values are specified in this manner are called <em>keyword arguments</em>, and they can be omitted from the function call if the user is content using those values. For example, writing <code class="docutils literal notranslate"><span class="pre">circle(4)</span></code> is now a perfectly legal way to call the <code class="docutils literal notranslate"><span class="pre">circle</span></code> function and it would produce 12 <span class="math notranslate nohighlight">\((x,y)\)</span> coordinates centered about the origin
+<span class="math notranslate nohighlight">\((x,y)=(0,0)\)</span>. On the other hand, if you want the values of <code class="docutils literal notranslate"><span class="pre">x0</span></code>, <code class="docutils literal notranslate"><span class="pre">y0</span></code>, and <code class="docutils literal notranslate"><span class="pre">n</span></code> to be something different from the default values, you can specify their values as you would have before.</p>
+<p>If you want to change only some of the keyword arguments, you can do so by using the keywords in the function call. For example, suppose you are content with have the circle centered on <span class="math notranslate nohighlight">\((x,y)=(0,0)\)</span> but you want only 6 points around the circle rather than 12. Then you would call the <code class="docutils literal notranslate"><span class="pre">circle</span></code> function as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">circle</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The unspecified keyword arguments keep their default values of zero but the number of points <code class="docutils literal notranslate"><span class="pre">n</span></code> around the circle is now 6 instead of the default value of 12.</p>
+<p>The normal arguments without keywords are called <em>positional arguments</em>; they have to appear <em>before</em> any keyword arguments and, when the function is called, must be supplied values in the same order as specified in the function definition. The keyword arguments, if supplied, can be supplied in any order providing they are supplied with their keywords. If supplied without their keywords, they too must be supplied in the order they appear in the function definition. The following function calls
+to <code class="docutils literal notranslate"><span class="pre">circle</span></code> both give the same output.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">13</span><span class="p">]:</span> <span class="n">circle</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">y0</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">x0</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">13</span><span class="p">]:</span> <span class="p">(</span><span class="n">array</span><span class="p">([</span> <span class="mf">1.</span> <span class="p">,</span> <span class="o">-</span><span class="mf">3.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.5</span><span class="p">]),</span>
+          <span class="n">array</span><span class="p">([</span> <span class="mf">4.</span>        <span class="p">,</span>  <span class="mf">6.59807621</span><span class="p">,</span>  <span class="mf">1.40192379</span><span class="p">]))</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">14</span><span class="p">]:</span> <span class="n">circle</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>    <span class="c1"># w/o keywords, arguments</span>
+                                <span class="c1"># supplied in order</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">14</span><span class="p">]:</span> <span class="p">(</span><span class="n">array</span><span class="p">([</span> <span class="mf">1.</span> <span class="p">,</span> <span class="o">-</span><span class="mf">3.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.5</span><span class="p">]),</span> <span class="n">array</span><span class="p">([</span> <span class="mf">4.</span>        <span class="p">,</span>
+                  <span class="mf">6.59807621</span><span class="p">,</span>  <span class="mf">1.40192379</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p>By now you probably have noticed that we used the keyword argument <code class="docutils literal notranslate"><span class="pre">endpoint</span></code> in calling <code class="docutils literal notranslate"><span class="pre">linspace</span></code> in our definition of the <code class="docutils literal notranslate"><span class="pre">circle</span></code> function. The default value of <code class="docutils literal notranslate"><span class="pre">endpoint</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, meaning that <code class="docutils literal notranslate"><span class="pre">linspace</span></code> includes the endpoint specified in the second argument of <code class="docutils literal notranslate"><span class="pre">linspace</span></code>. We set it equal to <code class="docutils literal notranslate"><span class="pre">False</span></code> so that the last point was not included. Do you see why?</p>
+<p>single: functions; arguments; variable number single: functions; arguments; *args</p>
+</div>
+<div class="section" id="Variable-number-of-arguments">
+<h3>Variable number of arguments<a class="headerlink" href="#Variable-number-of-arguments" title="Permalink to this headline">¶</a></h3>
+<p>While it may seem odd, it is sometimes useful to leave the number of arguments unspecified. A simple example is a function that computes the product of an arbitrary number of numbers:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">product</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;args = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="n">p</span> <span class="o">*=</span> <span class="n">num</span>
+    <span class="k">return</span> <span class="n">p</span>
+</pre></div>
+</div>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">15</span><span class="p">]:</span> <span class="n">product</span><span class="p">(</span><span class="mf">11.</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="mf">11.0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">15</span><span class="p">]:</span> <span class="o">-</span><span class="mf">66.0</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">16</span><span class="p">]:</span> <span class="n">product</span><span class="p">(</span><span class="mf">2.31</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="mf">2.31</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">16</span><span class="p">]:</span> <span class="mf">16.17</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">print(&quot;args...)</span></code> statement in the function definition is not necessary, of course, but is put in to show that the argument <code class="docutils literal notranslate"><span class="pre">args</span></code> is a tuple inside the function. Here it used because one does not know ahead of time how many numbers are to be multiplied together.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">*args</span></code> argument is also quite useful in another context: when passing the name of a function as an argument in another function. In many cases, the function name that is passed may have a number of parameters that must also be passed but aren’t known ahead of time. If this all sounds a bit confusing—functions calling other functions—a concrete example will help you understand.</p>
+<p>Suppose we have the following function that numerically computes the value of the derivative of an arbitrary function <span class="math notranslate nohighlight">\(f(x)\)</span>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">deriv</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1.e-9</span><span class="p">,</span> <span class="o">*</span><span class="n">params</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">,</span> <span class="o">*</span><span class="n">params</span><span class="p">)</span><span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">*</span><span class="n">params</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mf">2.</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The argument <code class="docutils literal notranslate"><span class="pre">*params</span></code> is an optional positional argument. We begin by demonstrating the use of the function <code class="docutils literal notranslate"><span class="pre">deriv</span></code> without using the optional <code class="docutils literal notranslate"><span class="pre">*params</span></code> argument. Suppose we want to compute the derivative of the function <span class="math notranslate nohighlight">\(f_0(x)=4x^5\)</span>. First, we define the function</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f0</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mf">4.</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">5</span>
+</pre></div>
+</div>
+<p>Now let’s find the derivative of <span class="math notranslate nohighlight">\(f_0(x)=4x^5\)</span> at <span class="math notranslate nohighlight">\(x=3\)</span> using the function <code class="docutils literal notranslate"><span class="pre">deriv</span></code>:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">17</span><span class="p">]:</span> <span class="n">deriv</span><span class="p">(</span><span class="n">f0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">17</span><span class="p">]:</span> <span class="mf">1620.0001482502557</span>
+</pre></div>
+</div>
+<p>The exact result, given by evaluating <span class="math notranslate nohighlight">\(f_0^\prime(x)=20x^4\)</span> at <span class="math notranslate nohighlight">\(x=3\)</span> is 1620, so our function to numerically calculate the derivative works pretty well.</p>
+<p>Suppose we had defined a more general function <span class="math notranslate nohighlight">\(f_1(x)=ax^p\)</span> as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="n">p</span>
+</pre></div>
+</div>
+<p>Suppose we want to calculate the derivative of this function for a particular set of parameters <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(p\)</span>. Now we face a problem, because it might seem that there is no way to pass the parameters <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(p\)</span> to the <code class="docutils literal notranslate"><span class="pre">deriv</span></code> function. Moreover, this is a generic problem for functions such as <code class="docutils literal notranslate"><span class="pre">deriv</span></code> that use a function as an input, because different functions you want to use as inputs generally come with different parameters. Therefore, we would like to write our
+program <code class="docutils literal notranslate"><span class="pre">deriv</span></code> so that it works, irrespective of how many parameters are needed to specify a particular function.</p>
+<p>This is what the optional positional argument <code class="docutils literal notranslate"><span class="pre">*params</span></code> defined in <code class="docutils literal notranslate"><span class="pre">deriv</span></code> is for: to pass parameters of <code class="docutils literal notranslate"><span class="pre">f1</span></code>, like <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, through <code class="docutils literal notranslate"><span class="pre">deriv</span></code>. To see how this works, let’s set <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> to be 4 and 5, respectively, the same values we used in the definition of <code class="docutils literal notranslate"><span class="pre">f0</span></code>, so that we can compare the results:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">16</span><span class="p">]:</span> <span class="n">deriv</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">1.e-9</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">16</span><span class="p">]:</span> <span class="mf">1620.0001482502557</span>
+</pre></div>
+</div>
+<p>We get the same answer as before, but this time we have used <code class="docutils literal notranslate"><span class="pre">deriv</span></code> with a more general form of the function <span class="math notranslate nohighlight">\(f_1(x)=ax^p\)</span>.</p>
+<p>The order of the parameters is important. The function <code class="docutils literal notranslate"><span class="pre">deriv</span></code> uses <code class="docutils literal notranslate"><span class="pre">x</span></code>, the first argument of <code class="docutils literal notranslate"><span class="pre">f1</span></code>, as its principal argument, and then uses <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">p</span></code>, in the same order that they are defined in the function <code class="docutils literal notranslate"><span class="pre">f1</span></code>, to fill in the additional arguments—the parameters—of the function <code class="docutils literal notranslate"><span class="pre">f1</span></code>.</p>
+<p>single: functions; arguments; **kwargs</p>
+<p>Optional arguments must appear after the regular positional and keyword arguments in a function call. The order of the arguments must adhere to the following convention:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">pos1</span><span class="p">,</span> <span class="n">pos2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">keywd1</span><span class="p">,</span> <span class="n">keywd2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</pre></div>
+</div>
+<p>That is, the order of arguments is: positional arguments first, then keyword arguments, then optional positional arguments (<code class="docutils literal notranslate"><span class="pre">*args</span></code>), then optional keyword arguments (<code class="docutils literal notranslate"><span class="pre">**kwargs</span></code>). Note that to use the <code class="docutils literal notranslate"><span class="pre">*params</span></code> argument, we had to explicitly include the keyword argument <code class="docutils literal notranslate"><span class="pre">h</span></code> even though we didn’t need to change it from its default value.</p>
+<p>Python also allows for a variable number of keyword arguments—<code class="docutils literal notranslate"><span class="pre">**kwargs</span></code>—in a function call. While <code class="docutils literal notranslate"><span class="pre">*args</span></code> is a tuple, <code class="docutils literal notranslate"><span class="pre">kwargs</span></code> is a dictionary, so that the value of an optional keyword argument is accessed through its dictionary key.</p>
+</div>
+<div class="section" id="Passing-data-to-and-from-functions">
+<h3>Passing data to and from functions<a class="headerlink" href="#Passing-data-to-and-from-functions" title="Permalink to this headline">¶</a></h3>
+<p>Functions are like mini-programs within the larger programs that call them. Each function has a set of variables with certain names that are to some degree or other isolated from the calling program. We shall get more specific about just how isolated those variables are below, but before we do, we introduce the concept of a <em>namespace</em>. Each function has its own namespace, which is essentially a mapping of variable names to objects, like numerics, strings, lists, and so forth. It’s a kind of
+dictionary. The calling program has its own namespace, distinct from that of any functions it calls. The distinctiveness of these namespaces plays an important role in how functions work, as we shall see below.</p>
+<div class="section" id="Variables-and-arrays-created-entirely-within-a-function">
+<h4>Variables and arrays created entirely within a function<a class="headerlink" href="#Variables-and-arrays-created-entirely-within-a-function" title="Permalink to this headline">¶</a></h4>
+<p>An important feature of functions is that variables and arrays created <em>entirely within</em> a function cannot be seen by the program that calls the function unless the variable or array is explicitly passed to the calling program in the <code class="docutils literal notranslate"><span class="pre">return</span></code> statement. This is important because it means you can create and manipulate variables and arrays, giving them any name you please, without affecting any variables or arrays outside the function, even if the variables and arrays inside and outside a
+function share the same name.</p>
+<p>To see what how this works, let’s rewrite our program to plot the sinc function using the sinc function definition that uses the <code class="docutils literal notranslate"><span class="pre">where</span></code> function.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sinc</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">x</span><span class="o">==</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">z</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">sinc</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Running this program produces a plot like the plot of sinc shown in the previous section. Notice that the array variable <code class="docutils literal notranslate"><span class="pre">z</span></code> is only defined within the function definition of sinc. If we run the program from the IPython terminal, it produces the plot, of course. Then if we ask IPython to print out the arrays, <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">z</span></code>, we get some interesting and informative results, as shown below.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">15</span><span class="p">]:</span> <span class="n">run</span> <span class="n">sinc3</span><span class="o">.</span><span class="n">py</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">16</span><span class="p">]:</span> <span class="n">x</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">16</span><span class="p">]:</span> <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">10.</span>        <span class="p">,</span>  <span class="o">-</span><span class="mf">9.99969482</span><span class="p">,</span>  <span class="o">-</span><span class="mf">9.99938964</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span>
+         <span class="mf">9.99938964</span><span class="p">,</span>   <span class="mf">9.99969482</span><span class="p">,</span>  <span class="mf">10.</span>        <span class="p">])</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">17</span><span class="p">]:</span> <span class="n">y</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">17</span><span class="p">]:</span> <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.05440211</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05437816</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0543542</span> <span class="p">,</span> <span class="o">...</span><span class="p">,</span>
+                <span class="o">-</span><span class="mf">0.0543542</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.05437816</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05440211</span><span class="p">])</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">18</span><span class="p">]:</span> <span class="n">z</span>
+<span class="o">---------------------------------------------------------</span>
+<span class="ne">NameError</span>               <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+
+<span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;z&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+</pre></div>
+</div>
+<p>When we type in <code class="docutils literal notranslate"><span class="pre">x</span></code> at the <code class="docutils literal notranslate"><span class="pre">In</span> <span class="pre">[16]:</span></code> prompt, IPython prints out the array <code class="docutils literal notranslate"><span class="pre">x</span></code> (some of the output is suppressed because the array <code class="docutils literal notranslate"><span class="pre">x</span></code> has many elements); similarly for <code class="docutils literal notranslate"><span class="pre">y</span></code>. But when we type <code class="docutils literal notranslate"><span class="pre">z</span></code> at the <code class="docutils literal notranslate"><span class="pre">In</span> <span class="pre">[18]:</span></code> prompt, IPython returns a <code class="docutils literal notranslate"><span class="pre">NameError</span></code> because <code class="docutils literal notranslate"><span class="pre">z</span></code> is not defined. The IPython terminal is working in the same <em>namespace</em> as the program. But the namespace of the sinc function is isolated from the namespace of the program that calls it, and therefore isolated from
+IPython. This also means that when the sinc function ends with <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">z</span></code>, it doesn’t return the name <code class="docutils literal notranslate"><span class="pre">z</span></code>, but instead assigns the values in the array <code class="docutils literal notranslate"><span class="pre">z</span></code> to the array <code class="docutils literal notranslate"><span class="pre">y</span></code>, as directed by the main program in line 9.</p>
+</div>
+<div class="section" id="Passing-variables-and-arrays-to-functions:-mutable-and-immutable-objects">
+<h4>Passing variables and arrays to functions: mutable and immutable objects<a class="headerlink" href="#Passing-variables-and-arrays-to-functions:-mutable-and-immutable-objects" title="Permalink to this headline">¶</a></h4>
+<p>What happens to a variable or an array passed to a function when the variable or array is <em>changed</em> within the function? It turns out that the answers are different depending on whether the variable passed is a simple numeric variable, string, or tuple, or whether it is an array or list. The program below illustrates the different ways that Python handles single variables <em>vs</em> the way it handles lists and arrays.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;I am doing fine&quot;</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">2.9</span><span class="p">)</span>
+    <span class="n">l</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;end&#39;</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">963.2</span>
+    <span class="k">return</span> <span class="n">s</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">a</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;How do you do?&quot;</span>
+<span class="n">v</span> <span class="o">=</span> <span class="mf">5.0</span>
+<span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mf">97.5</span><span class="p">,</span> <span class="mf">82.9</span><span class="p">,</span> <span class="mf">66.7</span><span class="p">)</span>
+<span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.9</span><span class="p">,</span> <span class="mf">5.7</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">,</span> <span class="mf">9.3</span><span class="p">]</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;*************&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;s = </span><span class="si">{0:s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;v = </span><span class="si">{0:5.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;t = </span><span class="si">{0:s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;l = </span><span class="si">{0:s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">l</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a = &quot;</span><span class="p">),</span>              <span class="c1"># comma suppresses line feed</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;*************&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;*call &quot;test&quot;*&#39;</span><span class="p">)</span>
+
+<span class="n">s1</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">l1</span><span class="p">,</span> <span class="n">a1</span> <span class="o">=</span> <span class="n">test</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;*************&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;s1 = </span><span class="si">{0:s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">s1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;v1 = </span><span class="si">{0:5.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">v1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;t1 = </span><span class="si">{0:s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;l1 = </span><span class="si">{0:s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">l1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a1 = &quot;</span><span class="p">),</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;*************&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;s = </span><span class="si">{0:s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;v = </span><span class="si">{0:5.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;t = </span><span class="si">{0:s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;l = </span><span class="si">{0:s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">l</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a = &quot;</span><span class="p">),</span>              <span class="c1"># comma suppresses line feed</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;*************&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The function <code class="docutils literal notranslate"><span class="pre">test</span></code> has five arguments, a string <code class="docutils literal notranslate"><span class="pre">s</span></code>, a numerical variable <code class="docutils literal notranslate"><span class="pre">v</span></code>, a tuple <code class="docutils literal notranslate"><span class="pre">t</span></code>, a list <code class="docutils literal notranslate"><span class="pre">l</span></code>, and a NumPy array <code class="docutils literal notranslate"><span class="pre">a</span></code>. <code class="docutils literal notranslate"><span class="pre">test</span></code> modifies each of these arguments and then returns the modified <code class="docutils literal notranslate"><span class="pre">s</span></code>, <code class="docutils literal notranslate"><span class="pre">v</span></code>, <code class="docutils literal notranslate"><span class="pre">t</span></code>, <code class="docutils literal notranslate"><span class="pre">l</span></code>, <code class="docutils literal notranslate"><span class="pre">a</span></code>. Running the program produces the following output.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">17</span><span class="p">]:</span> <span class="n">run</span> <span class="n">passingVars</span><span class="o">.</span><span class="n">py</span>
+<span class="o">*************</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">How</span> <span class="n">do</span> <span class="n">you</span> do<span class="o">?</span>
+<span class="n">v</span> <span class="o">=</span>  <span class="mf">5.00</span>
+<span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mf">97.5</span><span class="p">,</span> <span class="mf">82.9</span><span class="p">,</span> <span class="mf">66.7</span><span class="p">)</span>
+<span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.9</span><span class="p">,</span> <span class="mf">5.7</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">,</span> <span class="mf">9.3</span><span class="p">]</span>
+<span class="n">a</span> <span class="o">=</span>  <span class="p">[</span> <span class="mf">3.9</span>  <span class="mf">5.7</span>  <span class="mf">7.5</span>  <span class="mf">9.3</span><span class="p">]</span>
+<span class="o">*************</span>
+<span class="o">*</span><span class="n">call</span> <span class="s2">&quot;test&quot;</span><span class="o">*</span>
+<span class="o">*************</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="n">I</span> <span class="n">am</span> <span class="n">doing</span> <span class="n">fine</span>
+<span class="n">v1</span> <span class="o">=</span>  <span class="mf">9.87</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">2.9</span><span class="p">)</span>
+<span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.9</span><span class="p">,</span> <span class="mf">5.7</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">]</span>
+<span class="n">a1</span> <span class="o">=</span>  <span class="p">[</span> <span class="mf">963.2</span>    <span class="mf">5.7</span>    <span class="mf">7.5</span>    <span class="mf">9.3</span><span class="p">]</span>
+<span class="o">*************</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">How</span> <span class="n">do</span> <span class="n">you</span> do<span class="o">?</span>
+<span class="n">v</span> <span class="o">=</span>  <span class="mf">5.00</span>
+<span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mf">97.5</span><span class="p">,</span> <span class="mf">82.9</span><span class="p">,</span> <span class="mf">66.7</span><span class="p">)</span>
+<span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.9</span><span class="p">,</span> <span class="mf">5.7</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">]</span>
+<span class="n">a</span> <span class="o">=</span>  <span class="p">[</span> <span class="mf">963.2</span>    <span class="mf">5.7</span>    <span class="mf">7.5</span>    <span class="mf">9.3</span><span class="p">]</span>
+<span class="o">*************</span>
+</pre></div>
+</div>
+<p>The program prints out three blocks of variables separated by asterisks. The first block merely verifies that the contents of <code class="docutils literal notranslate"><span class="pre">s</span></code>, <code class="docutils literal notranslate"><span class="pre">v</span></code>, <code class="docutils literal notranslate"><span class="pre">t</span></code>, <code class="docutils literal notranslate"><span class="pre">l</span></code>, and <code class="docutils literal notranslate"><span class="pre">a</span></code> are those assigned in lines 10-13. Then the function <code class="docutils literal notranslate"><span class="pre">test</span></code> is called. The next block prints the output of the call to the function <code class="docutils literal notranslate"><span class="pre">test</span></code>, namely the variables <code class="docutils literal notranslate"><span class="pre">s1</span></code>, <code class="docutils literal notranslate"><span class="pre">v1</span></code>, <code class="docutils literal notranslate"><span class="pre">t1</span></code>, <code class="docutils literal notranslate"><span class="pre">l1</span></code>, and <code class="docutils literal notranslate"><span class="pre">a1</span></code>. The results verify that the function modified the inputs as directed by the <code class="docutils literal notranslate"><span class="pre">test</span></code> function.</p>
+<p>The third block prints out the variables <code class="docutils literal notranslate"><span class="pre">s</span></code>, <code class="docutils literal notranslate"><span class="pre">v</span></code>, <code class="docutils literal notranslate"><span class="pre">t</span></code>, <code class="docutils literal notranslate"><span class="pre">l</span></code>, and <code class="docutils literal notranslate"><span class="pre">a</span></code> from the calling program <em>after</em> the function <code class="docutils literal notranslate"><span class="pre">test</span></code> was called. These variables served as the inputs to the function <code class="docutils literal notranslate"><span class="pre">test</span></code>. Examining the output from the third printing block, we see that the values of the string <code class="docutils literal notranslate"><span class="pre">s</span></code>, the numeric variable <code class="docutils literal notranslate"><span class="pre">v</span></code>, and the contents of <code class="docutils literal notranslate"><span class="pre">t</span></code> are unchanged after the function call. This is probably what you would expect. On the other hand, we see that the list <code class="docutils literal notranslate"><span class="pre">l</span></code> and the array
+<code class="docutils literal notranslate"><span class="pre">a</span></code> are changed after the function call. This might surprise you! But these are important points to remember, so important that we summarize them in two bullet points here:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Changes to string, variable, and tuple arguments of a function within the function do not affect their values in the calling program.</p></li>
+<li><p>Changes to values of elements in list and array arguments of a function within the function are reflected in the values of the same list and array elements in the calling function.</p></li>
+</ul>
+</div></blockquote>
+<p>The point is that simple numerics, strings and tuples are immutable while lists and arrays are mutable. Because immutable objects can’t be changed, changing them within a function creates new objects with the same name inside of the function, but the old immutable objects that were used as arguments in the function call remain unchanged in the calling program. On the other hand, if elements of mutable objects like those in lists or arrays are changed, then those elements that are changed inside
+the function are also changed in the calling program.</p>
+</div>
+</div>
+</div>
+<div class="section" id="Methods-and-attributes">
+<h2>Methods and attributes<a class="headerlink" href="#Methods-and-attributes" title="Permalink to this headline">¶</a></h2>
+<p>You have already encountered quite a number of functions that are part of either NumPy or Python or Matplotlib. But there is another way in which Python implements things that act like functions. To understand what they are, you need to understand that variables, strings, arrays, lists, and other such data structures in Python are not merely the numbers or strings we have defined them to be. They are <em>objects</em>. In general, an object in Python has associated with it a number of <em>attributes</em> and a
+number of specialized functions called <em>methods</em> that act on the object. How attributes and methods work with objects is best illustrated by example.</p>
+<p>Let’s start with the NumPy array. A NumPy array is a Python object and therefore has associated with it a number of attributes and methods. Suppose, for example, we write <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">random.random(10)</span></code>, which creates an array of 10 uniformly distributed random numbers between 0 and 1. An example of an attribute of an array is the size or number of elements in the array. An attribute of an object in Python is accessed by typing the object name followed by a period followed by the attribute name. The
+code below illustrates how to access two different attributes of an array, it’s size and its data type.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">18</span><span class="p">]:</span> <span class="n">a</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">19</span><span class="p">]:</span> <span class="n">a</span><span class="o">.</span><span class="n">size</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">19</span><span class="p">]:</span> <span class="mi">10</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">20</span><span class="p">]:</span> <span class="n">a</span><span class="o">.</span><span class="n">dtype</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">20</span><span class="p">]:</span> <span class="n">dtype</span><span class="p">(</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Any object in Python can and in general does have a number of attributes that are accessed in just the way demonstrated above, with a period and the attribute name following the name of the particular object. In general, attributes involve properties of the object that are stored by Python with the object and require no computation. Python just looks up the attribute and returns its value.</p>
+<p>Objects in Python also have associated with them a number of specialized functions called <em>methods</em> that act on the object. In contrast to attributes, methods generally involve Python performing some kind of computation. Methods are accessed in a fashion similar to attributes, by appending a period followed the method’s name, which is followed by a pair of open-close parentheses, consistent with methods being a kind of function that acts on the object. Often methods are used with no arguments,
+as methods by default act on the object whose name they follow. In some cases. however, methods can take arguments. Examples of methods for NumPy arrays are sorting, calculating the mean, or standard deviation of the array. The code below illustrates a few array methods.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">21</span><span class="p">]:</span> <span class="n">a</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">21</span><span class="p">]:</span>
+<span class="n">array</span><span class="p">([</span> <span class="mf">0.859057</span>  <span class="p">,</span>  <span class="mf">0.27228037</span><span class="p">,</span>  <span class="mf">0.87780026</span><span class="p">,</span>  <span class="mf">0.14341207</span><span class="p">,</span>
+        <span class="mf">0.05067356</span><span class="p">,</span>  <span class="mf">0.83490135</span><span class="p">,</span>  <span class="mf">0.54844515</span><span class="p">,</span>  <span class="mf">0.33583966</span><span class="p">,</span>
+        <span class="mf">0.31527767</span><span class="p">,</span>  <span class="mf">0.15868803</span><span class="p">])</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">22</span><span class="p">]:</span> <span class="n">a</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>                <span class="c1"># sum</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">22</span><span class="p">]:</span> <span class="mf">4.3963751104791005</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">23</span><span class="p">]:</span> <span class="n">a</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>               <span class="c1"># mean or average</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">23</span><span class="p">]:</span> <span class="mf">0.43963751104791005</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">24</span><span class="p">]:</span> <span class="n">a</span><span class="o">.</span><span class="n">var</span><span class="p">()</span>                <span class="c1"># variance</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">24</span><span class="p">]:</span> <span class="mf">0.090819477333711512</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">25</span><span class="p">]:</span> <span class="n">a</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>                <span class="c1"># standard deviation</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">25</span><span class="p">]:</span> <span class="mf">0.30136270063448711</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">26</span><span class="p">]:</span> <span class="n">a</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>               <span class="c1"># sort small to large</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">27</span><span class="p">]:</span> <span class="n">a</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">27</span><span class="p">]:</span>
+<span class="n">array</span><span class="p">([</span> <span class="mf">0.05067356</span><span class="p">,</span>  <span class="mf">0.14341207</span><span class="p">,</span>  <span class="mf">0.15868803</span><span class="p">,</span>  <span class="mf">0.27228037</span><span class="p">,</span>
+        <span class="mf">0.31527767</span><span class="p">,</span>  <span class="mf">0.33583966</span><span class="p">,</span>  <span class="mf">0.54844515</span><span class="p">,</span>  <span class="mf">0.83490135</span><span class="p">,</span>
+        <span class="mf">0.859057</span>  <span class="p">,</span>  <span class="mf">0.87780026</span><span class="p">])</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">28</span><span class="p">]:</span> <span class="n">a</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">29</span><span class="p">]:</span>
+<span class="n">array</span><span class="p">([</span> <span class="mf">0.3</span>       <span class="p">,</span>  <span class="mf">0.3</span>       <span class="p">,</span>  <span class="mf">0.3</span>       <span class="p">,</span>  <span class="mf">0.3</span>       <span class="p">,</span>
+        <span class="mf">0.31527767</span><span class="p">,</span>  <span class="mf">0.33583966</span><span class="p">,</span>  <span class="mf">0.54844515</span><span class="p">,</span>  <span class="mf">0.8</span>       <span class="p">,</span>
+        <span class="mf">0.8</span>       <span class="p">,</span>  <span class="mf">0.8</span>       <span class="p">])</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">clip()</span></code> method provides an example of a method that takes an argument, in this case the arguments are the lower and upper values to which array elements are cutoff if their values are outside the range set by these values.</p>
+<p>single: curve fitting; linear</p>
+</div>
+<div class="section" id="Example:-linear-least-squares-fitting">
+<h2>Example: linear least squares fitting<a class="headerlink" href="#Example:-linear-least-squares-fitting" title="Permalink to this headline">¶</a></h2>
+<p>In this section we illustrate how to use functions and methods in the context of modeling experimental data.</p>
+<p>In science and engineering we often have some theoretical curve or <em>fitting function</em> that we would like to fit to some experimental data. In general, the fitting function is of the form <span class="math notranslate nohighlight">\(f(x; a, b, c, ...)\)</span>, where <span class="math notranslate nohighlight">\(x\)</span> is the independent variable and <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(c\)</span>, … are parameters to be adjusted so that the function <span class="math notranslate nohighlight">\(f(x; a, b, c, ...)\)</span> best fits the experimental data. For example, suppose we had some data of the velocity <em>vs</em> time for a falling mass. If the
+mass falls only a short distance such that its velocity remains well below its terminal velocity, we can ignore air resistance. In this case, we expect the acceleration to be constant and the velocity to change linearly in time according to the equation</p>
+<div class="math notranslate nohighlight">
+\[v(t) = v_{0} - g t \;,\]</div>
+<p>where <span class="math notranslate nohighlight">\(g\)</span> is the local gravitational acceleration. We can fit the data graphically, say by plotting it as shown below in Fig. <code class="docutils literal notranslate"><span class="pre">4.6&lt;fig:FallingMassDataPlot&gt;</span></code> and then drawing a line through the data. When we draw a straight line through a data, we try to minimize the distance between the points and the line, globally averaged over the whole data set.</p>
+<figure><p><img alt="" class="align-center" src="attachment:VelocityVsTimePlot.png" /></p>
+<figcaption><p>Velocity vs time for falling mass.</p>
+</figcaption></figure><p>While this can give a reasonable estimate of the best fit to the data, the procedure is rather <em>ad hoc</em>. We would prefer to have a more well-defined analytical method for determining what constitutes a “best fit”. One way to do that is to consider the sum</p>
+<div class="math notranslate nohighlight">
+\[S = \sum_{i}^{n} [y_{i} - f(x_{i}; a, b, c, ...)]^2 \;,\]</div>
+<p>where <span class="math notranslate nohighlight">\(y_{i}\)</span> and <span class="math notranslate nohighlight">\(f(x_{i}; a, b, c, ...)\)</span> are the values of the experimental data and the fitting function, respectively, at <span class="math notranslate nohighlight">\(x_{i}\)</span>, and <span class="math notranslate nohighlight">\(S\)</span> is the square of their difference summed over all <span class="math notranslate nohighlight">\(n\)</span> data points. The quantity <span class="math notranslate nohighlight">\(S\)</span> is a sort of global measure of how much the the fit <span class="math notranslate nohighlight">\(f(x_{i}; a, b, c, ...)\)</span> differs from the experimental data <span class="math notranslate nohighlight">\(y_{i}\)</span>.</p>
+<p>Notice that for a given set of data points <span class="math notranslate nohighlight">\(\{x_i, y_i\}\)</span>, <span class="math notranslate nohighlight">\(S\)</span> is a function only of the fitting parameters <span class="math notranslate nohighlight">\(a, b, ...\)</span>, that is, <span class="math notranslate nohighlight">\(S=S(a, b, c, ...)\)</span>. One way of defining a <em>best</em> fit, then, is to find the values of the fitting parameters <span class="math notranslate nohighlight">\(a, b, ...\)</span> that minimize the <span class="math notranslate nohighlight">\(S\)</span>.</p>
+<p>In principle, finding the values of the fitting parameters <span class="math notranslate nohighlight">\(a, b, ...\)</span> that minimize the <span class="math notranslate nohighlight">\(S\)</span> is a simple matter. Just set the partial derivatives of <span class="math notranslate nohighlight">\(S\)</span> with respect to the fitting parameter equal to zero and solve the resulting system of equations:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial S}{\partial a} = 0 \;, \quad
+\frac{\partial S}{\partial b} = 0 \;, ...\]</div>
+<p>Because there are as many equations as there are fitting paramters, we should be able to solve the system of equations and find the values of the fitting parameters that minimize <span class="math notranslate nohighlight">\(S\)</span>. Solving those systems of equations is straightforward if the fitting function <span class="math notranslate nohighlight">\(f(x; a, b, ...)\)</span> is linear in the fitting parameters. Some examples of fitting functions linear in the fitting parameters are:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+f(x; a, b) &amp;= a + bx \\
+f(x; a, b, c) &amp;= a + bx + cx^2 \\
+f(x; a, b, c) &amp;= a \sin x + b e^x + c e^{-x^2} \;.
+\end{aligned}\end{split}\]</div>
+<p>For fitting functions such as these, taking the partial derivatives with respect to the fitting parameters, as proposed in <code class="docutils literal notranslate"><span class="pre">eq:sysSzero</span></code>, results in a set of algebraic equations that are linear in the fitting paramters <span class="math notranslate nohighlight">\(a, b, ...\)</span> Because they are linear, these equations can be solved in a straightforward manner.</p>
+<p>For cases in which the fitting function is not linear in the fitting parameters, one can generally still find the values of the fitting parameters that minimize <span class="math notranslate nohighlight">\(S\)</span> but finding them requires more work, which goes beyond our immediate interests here.</p>
+<div class="section" id="Linear-regression">
+<h3>Linear regression<a class="headerlink" href="#Linear-regression" title="Permalink to this headline">¶</a></h3>
+<p>We start by considering the simplest case, fitting a straight line to a data set, such as the one shown in Fig. <code class="docutils literal notranslate"><span class="pre">4.6</span> <span class="pre">&lt;fig:FallingMassDataPlot&gt;</span></code> above. Here the fitting function is <span class="math notranslate nohighlight">\(f(x) = a + bx\)</span>, which is linear in the fitting parameters <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>. For a straight line, the sum in <code class="docutils literal notranslate"><span class="pre">eq:lsqrsum</span></code> becomes</p>
+<div class="math notranslate nohighlight">
+\[S(a,b) = \sum_{i} (y_{i} - a - bx_{i})^2 \;.\]</div>
+<p>Finding the best fit in this case corresponds to finding the values of the fitting parameters <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> for which <span class="math notranslate nohighlight">\(S(a,b)\)</span> is a minimum. To find the minimum, we set the derivatives of <span class="math notranslate nohighlight">\(S(a,b)\)</span> equal to zero:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\frac{\partial S}{\partial a} &amp;= \sum_{i}-2(y_{i}-a-bx_{i}) = 2 \left(na + b\sum_{i}x_{i} - \sum_{i}y_{i} \right) = 0 \\
+\frac{\partial S}{\partial b} &amp;= \sum_{i}-2(y_{i}-a-bx_{i})\,x_{i} = 2 \left(a\sum_{i}x_{i} + b\sum_{i}x_{i}^2 - \sum_{i}x_{i}y_{i} \right) = 0
+\end{aligned}\end{split}\]</div>
+<p>Dividing both equations by <span class="math notranslate nohighlight">\(2n\)</span> leads to the equations</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+a + b\bar{x} &amp;= \bar{y}\\
+a\bar{x} + b\frac{1}{n}\sum_{i}x_{i}^2  &amp;=  \frac{1}{n}\sum_{i}x_{i}y_{i}
+\end{aligned}\end{split}\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\bar{x} &amp;= \frac{1}{n}\sum_{i}x_{i}\\
+\bar{y} &amp;= \frac{1}{n}\sum_{i}y_{i}\;.
+\end{aligned}\end{split}\]</div>
+<p>Solving Eq. <code class="docutils literal notranslate"><span class="pre">eq:ablinreg</span></code> for the fitting parameters gives</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+b &amp;= \frac{\sum_{i}x_{i}y_{i} - n\bar{x}\bar{y}} {\sum_{i}x_{i}^2 - n \bar{x}^2}\\
+a &amp;= \bar{y} - b\bar{x} \;.
+\end{aligned}\end{split}\]</div>
+<p>Noting that <span class="math notranslate nohighlight">\(n\bar{y}=\sum_{i}y\)</span> and <span class="math notranslate nohighlight">\(n\bar{x}=\sum_{i}x\)</span>, the results can be written as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+b &amp;= \frac{\sum_{i}(x_{i}- \bar{x})\,y_{i}} {\sum_{i}(x_{i}- \bar{x})\,x_{i}} \\
+a &amp;= \bar{y} - b\bar{x} \;.
+\end{aligned}\end{split}\]</div>
+<p>While Eqs. <code class="docutils literal notranslate"><span class="pre">eq:b1</span></code> and <code class="docutils literal notranslate"><span class="pre">eq:b2</span></code> are equivalent analytically, Eq. <code class="docutils literal notranslate"><span class="pre">eq:b2</span></code> is preferred for numerical calculations because Eq. <code class="docutils literal notranslate"><span class="pre">eq:b2</span></code> is less sensitive to roundoff errors. Here is a Python function implementing this algorithm:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">LineFit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Returns slope and y-intercept of linear fit to (x,y)</span>
+<span class="sd">    data set&#39;&#39;&#39;</span>
+    <span class="n">xavg</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">slope</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">xavg</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">xavg</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">yint</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">-</span><span class="n">slope</span><span class="o">*</span><span class="n">xavg</span>
+    <span class="k">return</span> <span class="n">slope</span><span class="p">,</span> <span class="n">yint</span>
+</pre></div>
+</div>
+<p>It’s hard to imagine a simpler implementation of the linear regression algorithm.</p>
+<p>single: curve fitting; linear; with weighting</p>
+</div>
+<div class="section" id="Linear-regression-with-weighting:-\chi^2">
+<h3>Linear regression with weighting: <span class="math notranslate nohighlight">\(\chi^2\)</span><a class="headerlink" href="#Linear-regression-with-weighting:-\chi^2" title="Permalink to this headline">¶</a></h3>
+<p>The linear regression routine of the previous section weights all data points equally. That is fine if the absolute uncertainty is the same for all data points. In many cases, however, the uncertainty is different for different points in a data set. In such cases, we would like to weight the data that has smaller uncertainty more heavily than those data that have greater uncertainty. For this case, there is a standard method of weighting and fitting data that is known as <span class="math notranslate nohighlight">\(\chi^2\)</span> (or
+<em>chi-squared</em>) fitting. In this method we suppose that associated with each <span class="math notranslate nohighlight">\((x_{i},y_{i})\)</span> data point is an uncertainty in the value of <span class="math notranslate nohighlight">\(y_{i}\)</span> of <span class="math notranslate nohighlight">\(\pm\sigma_{i}\)</span>. In this case, the “best fit” is defined as the the one with the set of fitting parameters that minimizes the sum</p>
+<div class="math notranslate nohighlight">
+\[\chi^2 = \sum_{i} \left(\frac{y_{i} - f(x_{i})} {\sigma_{i}}\right)^2 \;.\]</div>
+<p>Setting the uncertainties <span class="math notranslate nohighlight">\(\sigma_{i}=1\)</span> for all data points yields the same sum <span class="math notranslate nohighlight">\(S\)</span> we introduced in the previous section. In this case, all data points are weighted equally. However, if <span class="math notranslate nohighlight">\(\sigma_{i}\)</span> varies from point to point, it is clear that those points with large <span class="math notranslate nohighlight">\(\sigma_{i}\)</span> contribute less to the sum than those with small <span class="math notranslate nohighlight">\(\sigma_{i}\)</span>. Thus, data points with large <span class="math notranslate nohighlight">\(\sigma_{i}\)</span> are weighted less than those with small <span class="math notranslate nohighlight">\(\sigma_{i}\)</span>.</p>
+<p>To fit data to a straight line, we set <span class="math notranslate nohighlight">\(f(x) = a + bx\)</span> and write</p>
+<div class="math notranslate nohighlight">
+\[\chi^2(a,b) = \sum_{i} \left(\frac{y_{i} - a -bx_{i}} {\sigma_{i}}\right)^2 \;.\]</div>
+<p>Finding the minimum for <span class="math notranslate nohighlight">\(\chi^2(a,b)\)</span> follows the same procedure used for finding the minimum of <span class="math notranslate nohighlight">\(S(a,b)\)</span> in the previous section. The result is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+b &amp;= \frac{\sum_{i}(x_{i} - \hat{x})\,y_{i}/\sigma_{i}^2} {\sum_{i}(x_{i} - \hat{x})\,x_{i}/\sigma_{i}^2}\\
+a &amp;= \hat{y} - b\hat{x} \;.
+\end{aligned}\end{split}\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\hat{x} &amp;= \frac{\sum_{i}x_{i}/\sigma_{i}^2} {\sum_{i}1/\sigma_{i}^2}\\
+\hat{y} &amp;= \frac{\sum_{i}y_{i}/\sigma_{i}^2} {\sum_{i}1/\sigma_{i}^2}\;.
+\end{aligned}\end{split}\]</div>
+<p>For a fit to a straight line, the overall quality of the fit can be measured by the reduced chi-squared parameter</p>
+<div class="math notranslate nohighlight">
+\[\chi_{r}^2 = \frac{\chi^2}{n-2}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\chi^2\)</span> is given by Eq. <code class="docutils literal notranslate"><span class="pre">eq:chisq</span></code> evaluated at the optimal values of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> given by Eq. <code class="docutils literal notranslate"><span class="pre">eq:abwchisq</span></code>. A good fit is characterized by <span class="math notranslate nohighlight">\(\chi_{r}^2 \approx 1\)</span>. This makes sense because if the uncertainties <span class="math notranslate nohighlight">\(\sigma_{i}\)</span> have been properly estimated, then <span class="math notranslate nohighlight">\([y_{i}-f(x_{i})]^2\)</span> should on average be roughly equal to <span class="math notranslate nohighlight">\(\sigma_{i}^2\)</span>, so that the sum in Eq. <code class="docutils literal notranslate"><span class="pre">eq:chisq</span></code> should consist of <span class="math notranslate nohighlight">\(n\)</span> terms approximately equal to 1. Of course, if
+there were only 2 terms (n=2), then <span class="math notranslate nohighlight">\(\chi^2\)</span> would be zero as the best straight line fit to two points is a perfect fit. That is essentially why <span class="math notranslate nohighlight">\(\chi_{r}^2\)</span> is normalized using <span class="math notranslate nohighlight">\(n-2\)</span> instead of <span class="math notranslate nohighlight">\(n\)</span>. If <span class="math notranslate nohighlight">\(\chi_{r}^2\)</span> is significantly greater than 1, this indicates a poor fit to the fitting function (or an underestimation of the uncertainties <span class="math notranslate nohighlight">\(\sigma_{i}\)</span>). If <span class="math notranslate nohighlight">\(\chi_{r}^2\)</span> is significantly less than 1, then it indicates that the uncertainties were probably
+overestimated (the fit and fitting function may or may not be good).</p>
+<figure><p><img alt="" class="align-center" src="attachment:VelocityVsTimeFit.png" /></p>
+<figcaption><p>Fit using χ2 least squares fitting routine with data weighted by error bars.</p>
+</figcaption></figure><p>We can also get estimates of the uncertainties in our determination of the fitting parameters <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, although deriving the formulas is a bit more involved that we want to get into here. Therefore, we just give the results:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\sigma_{b}^2 &amp;= \frac{1} {\sum_{i}(x_{i} - \hat{x})\,x_{i}/\sigma_{i}^2}\\
+\sigma_{a}^2 &amp;= \sigma_{b}^2 \frac{\sum_{i}x_{i}^2/\sigma_{i}^2} {\sum_{i}1/\sigma_{i}^2}\;.
+\end{aligned}\end{split}\]</div>
+<p>The estimates of uncertainties in the fitting parameters depend explicitly on <span class="math notranslate nohighlight">\(\{\sigma_{i}\}\)</span> and will only be meaningful if (<em>i</em>) <span class="math notranslate nohighlight">\(\chi_{r}^2 \approx 1\)</span> and (<em>ii</em>) the estimates of the uncertainties <span class="math notranslate nohighlight">\(\sigma_{i}\)</span> are accurate.</p>
+<p>You can find more information, including a derivation of Eq. <code class="docutils literal notranslate"><span class="pre">eq:absigma</span></code>, in <em>Data Reduction and Error Analysis for the Physical Sciences, 3rd ed</em> by P. R. Bevington &amp; D. K. Robinson, McGraw-Hill, New York, 2003.</p>
+<p>single: anonymous functions single: anonymous functions; lambda expressions single: lambda expressions</p>
+</div>
+</div>
+<div class="section" id="Anonymous-functions-(lambda)">
+<h2>Anonymous functions (lambda)<a class="headerlink" href="#Anonymous-functions-(lambda)" title="Permalink to this headline">¶</a></h2>
+<p>Python provides another way to generate functions called <em>lambda</em> expressions. A lambda expression is a kind of in-line function that can be generated on the fly to accomplish some small task. You can assign lambda functions a name, but you don’t need to; hence, they are often called <em>anonymous</em> functions. A lambda uses the keyword <code class="docutils literal notranslate"><span class="pre">lambda</span></code> and has the general form</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="k">lambda</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="o">...</span> <span class="p">:</span> <span class="n">output</span>
+</pre></div>
+</div>
+<p>The arguments <code class="docutils literal notranslate"><span class="pre">arg1,</span> <span class="pre">arg2,</span> <span class="pre">...</span></code> are inputs to a lambda, just as for a functions, and the output is an expression using the arguments.</p>
+<p>While lambda expressions need not be named, we illustrate their use by comparing a conventional Python function definition to a lambda expression to which we give a name. First, we define a conventional python function</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+   <span class="o">...</span><span class="p">:</span>     <span class="k">return</span> <span class="mi">3</span><span class="o">*</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="mi">15</span>
+</pre></div>
+</div>
+<p>Next, we define a lambda that does the same thing</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">g</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="p">:</span> <span class="mi">3</span><span class="o">*</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="n">g</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="mi">15</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">lambda</span></code> defined by <code class="docutils literal notranslate"><span class="pre">g</span></code> does the same thing as the function <code class="docutils literal notranslate"><span class="pre">f</span></code>. Such <code class="docutils literal notranslate"><span class="pre">lambda</span></code> expressions are useful when you need a very short function definition, usually to be used locally only once or a few times.</p>
+<p>Sometimes lambda expressions are used in function arguments that call for a function <em>name</em>, as opposed to the function itself. Moreover, in cases where a the function to be integrated is already defined but is a function one independent variable and several parameters, the lambda expression can be a convenient way of fashioning a single variable function. Don’t worry if this doesn’t quite make sense to you right now. You will see examples of lambda expressions used in just this way in the
+section <code class="docutils literal notranslate"><span class="pre">numericalIntegration</span></code>.</p>
+<p>There are also a number of nifty programming tricks that can be implemented using <code class="docutils literal notranslate"><span class="pre">lambda</span></code> expressions, but we will not go into them here. Look up <code class="docutils literal notranslate"><span class="pre">lambdas</span></code> on the web if you are curious about their more exotic uses.</p>
+</div>
+<div class="section" id="Exercises">
+<h2>Exercises<a class="headerlink" href="#Exercises" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Write a function that can return each of the first three spherical Bessel functions <span class="math notranslate nohighlight">\(j_n(x)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+j_0(x) &amp;= \frac{\sin x}{x}\\
+j_1(x) &amp;= \frac{\sin x}{x^2} - \frac{\cos x}{x}\\
+j_2(x) &amp;= \left(\frac{3}{x^2}-1\right)\frac{\sin x}{x} - \frac{3\cos x}{x^2}
+\end{aligned}\end{split}\]</div>
+<p>Your function should take as arguments a NumPy array <span class="math notranslate nohighlight">\(x\)</span> and the order <span class="math notranslate nohighlight">\(n\)</span>, and should return an array of the designated order <span class="math notranslate nohighlight">\(n\)</span> spherical Bessel function. Take care to make sure that your functions behave properly at <span class="math notranslate nohighlight">\(x=0\)</span>.</p>
+<p>Demonstrate the use of your function by writing a Python routine that plots the three Bessel functions for <span class="math notranslate nohighlight">\(0 \le x \le 20\)</span>. Your plot should look like the one below. Something to think about: You might note that <span class="math notranslate nohighlight">\(j_1(x)\)</span> can be written in terms of <span class="math notranslate nohighlight">\(j_0(x)\)</span>, and that <span class="math notranslate nohighlight">\(j_2(x)\)</span> can be written in terms of <span class="math notranslate nohighlight">\(j_1(x)\)</span> and <span class="math notranslate nohighlight">\(j_0(x)\)</span>. Can you take advantage of this to write a more efficient function for the calculations of <span class="math notranslate nohighlight">\(j_1(x)\)</span> and <span class="math notranslate nohighlight">\(j_2(x)\)</span>?</p>
+<figure><p><img alt="" class="align-center" src="attachment:besselSph.png" /></p>
+</figure></li>
+<li><ol class="arabic simple">
+<li><p>Write a function that simulates the rolling of <span class="math notranslate nohighlight">\(n\)</span> dice. Use the NumPy function <code class="docutils literal notranslate"><span class="pre">random.random_integers(6)</span></code>, which generates a random integer between 1 and 6 with equal probability (like rolling fair dice). The input of your function should be the number of dice thrown each roll and the output should be the sum of the <span class="math notranslate nohighlight">\(n\)</span> dice.</p></li>
+<li><p>“Roll” 2 dice 10,000 times keeping track of all the sums of each set of rolls in a list. Then use your program to generate a histogram summarizing the rolls of two dice 10,000 times. The result should look like the histogram plotted below. Use the MatPlotLib function <code class="docutils literal notranslate"><span class="pre">hist</span></code> (see <a class="reference external" href="http://matplotlib.org/api/pyplot_summary.html">http://matplotlib.org/api/pyplot_summary.html</a>) and set the number of bins in the histogram equal to the number of different possible outcomes of a roll of your dice. For example, the sum of two dice can be
+anything between 2 and 12, which corresponds to 11 possible outcomes. You should get a histogram that looks like the one below.</p></li>
+<li><p>“Repeat part (b) using 3 dice and plot the resulting histogram.</p></li>
+</ol>
+<figure><p><img alt="" class="align-center" src="attachment:diceRoll2.png" /></p>
+</figure></li>
+<li><p>Write a function to draw a circular smiley face with eyes, a nose, and a mouth. One argument should set the overall size of the face (the circle radius). Optional arguments should allow the user to specify the <span class="math notranslate nohighlight">\((x,y)\)</span> position of the face, whether the face is smiling or frowning, and the color of the lines. The default should be a smiling blue face centered at <span class="math notranslate nohighlight">\((0,0)\)</span>. Once you write your function, write a program that calls it several times to produce a plot like the one below
+(creative improvisation is encouraged!). In producing your plot, you may find the call <code class="docutils literal notranslate"><span class="pre">plt.axes().set_aspect(1)</span></code> useful so that circles appear as circles and not ovals. You should only use MatPlotLib functions introduced in this text. To create a circle you can create an array of angles that goes from 0 to <span class="math notranslate nohighlight">\(2\pi\)</span> and then produce the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> arrays for your circle by taking the cosine and sine, respectively, of the array. Hint: You can use the same <span class="math notranslate nohighlight">\((x,y)\)</span>
+arrays to make the smile and frown as you used to make the circle by plotting appropriate slices of those arrays. You do not need to create new arrays.</p>
+<figure><p><img alt="" class="align-center" src="attachment:smiley.png" /></p>
+</figure></li>
+<li><p>In the section <code class="docutils literal notranslate"><span class="pre">linfitfunc</span></code>, we showed that the best fit of a line <span class="math notranslate nohighlight">\(y = a + bx\)</span> to a set of data <span class="math notranslate nohighlight">\(\{(x_i,y_i)\}\)</span> is obtained for the values of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> given by Eq. <code class="docutils literal notranslate"><span class="pre">eq:b2</span></code>. Those formulas were obtained by finding the values of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> that minimized the sum in Eq. <code class="docutils literal notranslate"><span class="pre">eq:linreg1</span></code>. This approach and these formulas are valid when the uncertainties in the data are the same for all data points. The Python function <code class="docutils literal notranslate"><span class="pre">LineFit(x,</span> <span class="pre">y)</span></code> in the section
+<code class="docutils literal notranslate"><span class="pre">linfitfunc</span></code> implements Eq. <code class="docutils literal notranslate"><span class="pre">eq:b2</span></code>.</p>
+<ol class="arabic">
+<li><p>Write a new fitting function <code class="docutils literal notranslate"><span class="pre">LineFitWt(x,</span> <span class="pre">y)</span></code> that implements the formulas given in Eq. <code class="docutils literal notranslate"><span class="pre">eq:xychisq</span></code> that minimize the <span class="math notranslate nohighlight">\(\chi^2\)</span> function give by Eq. <code class="docutils literal notranslate"><span class="pre">eq:chisqlin</span></code>. This more general approach is valid when the individual data points have different weightings <em>or</em> when they all have the same weighting. You should also write a function to calculate the reduced chi-squared <span class="math notranslate nohighlight">\(\chi_r^2\)</span> defined by Eq. <code class="docutils literal notranslate"><span class="pre">eq:chisqlin</span></code>.</p></li>
+<li><p>Write a Python program that reads in the data below, plots it, and fits it using the two fitting functions <code class="docutils literal notranslate"><span class="pre">LineFit(x,</span> <span class="pre">y)</span></code> and <code class="docutils literal notranslate"><span class="pre">LineFitWt(x,</span> <span class="pre">y)</span></code>. Your program should plot the data with error bars and with <em>both</em> fits with and without weighting, that is from <code class="docutils literal notranslate"><span class="pre">LineFit(x,</span> <span class="pre">y)</span></code> and <code class="docutils literal notranslate"><span class="pre">LineFitWt(x,</span> <span class="pre">y,</span> <span class="pre">dy)</span></code>. It should also report the results for both fits on the plot, similar to the output of the supplied program above, as well as the values of <span class="math notranslate nohighlight">\(\chi_r^2\)</span>, the reduce chi-squared
+value, for both fits. Explain why weighting the data gives a steeper or less steep slope than the fit without weighting.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Velocity</span> <span class="n">vs</span> <span class="n">time</span> <span class="n">data</span>
+<span class="k">for</span> <span class="n">a</span> <span class="n">falling</span> <span class="n">mass</span>
+<span class="n">time</span> <span class="p">(</span><span class="n">s</span><span class="p">)</span>   <span class="n">velocity</span> <span class="p">(</span><span class="n">m</span><span class="o">/</span><span class="n">s</span><span class="p">)</span>   <span class="n">uncertainty</span> <span class="p">(</span><span class="n">m</span><span class="o">/</span><span class="n">s</span><span class="p">)</span>
+  <span class="mf">2.23</span>          <span class="mi">139</span>               <span class="mi">16</span>
+  <span class="mf">4.78</span>          <span class="mi">123</span>               <span class="mi">16</span>
+  <span class="mf">7.21</span>          <span class="mi">115</span>                <span class="mi">4</span>
+  <span class="mf">9.37</span>           <span class="mi">96</span>                <span class="mi">9</span>
+ <span class="mf">11.64</span>           <span class="mi">62</span>               <span class="mi">17</span>
+ <span class="mf">14.23</span>           <span class="mi">54</span>               <span class="mi">17</span>
+ <span class="mf">16.55</span>           <span class="mi">10</span>               <span class="mi">12</span>
+ <span class="mf">18.70</span>           <span class="o">-</span><span class="mi">3</span>               <span class="mi">15</span>
+ <span class="mf">21.05</span>          <span class="o">-</span><span class="mi">13</span>               <span class="mi">18</span>
+ <span class="mf">23.21</span>          <span class="o">-</span><span class="mi">55</span>               <span class="mi">10</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+<li><p>Modify the function <code class="docutils literal notranslate"><span class="pre">LineFitWt(x,</span> <span class="pre">y)</span></code> you wrote in Exercise 4 above so that in addition to returning the fitting parameters <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, it also returns the uncertainties in the fitting parameters <span class="math notranslate nohighlight">\(\sigma_a\)</span> and <span class="math notranslate nohighlight">\(\sigma_b\)</span> using the formulas given by Eq. <code class="docutils literal notranslate"><span class="pre">eq:absigma</span></code>. Use your new fitting function to find the uncertainties in the fitted slope and <span class="math notranslate nohighlight">\(y\)</span>-intercept for the data provided with Exercise 4.</p></li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="chap8_fitting.html" class="btn btn-neutral float-right" title="Curve Fitting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="chap6_loopsconds.html" class="btn btn-neutral float-left" title="Conditionals and Loops" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Numeric project
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,427 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting started &mdash; Numeric course 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="IPython Notebooks" href="apdx2_ipynb.html" />
+    <link rel="prev" title="Numerical Routines: SciPy and NumPy" href="chap9_scipy.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Numeric course
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="chap1_intro.html">Chapter 1: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap2_basics.html">Chapter 2: First Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap3_arrays.html">Chapter 3: Arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap4_io.html">Chapter 4: Input and Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap5_plot.html">Chapter 5: Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap6_loopsconds.html">Chapter 6: Flow control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap7_funcs.html">Chapter 7: Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap8_fitting.html">Chapter 8: Curve Fitting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap9_scipy.html">Chapter 9: Scipy</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Appendix 1: Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#The-bash-command-shell">The bash command shell</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#1.-Installing-the-bash-shell">1. Installing the bash shell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#2.-Working-with-the-shell">2. Working with the shell</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Installing-the-atom-file-editor">Installing the atom file editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Installing-python">Installing python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Installing-python-modules">Installing python modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Running-Python">Running Python</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apdx2_ipynb.html">Appendix 2: Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apdx3_resources.html">Appendix 3: Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Numeric course</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Getting started</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/apdx1_install.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<h1><p>Table of Contents</p>
+</h1><div class="toc"><ul class="toc-item"><li><p>1  Getting started</p>
+<ul class="toc-item"><li><p>1.1  The bash command shell</p>
+<ul class="toc-item"><li><p>1.1.1  1. Installing the bash shell</p>
+</li><li><p>1.1.2  2. Working with the shell</p>
+</li></ul></li><li><p>1.2  Installing the atom file editor</p>
+</li><li><p>1.3  Installing python</p>
+</li><li><p>1.4  Installing python modules</p>
+</li><li><p>1.5  Running Python</p>
+</li></ul></li></ul></div><p>python</p>
+<div class="section" id="Getting-started">
+<h1>Getting started<a class="headerlink" href="#Getting-started" title="Permalink to this headline">¶</a></h1>
+<p>We are going to be writing our own programs, which means we need some way to run code that takes in data and produces some kind of output. To keep things simple, most of our code will be run as text files from a command line. Being able to create, rename, delete and change files from the command line is the first skill to master.</p>
+<div class="section" id="The-bash-command-shell">
+<h2>The bash command shell<a class="headerlink" href="#The-bash-command-shell" title="Permalink to this headline">¶</a></h2>
+<p>Here is first part of a tutorial that introduces the bash shell and what it is used for: <a class="reference external" href="http://swcarpentry.github.io/shell-novice/01-intro/">http://swcarpentry.github.io/shell-novice/01-intro/</a></p>
+<div class="section" id="1.-Installing-the-bash-shell">
+<h3>1. Installing the bash shell<a class="headerlink" href="#1.-Installing-the-bash-shell" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Macs</p>
+<p>There are dozens of different flavors of shell. One of these is the bash shell; if you have a Mac, then you already have a bash shell, which you can launch from spotlight by typing ⌘-space (i.e. press the “command” key together with the a space, then type the word “terminal” into the spotlight search bar).</p>
+</li>
+<li><p>For windows, the situation is more complicated. The default windows shell, which you launch by hitting the windows key</p>
+<p><img alt="image" src="attachment:screenshots/jupyter_launch.png" /></p>
+<p>and typing “cmd” in the launch window, has a different syntax and is less capable than bash. I don’t want to have to deal with two shells, so windows users will need to download and install a version of the bash shell called for windows called MSYS2 from <a class="reference external" href="https://msys2.github.io/">https://msys2.github.io/</a></p>
+<p>Once you’ve installed it (I’m assuming in the default location c:msys64, type MSYS in the search bar to get the command to click and launch a bash shell:</p>
+<p><img alt="image" src="attachment:screenshots/jupyter_launch.png" /></p>
+</li>
+</ul>
+</div>
+<div class="section" id="2.-Working-with-the-shell">
+<h3>2. Working with the shell<a class="headerlink" href="#2.-Working-with-the-shell" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Once you have a shell open, spend 30 minutes to go over <a class="reference external" href="http://swcarpentry.github.io/shell-novice/02-filedir">http://swcarpentry.github.io/shell-novice/02-filedir</a> (navigating files and directories), <a class="reference external" href="http://swcarpentry.github.io/shell-novice/03-create/">http://swcarpentry.github.io/shell-novice/03-create/</a> (working with files and directories) and ttps://swcarpentry.github.io/shell-extras/08-environment-variables.html (shell variables). Note that directory is just another (older) name for folder.</p>
+<ul>
+<li><p>The commands we will be using frequently are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pwd</span>     <span class="o">--</span> <span class="nb">print</span> <span class="n">working</span> <span class="n">directory</span>
+<span class="n">cd</span> <span class="n">a</span>    <span class="o">--</span> <span class="n">change</span> <span class="n">to</span> <span class="n">directory</span> <span class="n">a</span>
+<span class="n">cd</span> <span class="o">~</span>    <span class="o">--</span> <span class="n">change</span> <span class="n">to</span> <span class="n">your</span> <span class="n">home</span> <span class="n">directory</span>
+<span class="n">cd</span> <span class="o">..</span>   <span class="o">--</span> <span class="n">change</span> <span class="n">to</span> <span class="n">the</span> <span class="n">directory</span> <span class="n">above</span>
+<span class="n">ls</span>      <span class="o">--</span> <span class="nb">list</span> <span class="n">files</span>
+<span class="n">ls</span> <span class="o">*</span><span class="n">py</span>  <span class="o">--</span> <span class="nb">list</span> <span class="n">files</span> <span class="n">ending</span> <span class="k">with</span> <span class="n">py</span>
+<span class="n">mkdir</span>   <span class="o">--</span> <span class="n">make</span> <span class="n">a</span> <span class="n">directory</span>
+<span class="n">rm</span>      <span class="o">--</span> <span class="n">remove</span> <span class="n">a</span> <span class="n">file</span>
+<span class="n">rm</span> <span class="o">-</span><span class="n">r</span>   <span class="o">--</span> <span class="n">remove</span> <span class="n">a</span> <span class="n">directory</span> <span class="ow">and</span> <span class="nb">all</span> <span class="n">subdirectories</span>
+<span class="n">head</span>    <span class="o">--</span> <span class="n">prints</span> <span class="n">the</span> <span class="n">first</span> <span class="mi">5</span> <span class="n">lines</span> <span class="n">of</span> <span class="n">a</span> <span class="n">file</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>These commands will come in handy when we start writing multiple python scripts in different directories.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="Installing-the-atom-file-editor">
+<h2>Installing the atom file editor<a class="headerlink" href="#Installing-the-atom-file-editor" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>We need to be able to edit configuration files and enter commands to be run in python. We’ll start with a simple standalone editor called atom: <a class="reference external" href="https://atom.io">https://atom.io</a> which you should download and install.</p></li>
+<li><p>If atom has installed correctly you should be able to open a new bash shell, change to your home directory (for example /c/users/charles) and open up an empty file called hello_world.py, by typing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">cd</span> <span class="o">~</span>   <span class="c1">#to change to your home directory -- i.e. /Users/charles (mac) or /home/charles (windows)</span>
+<span class="o">&gt;</span> <span class="n">atom</span> <span class="n">hello_world</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</li>
+<li><p>Type the following line into the atom hello_world.py window:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>and save the file as ~/hello_world.py.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="Installing-python">
+<h2>Installing python<a class="headerlink" href="#Installing-python" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>We will be using a custom python distribution called miniconda. (See <a class="reference external" href="http://conda.pydata.org/docs/install/quick.html">this link</a> for more on Anaconda and miniconda).</p>
+<p>Download python version 3.5 from <a class="reference external" href="http://conda.pydata.org/miniconda.html">http://conda.pydata.org/miniconda.html</a> and run the installer. It will prompt you for a folder to install into.</p>
+<p>I recommend that you choose:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">username</span>\<span class="n">mini35</span>
+</pre></div>
+</div>
+<p>on windows and:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">username</span><span class="o">/</span><span class="n">mini35</span>
+</pre></div>
+</div>
+<p>where username is, in my case, charles</p>
+</li>
+<li><p>I recommend accepting miniconda python as your official python, but if you don’t want to do that we can work around it later.</p>
+<p><img alt="image" src="attachment:screenshots/jupyter_launch.png" /></p>
+</li>
+<li><p>If the python installation is working, then open a msys2 shell and try the following, which on windows should give something like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>charles@railwin MSYS ~
+$ pwd
+/home/charles
+
+charles@railwin MSYS ~
+$ ls hello_world.py
+hello_world.py
+
+charles@railwin MSYS ~
+$ python hello_world.py
+hello world
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="Installing-python-modules">
+<h2>Installing python modules<a class="headerlink" href="#Installing-python-modules" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>The mini in Miniconda refers to the fact that installing it gives you only the bare minimum needed to get things done with python. For our course, we will need additional packages. The package list for the start of the course is at <a class="reference external" href="http://clouds.eos.ubc.ca/~phil/courses/atsc301/downloads/a301_module_list.txt">http://clouds.eos.ubc.ca/~phil/courses/atsc301/downloads/a301_module_list.txt</a> Save this as a text file (for example in chrome pull down File -&gt; save as) to a directory whose location you know, like /c/Users/phil/Downloads (on windows). Then from a bash shell, type
+the following command to download and install all of these packages:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">--</span><span class="n">file</span> <span class="o">/</span><span class="n">c</span><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">phil</span><span class="o">/</span><span class="n">Downloads</span><span class="o">/</span><span class="n">a301_module_list</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="Running-Python">
+<h2>Running Python<a class="headerlink" href="#Running-Python" title="Permalink to this headline">¶</a></h2>
+<p>As noted in <a class="reference external" href="./whirlwind/01-How-to-Run-Python-Code.html">How to run python code</a>, we will be using three different methods to run python programs in the course. In addition to running a file from the command line as above with “python hello_world.py” there are two more interactive approaches:</p>
+<ol class="arabic">
+<li><p>ipython</p>
+<p>Start the ipython interpreter in the shell:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ipython
+</pre></div>
+</div>
+<p>At the prompt, type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Or you can run the script as a file. At the prompt, type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">run</span> <span class="n">hello_world</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>and it should print “hello world”.</p>
+</li>
+<li><p>jupyter notebook</p>
+<p>The <a class="reference external" href="./whirlwind">Whirlwind book</a> is written as a series of <a class="reference external" href="https://nbviewer.jupyter.org/github/jupyter/notebook/blob/master/docs/source/examples/Notebook/Running%20Code.ipynb">jupyter notebooks</a>. To run individual chapters as notebooks:</p>
+<ol class="arabic">
+<li><p>Start a bash shell</p></li>
+<li><p>make a directory to hold the chapters and cd into it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd ~
+$ mkdir whirlwind
+$ cd whirlwind
+</pre></div>
+</div>
+</li>
+<li><p>Download a zip file containing the notebooks by clicking on <a class="reference external" href="http://clouds.eos.ubc.ca/~phil/courses/atsc301/downloads/WhirlwindTourOfPython-notebooks.zip">this link</a></p></li>
+<li><p>move the zip file into the whirlwind folder. For a stock windows install, if you type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pwd
+</pre></div>
+</div>
+<p>and your present working directory is /home/charles/whirlwind, then on windows that directory would be c:msys64homecharleswhirlwind and on macs /Users/charles/whirlwind</p>
+<p><img alt="image" src="attachment:screenshots/jupyter_launch.png" /></p>
+</li>
+</ol>
+<blockquote>
+<div><p>if this worked then doing an ls in the shell should show you the expanded folder:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls
+WhirlwindTourOfPython-master
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic">
+<li><p>start the jupyter notebook server in the whirlwind directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ jupyter notebook
+</pre></div>
+</div>
+<p>this should open your default browser and show a single folder “WhirlwindTourOfPython-master”. Click on this to list the notebooks in that folder:</p>
+<p><img alt="image" src="attachment:screenshots/jupyter_launch.png" /></p>
+</li>
+<li><p>Click on 02-Basic-Python-Syntax.ipynb to launch a notebook session for that notebook</p></li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="apdx2_ipynb.html" class="btn btn-neutral float-right" title="IPython Notebooks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="chap9_scipy.html" class="btn btn-neutral float-left" title="Numerical Routines: SciPy and NumPy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Numeric project
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
