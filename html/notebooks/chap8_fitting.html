@@ -1,0 +1,863 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Curve Fitting &mdash; Numeric course 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/togglebutton.js"></script>
+        <script src="../_static/mystnb.js"></script>
+        <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/mystnb.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Numerical Routines: SciPy and NumPy" href="chap9_scipy.html" />
+    <link rel="prev" title="Functions" href="chap7_funcs.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Numeric course
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="chap1_intro.html">Chapter 1: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap2_basics.html">Chapter 2: First Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap3_arrays.html">Chapter 3: Arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap4_io.html">Chapter 4: Input and Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap5_plot.html">Chapter 5: Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap6_loopsconds.html">Chapter 6: Flow control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap7_funcs.html">Chapter 7: Functions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Chapter 8: Curve Fitting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#using-linear-regression-for-fitting-non-linear-functions">Using linear regression for fitting non-linear functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#linear-regression-for-fitting-an-exponential-function">Linear regression for fitting an exponential function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linear-regression-for-fitting-a-power-law-function">Linear regression for fitting a power-law function</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#nonlinear-fitting">Nonlinear fitting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chap9_scipy.html">Chapter 9: Scipy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apdx1_install.html">Appendix 1: Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apdx2_ipynb.html">Appendix 2: Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apdx3_resources.html">Appendix 3: Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Numeric course</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Curve Fitting</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/notebooks/chap8_fitting.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Table of Contents<span class="tocSkip"></span></h1>
+<div class="toc"><ul class="toc-item"><li><span><a href="#Curve-Fitting" data-toc-modified-id="Curve-Fitting-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Curve Fitting</a></span><ul class="toc-item"><li><span><a href="#Using-linear-regression-for-fitting-non-linear-functions" data-toc-modified-id="Using-linear-regression-for-fitting-non-linear-functions-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Using linear regression for fitting non-linear functions</a></span><ul class="toc-item"><li><span><a href="#Linear-regression-for-fitting-an-exponential-function" data-toc-modified-id="Linear-regression-for-fitting-an-exponential-function-1.1.1"><span class="toc-item-num">1.1.1&nbsp;&nbsp;</span>Linear regression for fitting an exponential function</a></span></li><li><span><a href="#Linear-regression-for-fitting-a-power-law-function" data-toc-modified-id="Linear-regression-for-fitting-a-power-law-function-1.1.2"><span class="toc-item-num">1.1.2&nbsp;&nbsp;</span>Linear regression for fitting a power-law function</a></span></li></ul></li><li><span><a href="#Nonlinear-fitting" data-toc-modified-id="Nonlinear-fitting-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Nonlinear fitting</a></span></li><li><span><a href="#Exercises" data-toc-modified-id="Exercises-1.3"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>Exercises</a></span></li></ul></li></ul></div><p>python</p>
+<p>single: curve fitting</p>
+<div class="section" id="curve-fitting">
+<h1>Curve Fitting<a class="headerlink" href="#curve-fitting" title="Permalink to this headline">¶</a></h1>
+<p>One of the most important tasks in any experimental science is modeling
+data and determining how well some theoretical function describes
+experimental data. In the last chapter, we illustrated how this can be
+done when the theoretical function is a simple straight line in the
+context of learning about Python functions and methods. Here we show how
+this can be done for a arbitrary fitting functions, including linear,
+exponential, power law, and other nonlinear fitting functions.</p>
+<div class="section" id="using-linear-regression-for-fitting-non-linear-functions">
+<h2>Using linear regression for fitting non-linear functions<a class="headerlink" href="#using-linear-regression-for-fitting-non-linear-functions" title="Permalink to this headline">¶</a></h2>
+<p>We can use our results for linear regression with <span class="math notranslate nohighlight">\(\chi^2\)</span> weighting
+that we developed in Chapter 7 to fit functions that are nonlinear in
+the fitting parameters, <em>provided</em> we can transform the fitting function
+into one that is linear in the fitting parameters and in the independent
+variable (<span class="math notranslate nohighlight">\(x\)</span>).</p>
+<p>single: curve fitting; linear; exponential function</p>
+<div class="section" id="linear-regression-for-fitting-an-exponential-function">
+<h3>Linear regression for fitting an exponential function<a class="headerlink" href="#linear-regression-for-fitting-an-exponential-function" title="Permalink to this headline">¶</a></h3>
+<p>To illustrate this approach, let’s consider some experimental data taken
+from a radioactive source that was emitting beta particles (electrons).
+We notice that the number of electrons emitted per unit time is
+decreasing with time. Theory suggests that the number of electrons <span class="math notranslate nohighlight">\(N\)</span>
+emitted per unit time should decay exponentially according to the
+equation</p>
+<div class="math notranslate nohighlight">
+\[N(t) = N_0 e^{-t/\tau} \;.\]</div>
+<p>This equation is nonlinear in <span class="math notranslate nohighlight">\(t\)</span> and in the fitting parameter <span class="math notranslate nohighlight">\(\tau\)</span>
+and thus cannot be fit using the method of the previous chapter.
+Fortunately, this is a special case for which the fitting function can
+be transformed into a linear form. Doing so will allow us to use the
+fitting routine we developed for fitting linear functions.</p>
+<p>We begin our analysis by transforming our fitting function to a linear
+form. To this end we take the logarithm of Eq. <code class="docutils literal notranslate"><span class="pre">eq:decay</span></code>:</p>
+<div class="math notranslate nohighlight">
+\[\ln N = \ln N_{0} -\frac{t}{\tau} \;.\]</div>
+<p>With this tranformation our fitting function is linear in the
+independent variable <span class="math notranslate nohighlight">\(t\)</span>. To make our method work, however, our fitting
+function must be linear in the <em>fitting parameters</em>, and our transformed
+function is still nonlinear in the fitting parameters <span class="math notranslate nohighlight">\(\tau\)</span> and <span class="math notranslate nohighlight">\(N_0\)</span>.
+Therefore, we define new fitting parameters as follows</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+a &amp;= \ln N_{0}\\
+b &amp;= -1/\tau
+\end{aligned}\end{split}\]</div>
+<p>Now if we define a new dependent variable <span class="math notranslate nohighlight">\(y = \ln N\)</span>, then our fitting
+function takes the form of a fitting function that is linear in the
+fitting parameters <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span></p>
+<div class="math notranslate nohighlight">
+\[y = a + bx\]</div>
+<p>where the independent variable is <span class="math notranslate nohighlight">\(x=t\)</span> and the dependent variable is
+<span class="math notranslate nohighlight">\(y=\ln N\)</span>.</p>
+<p>We are almost ready to fit our transformed fitting function, with
+transformed fitting parameters <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, to our transformed
+independent and dependent data, <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>. The last thing we have to
+do is to transform the estimates of the uncertainties <span class="math notranslate nohighlight">\(\delta N\)</span> in <span class="math notranslate nohighlight">\(N\)</span>
+to the uncertainties <span class="math notranslate nohighlight">\(\delta y\)</span> in <span class="math notranslate nohighlight">\(y\)</span> <span class="math notranslate nohighlight">\((= \ln N)\)</span>. So how much does a
+given uncertainty in <span class="math notranslate nohighlight">\(N\)</span> translate into an uncertainty in <span class="math notranslate nohighlight">\(y\)</span>? In most
+cases, the uncertainty in <span class="math notranslate nohighlight">\(y\)</span> is much smaller than <span class="math notranslate nohighlight">\(y\)</span>, <em>i.e.</em>
+<span class="math notranslate nohighlight">\(\delta y \ll y\)</span>; similarly <span class="math notranslate nohighlight">\(\delta N \ll N\)</span>. In this limit we can use
+differentials to figure out the relationship between these
+uncertainties. Here is how it works for this example:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+y &amp;= \ln N\\
+\delta y &amp;= \left|\frac{\partial y}{\partial N}\right|\delta N\\
+\delta y &amp;= \frac{\delta N} {N} \;.
+\end{aligned}\end{split}\]</div>
+<p>Equation <code class="docutils literal notranslate"><span class="pre">eq:sigmaLnN</span></code> tells us how a small change <span class="math notranslate nohighlight">\(\delta N\)</span> in <span class="math notranslate nohighlight">\(N\)</span>
+produces a small change <span class="math notranslate nohighlight">\(\delta y\)</span> in <span class="math notranslate nohighlight">\(y\)</span>. Here we identify the
+differentials <span class="math notranslate nohighlight">\(dy\)</span> and <span class="math notranslate nohighlight">\(dN\)</span> with the uncertainties <span class="math notranslate nohighlight">\(\delta y\)</span> and
+<span class="math notranslate nohighlight">\(\delta N\)</span>. Therefore, an uncertainty of <span class="math notranslate nohighlight">\(\delta N\)</span> in <span class="math notranslate nohighlight">\(N\)</span> corresponds,
+or translates, to an uncertainty <span class="math notranslate nohighlight">\(\delta y\)</span> in <span class="math notranslate nohighlight">\(y\)</span>.</p>
+<p>Let’s summarize what we have done so far. We started with the some data
+points <span class="math notranslate nohighlight">\(\{t_i,N_i\}\)</span> and some addition data <span class="math notranslate nohighlight">\(\{\delta N_i\}\)</span> where each
+datum <span class="math notranslate nohighlight">\(\delta N_i\)</span> corresponds to the uncertainty in the experimentally
+measured <span class="math notranslate nohighlight">\(N_i\)</span>. We wish to fit these data to the fitting function</p>
+<div class="math notranslate nohighlight">
+\[N(t) = N_0 e^{-t/\tau} \;.\]</div>
+<p>We then take the natural logarithm of both sides and obtain the linear
+equation</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\ln N &amp;= \ln N_{0} -\frac{t}{\tau} \\
+y &amp;= a + bx
+\end{aligned}\end{split}\]</div>
+<p>with the obvious correspondences</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+x &amp;= t\\
+y &amp;= \ln N\\
+a &amp;= \ln N_{0}\\
+b &amp;= -1/\tau
+\end{aligned}\end{split}\]</div>
+<p>Now we can use the linear regression routine with <span class="math notranslate nohighlight">\(\chi^2\)</span> weighting
+that we developed in the previous section to fit <code class="docutils literal notranslate"><span class="pre">eq:TransformedSemilog</span></code>
+to the transformed data <span class="math notranslate nohighlight">\(x_i (= t_i)\)</span> and <span class="math notranslate nohighlight">\(y_i (= \ln N_i)\)</span>. The inputs
+are the tranformed data <span class="math notranslate nohighlight">\({x_i}, {y_i}, {\delta y_i}\)</span>. The outputs are
+the fitting parameters <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, as well as the estimates of their
+uncertainties <span class="math notranslate nohighlight">\(\delta a\)</span> and <span class="math notranslate nohighlight">\(\delta b\)</span> along with the value of
+<span class="math notranslate nohighlight">\(\chi^2\)</span>. You can obtain the values of the original fitting parameters
+<span class="math notranslate nohighlight">\(N_0\)</span> and <span class="math notranslate nohighlight">\(\tau\)</span> by taking the differentials of the last two equations
+in Eq. <code class="docutils literal notranslate"><span class="pre">eq:eqlist</span></code>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\delta a &amp;= \left|\frac{\partial a}{\partial N_0}\right|\delta N_0 
+          = \frac{\delta N_{0}}{N_{0}}\\
+\delta b &amp;= \left|\frac{\partial b}{\partial \tau}\right|\delta \tau
+          = \frac{\delta \tau}{\tau^2}
+\end{aligned}\end{split}\]</div>
+<p>The Python routine below shows how to implement all of this for a set of
+experimental data that is read in from a data file.</p>
+<p>Figure <code class="docutils literal notranslate"><span class="pre">8.1</span> <span class="pre">&lt;fig:betaDecay&gt;</span></code> shows the output of the fit to simulated
+beta decay data obtained using the program below. Note that the error
+bars are large when the number of counts <span class="math notranslate nohighlight">\(N\)</span> are small. This is
+consistent with what is known as <em>shot noise</em> (noise that arises from
+counting discrete events), which obeys <em>Poisson</em> statistics. You will
+study sources of noise, including shot noise, later in your lab courses.
+The program also prints out the fitting parameters of the transformed
+data as well as the fitting parameters for the exponential fitting
+function.</p>
+<figure>
+<img src="attachment:betaDecay.png" class="align-center" alt="" /><figcaption>Semi-log plot of beta decay measurements from Phosphorus-32.</figcaption>
+</figure>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="k">def</span> <span class="nf">LineFitWt</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sig</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">    Fit to straight line.</span>
+<span class="sd">    Inputs: x and y arrays and uncertainty array (unc) for y data.</span>
+<span class="sd">    Ouputs: slope and y-intercept of best fit to data.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">sig2</span> <span class="o">=</span> <span class="n">sig</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">norm</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">sig2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">xhat</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">sig2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">norm</span>
+    <span class="n">yhat</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">sig2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">norm</span>
+    <span class="n">slope</span> <span class="o">=</span> <span class="p">((</span><span class="n">x</span><span class="o">-</span><span class="n">xhat</span><span class="p">)</span><span class="o">*</span><span class="n">y</span><span class="o">/</span><span class="n">sig2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="p">((</span><span class="n">x</span><span class="o">-</span><span class="n">xhat</span><span class="p">)</span><span class="o">*</span><span class="n">x</span><span class="o">/</span><span class="n">sig2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">yint</span> <span class="o">=</span> <span class="n">yhat</span> <span class="o">-</span> <span class="n">slope</span><span class="o">*</span><span class="n">xhat</span>
+    <span class="n">sig2_slope</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="p">((</span><span class="n">x</span><span class="o">-</span><span class="n">xhat</span><span class="p">)</span><span class="o">*</span><span class="n">x</span><span class="o">/</span><span class="n">sig2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">sig2_yint</span> <span class="o">=</span> <span class="n">sig2_slope</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="o">/</span><span class="n">sig2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">norm</span>
+    <span class="k">return</span> <span class="n">slope</span><span class="p">,</span> <span class="n">yint</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sig2_slope</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sig2_yint</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">redchisq</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">slope</span><span class="p">,</span> <span class="n">yint</span><span class="p">):</span>
+    <span class="n">chisq</span> <span class="o">=</span> <span class="p">(((</span><span class="n">y</span><span class="o">-</span><span class="n">yint</span><span class="o">-</span><span class="n">slope</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">dy</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">chisq</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Read data from data file</span>
+<span class="n">t</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">dN</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;betaDecay.txt&quot;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">unpack</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1">########## Code to tranform &amp; fit data starts here ##########</span>
+
+<span class="c1"># Transform data and parameters to linear form: Y = A + B*X</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">t</span>         <span class="c1"># transform t data for fitting (trivial)</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="c1"># transform N data for fitting</span>
+<span class="n">dY</span> <span class="o">=</span> <span class="n">dN</span><span class="o">/</span><span class="n">N</span>     <span class="c1"># transform uncertainties for fitting</span>
+
+<span class="c1"># Fit transformed data X, Y, dY to obtain fitting parameters A &amp; B</span>
+<span class="c1"># Also returns uncertainties in A and B</span>
+<span class="n">B</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">dB</span><span class="p">,</span> <span class="n">dA</span> <span class="o">=</span> <span class="n">LineFitWt</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">dY</span><span class="p">)</span>
+<span class="c1"># Return reduced chi-squared</span>
+<span class="n">redchisqr</span> <span class="o">=</span> <span class="n">redchisq</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">dY</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+
+<span class="c1"># Determine fitting parameters for original exponential function</span>
+<span class="c1"># N = N0 exp(-t/tau) ...</span>
+<span class="n">N0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">tau</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span><span class="o">/</span><span class="n">B</span>
+<span class="c1"># ... and their uncertainties</span>
+<span class="n">dN0</span> <span class="o">=</span> <span class="n">N0</span> <span class="o">*</span> <span class="n">dA</span>
+<span class="n">dtau</span> <span class="o">=</span> <span class="n">tau</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">dB</span>
+
+<span class="c1">####### Code to plot transformed data and fit starts here #######</span>
+
+<span class="c1"># Create line corresponding to fit using fitting parameters</span>
+<span class="c1"># Only two points are needed to specify a straight line</span>
+<span class="n">Xext</span> <span class="o">=</span> <span class="mf">0.05</span><span class="o">*</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">-</span><span class="n">X</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="n">Xfit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">X</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">-</span><span class="n">Xext</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">+</span><span class="n">Xext</span><span class="p">])</span>
+<span class="n">Yfit</span> <span class="o">=</span> <span class="n">A</span> <span class="o">+</span> <span class="n">B</span><span class="o">*</span><span class="n">Xfit</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">dY</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;bo&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Xfit</span><span class="p">,</span> <span class="n">Yfit</span><span class="p">,</span> <span class="s2">&quot;r-&quot;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;$\mathrm{Fit</span><span class="se">\\</span><span class="s2"> to:}</span><span class="se">\\</span><span class="s2"> \ln N = -t/</span><span class="se">\\</span><span class="s2">tau + \ln N_0$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;ln(N)&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mf">6.6</span><span class="p">,</span> <span class="s2">&quot;A = ln N0 = </span><span class="si">{0:0.2f}</span><span class="s2"> $\pm$ </span><span class="si">{1:0.2f}</span><span class="s2">&quot;</span>
+         <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">dA</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mf">6.3</span><span class="p">,</span> <span class="s2">&quot;B = -1/tau = </span><span class="si">{0:0.4f}</span><span class="s2"> $\pm$ </span><span class="si">{1:0.4f}</span><span class="s2">&quot;</span>
+         <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">-</span><span class="n">B</span><span class="p">,</span> <span class="n">dB</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span> <span class="s2">&quot;$\chi_r^2$ = </span><span class="si">{0:0.3f}</span><span class="s2">&quot;</span>
+         <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">redchisqr</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mf">5.7</span><span class="p">,</span> <span class="s2">&quot;N0 = </span><span class="si">{0:0.0f}</span><span class="s2"> $\pm$ </span><span class="si">{1:0.0f}</span><span class="s2">&quot;</span>
+         <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">N0</span><span class="p">,</span> <span class="n">dN0</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mf">5.4</span><span class="p">,</span> <span class="s2">&quot;tau = </span><span class="si">{0:0.1f}</span><span class="s2"> $\pm$ </span><span class="si">{1:0.1f}</span><span class="s2"> days&quot;</span>
+         <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tau</span><span class="p">,</span> <span class="n">dtau</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>single: curve fitting; linear; power law function</p>
+<p>single: curve fitting; linear; power-law function</p>
+</div>
+<div class="section" id="linear-regression-for-fitting-a-power-law-function">
+<h3>Linear regression for fitting a power-law function<a class="headerlink" href="#linear-regression-for-fitting-a-power-law-function" title="Permalink to this headline">¶</a></h3>
+<p>You can use a similar approach to the one outlined above to fit
+experimental data to a power law fitting function of the form</p>
+<div class="math notranslate nohighlight">
+\[P(s) = P_0 s^\alpha \;.\]</div>
+<p>We follow the same approach we used for the exponential fitting function
+and first take the logarithm of both sides of <code class="docutils literal notranslate"><span class="pre">eq:pwrlaw</span></code></p>
+<div class="math notranslate nohighlight">
+\[\ln P = \ln P_0 + \alpha \ln s \;.\]</div>
+<p>We recast this in the form of a linear equation <span class="math notranslate nohighlight">\(y = a + bx\)</span> with the
+following identifications:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+x &amp;= \ln s\\
+y &amp;= \ln P\\
+a &amp;= \ln P_{0}\\
+b &amp;= \alpha
+\end{aligned}\end{split}\]</div>
+<p>Following a procedure similar to that used to fit using an exponential
+fitting function, you can use the tranformations given by
+<code class="docutils literal notranslate"><span class="pre">eq:eqPwrTrans</span></code> as the basis for a program to fit a power-law fitting
+function such as <code class="docutils literal notranslate"><span class="pre">eq:logpwrlaw</span></code> to experimental data.</p>
+<p>single: curve fitting; nonlinear</p>
+</div>
+</div>
+<div class="section" id="nonlinear-fitting">
+<h2>Nonlinear fitting<a class="headerlink" href="#nonlinear-fitting" title="Permalink to this headline">¶</a></h2>
+<p>The method introduced in the previous section for fitting nonlinear
+fitting functions can be used only if the fitting function can be
+transformed into a fitting function that is linear in the fitting
+parameters <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(c\)</span>… When we have a nonlinear fitting function
+that cannot be transformed into a linear form, we need another approach.</p>
+<p>The problem of finding values of the fitting parameters that minimize
+<span class="math notranslate nohighlight">\(\chi^2\)</span> is a nonlinear optimization problem to which there is quite
+generally no analytical solution (in contrast to the linear optimization
+problem). We can gain some insight into this nonlinear optimization
+problem, namely the fitting of a nonlinear fitting function to a data
+set, by considering a fitting function with only two fitting parameters.
+That is, we are trying to fit some data set <span class="math notranslate nohighlight">\(\{x_{i},y_{i}\}\)</span>, with
+uncertainties in <span class="math notranslate nohighlight">\(\{y_{i}\}\)</span> of <span class="math notranslate nohighlight">\(\{\sigma_{i}\}\)</span>, to a fitting function
+is <span class="math notranslate nohighlight">\(f(x;a,b)\)</span> where <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are the two fitting parameters. To do
+so, we look for the minimum in</p>
+<div class="math notranslate nohighlight">
+\[\chi^2(a,b) = \sum_{i} \left(\frac{y_{i} - f(x_{i})}{\sigma_{i}}\right)^2 \;.\]</div>
+<p>Note that once the data set, uncertainties, and fitting function are
+specified, <span class="math notranslate nohighlight">\(\chi^2(a,b)\)</span> is simply a function of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>. We can
+picture the function <span class="math notranslate nohighlight">\(\chi^2(a,b)\)</span> as a of landscape with peaks and
+valleys: as we vary <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(\chi^2(a,b)\)</span> rises and falls. The
+basic idea of all nonlinear fitting routines is to start with some
+initial guesses for the fitting parameters, here <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, and by
+scanning the <span class="math notranslate nohighlight">\(\chi^2(a,b)\)</span> landscape, find values of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> that
+minimize <span class="math notranslate nohighlight">\(\chi^2(a,b)\)</span>.</p>
+<p>There are a number of different methods for trying to find the minimum
+in <span class="math notranslate nohighlight">\(\chi^2\)</span> for nonlinear fitting problems. Nevertheless, the method
+that is most widely used goes by the name of the <em>Levenberg-Marquardt</em>
+method. Actually the Levenberg-Marquardt method is a combination of two
+other methods, the <em>steepest descent</em> (or gradient) method and
+<em>parabolic extrapolation</em>. Roughly speaking, when the values of <span class="math notranslate nohighlight">\(a\)</span> and
+<span class="math notranslate nohighlight">\(b\)</span> are not too near their optimal values, the gradient descent method
+determines in which direction in <span class="math notranslate nohighlight">\((a,b)\)</span>-space the function
+<span class="math notranslate nohighlight">\(\chi^2(a,b)\)</span> decreases most quickly—the direction of steepest
+descent—and then changes <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> accordingly to move in that
+direction. This method is very efficient unless <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are very
+near their optimal values. Near the optimal values of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>,
+parabolic extrapolation is more efficient. Therefore, as <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>
+approach their optimal values, the Levenberg-Marquardt method gradually
+changes to the parabolic extrapolation method, which approximates
+<span class="math notranslate nohighlight">\(\chi^2(a,b)\)</span> by a Taylor series second order in <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> and then
+computes directly the analytical minimum of the Taylor series
+approximation of <span class="math notranslate nohighlight">\(\chi^2(a,b)\)</span>. This method is only good if the second
+order Taylor series provides a good approximation of <span class="math notranslate nohighlight">\(\chi^2(a,b)\)</span>. That
+is why parabolic extrapolation only works well very near the minimum in
+<span class="math notranslate nohighlight">\(\chi^2(a,b)\)</span>.</p>
+<p>Before illustrating the Levenberg-Marquardt method, we make one
+important cautionary remark: the Levenberg-Marquardt method can fail if
+the initial guesses of the fitting parameters are too far away from the
+desired solution. This problem becomes more serious the greater the
+number of fitting parameters. Thus it is important to provide reasonable
+initial guesses for the fitting parameters. Usually, this is not a
+problem, as it is clear from the physical situation of a particular
+experiment what reasonable values of the fitting parameters are. But
+beware!</p>
+<p>single: SciPy; nonlinear curve fitting</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module provides routines that implement the
+Levenberg-Marquardt non-linear fitting method. One is called
+<code class="docutils literal notranslate"><span class="pre">scipy.optimize.leastsq</span></code>. A somewhat more user-friendly version of the
+same method is accessed through another routine in the same
+<code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module: it’s called <code class="docutils literal notranslate"><span class="pre">scipy.optimize.curve_fit</span></code> and it
+is the one we demonstrate here. The function call is :</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import scipy.optimize
+[... insert code here ...]
+scipy.optimize.curve_fit(f, xdata, ydata, p0=None, sigma=None, 
+                         **kwargs)
+</pre></div>
+</div>
+<p>The arguments of <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> are</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">f(xdata,</span> <span class="pre">a,</span> <span class="pre">b,</span> <span class="pre">...)</span></code>: is the fitting function where <code class="docutils literal notranslate"><span class="pre">xdata</span></code> is
+the data for the independent variable and <code class="docutils literal notranslate"><span class="pre">a,</span> <span class="pre">b,</span> <span class="pre">...</span></code> are the
+fitting parameters, however many there are, listed as separate
+arguments. Obviously, <code class="docutils literal notranslate"><span class="pre">f(xdata,</span> <span class="pre">a,</span> <span class="pre">b,</span> <span class="pre">...)</span></code> should return the <span class="math notranslate nohighlight">\(y\)</span>
+value of the fitting function.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xdata</span></code>: is the array containing the <span class="math notranslate nohighlight">\(x\)</span> data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ydata</span></code>: is the array containing the <span class="math notranslate nohighlight">\(y\)</span> data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">p0</span></code>: is a tuple containing the initial guesses for the fitting
+parameters. The guesses for the fitting parameters are set equal
+to 1 if they are left unspecified. It is almost always a good idea
+to specify the initial guesses for the fitting parameters.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sigma</span></code>: is the array containing the uncertainties in the <span class="math notranslate nohighlight">\(y\)</span>
+data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">**kwargs</span></code>: are keyword arguments that can be passed to the
+fitting routine <code class="docutils literal notranslate"><span class="pre">scipy.optimize.leastsq</span></code> that <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> calls.
+These are usually left unspecified.</p></li>
+</ul>
+</div></blockquote>
+<p>We demonstrate the use of <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> to fit the data plotted in the
+figure below:</p>
+<figure>
+<img src="attachment:Spectrum.png" class="align-center" alt="" />
+</figure>
+<p>We model the data with the fitting function that consists of a quadratic
+polynomial background with a Gaussian peak:</p>
+<div class="math notranslate nohighlight">
+\[A(f) = a + bf + cf^2 + P e^{-\frac{1}{2}[(f-f_p)/f_w]^2} .\]</div>
+<p>Lines 7 and 8 define the fitting functions. Note that the independent
+variable <code class="docutils literal notranslate"><span class="pre">f</span></code> is the first argument, which is followed by the six fitting
+parameters <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(c\)</span>, <span class="math notranslate nohighlight">\(P\)</span>, <span class="math notranslate nohighlight">\(f_p\)</span>, and <span class="math notranslate nohighlight">\(f_w\)</span>.</p>
+<p>To fit the data with <span class="math notranslate nohighlight">\(A(f)\)</span>, we need good estimates of the fitting
+parameters. Setting <span class="math notranslate nohighlight">\(f=0\)</span>, we see that <span class="math notranslate nohighlight">\(a \approx 60\)</span>. An estimate of
+the slope of the baseline gives <span class="math notranslate nohighlight">\(b \approx -60/20=-3\)</span>. The curvature in
+the baseline is small so we take <span class="math notranslate nohighlight">\(c \approx 0\)</span>. The amplitude of the
+peak above the baseline is <span class="math notranslate nohighlight">\(P \approx 110-30=80\)</span>. The peak is centered
+at <span class="math notranslate nohighlight">\(f_p \approx 11\)</span>, while width of peak is about <span class="math notranslate nohighlight">\(f_w \approx 2\)</span>. We
+use these estimates to set the initial guesses of the fitting parameters
+in lines 14 and 15 in the code below.</p>
+<p>single: list comprehension</p>
+<p>The function that performs the Levenverg-Marquardt algorithm, <span
+class="title-ref">scipy.optimize.curve_fit</span>, is called in lines
+19-20 with the output set equal to the one and two-dimensional arrays
+<code class="docutils literal notranslate"><span class="pre">nlfit</span></code> and <code class="docutils literal notranslate"><span class="pre">nlpcov</span></code>, respectively. The array <code class="docutils literal notranslate"><span class="pre">nlfit</span></code>, which gives the
+optimal values of the fitting parameters, is unpacked in line 23. The
+square root of the diagonal of the two-dimensional array <code class="docutils literal notranslate"><span class="pre">nlpcov</span></code>, which
+gives the estimates of the uncertainties in the fitting parameters, is
+unpacked in lines 26-27 using a list comprehension.</p>
+<p>The rest of the code plots the data, the fitting function using the
+optimal values of the fitting parameters found by
+<code class="docutils literal notranslate"><span class="pre">scipy.optimize.curve_fit</span></code>, and the values of the fitting parameters and
+their uncertainties.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.gridspec</span> <span class="k">as</span> <span class="nn">gridspec</span>  <span class="c1"># for unequal plot boxes</span>
+<span class="kn">import</span> <span class="nn">scipy.optimize</span>
+
+<span class="c1"># define fitting function</span>
+<span class="k">def</span> <span class="nf">GaussPolyBase</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">fw</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">f</span> <span class="o">+</span> <span class="n">c</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">f</span> <span class="o">+</span> <span class="n">P</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="p">((</span><span class="n">f</span><span class="o">-</span><span class="n">fp</span><span class="p">)</span><span class="o">/</span><span class="n">fw</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># read in spectrum from data file</span>
+<span class="c1"># f=frequency, s=signal, ds=s uncertainty</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;Spectrum.txt&quot;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">unpack</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># initial guesses for fitting parameters</span>
+<span class="n">a0</span><span class="p">,</span> <span class="n">b0</span><span class="p">,</span> <span class="n">c0</span> <span class="o">=</span> <span class="mf">60.</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">0.</span>
+<span class="n">P0</span><span class="p">,</span> <span class="n">fp0</span><span class="p">,</span> <span class="n">fw0</span> <span class="o">=</span> <span class="mf">80.</span><span class="p">,</span> <span class="mf">11.</span><span class="p">,</span> <span class="mf">2.</span>
+
+<span class="c1"># fit data using SciPy&#39;s Levenberg-Marquart method</span>
+<span class="n">nlfit</span><span class="p">,</span> <span class="n">nlpcov</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">GaussPolyBase</span><span class="p">,</span> 
+                <span class="n">f</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">p0</span><span class="o">=</span><span class="p">[</span><span class="n">a0</span><span class="p">,</span> <span class="n">b0</span><span class="p">,</span> <span class="n">c0</span><span class="p">,</span> <span class="n">P0</span><span class="p">,</span> <span class="n">fp0</span><span class="p">,</span> <span class="n">fw0</span><span class="p">],</span> <span class="n">sigma</span><span class="o">=</span><span class="n">ds</span><span class="p">)</span>
+
+<span class="c1"># unpack fitting parameters</span>
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">fw</span> <span class="o">=</span> <span class="n">nlfit</span>
+<span class="c1"># unpack uncertainties in fitting parameters from diagonal</span>
+<span class="c1"># of covariance matrix</span>
+<span class="n">da</span><span class="p">,</span> <span class="n">db</span><span class="p">,</span> <span class="n">dc</span><span class="p">,</span> <span class="n">dP</span><span class="p">,</span> <span class="n">dfp</span><span class="p">,</span> <span class="n">dfw</span> <span class="o">=</span> \
+          <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">nlpcov</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">j</span><span class="p">])</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nlfit</span><span class="o">.</span><span class="n">size</span><span class="p">)]</span>
+
+<span class="c1"># create fitting function from fitted parameters</span>
+<span class="n">f_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">25.</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>
+<span class="n">s_fit</span> <span class="o">=</span> <span class="n">GaussPolyBase</span><span class="p">(</span><span class="n">f_fit</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">fw</span><span class="p">)</span>
+
+<span class="c1"># Calculate residuals and reduced chi squared</span>
+<span class="n">resids</span> <span class="o">=</span> <span class="n">s</span> <span class="o">-</span> <span class="n">GaussPolyBase</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">fw</span><span class="p">)</span>
+<span class="n">redchisqr</span> <span class="o">=</span> <span class="p">((</span><span class="n">resids</span><span class="o">/</span><span class="n">ds</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">size</span><span class="o">-</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="c1"># Create figure window to plot data</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">gs</span> <span class="o">=</span> <span class="n">gridspec</span><span class="o">.</span><span class="n">GridSpec</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">height_ratios</span><span class="o">=</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+
+<span class="c1"># Top plot: data and fit</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f_fit</span><span class="p">,</span> <span class="n">s_fit</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">ds</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;or&#39;</span><span class="p">,</span> <span class="n">ecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;frequency (THz)&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;absorption (arb units)&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="s1">&#39;a = </span><span class="si">{0:0.1f}</span><span class="s1">$\pm$</span><span class="si">{1:0.1f}</span><span class="s1">&#39;</span>
+         <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">da</span><span class="p">),</span> <span class="n">transform</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">transAxes</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.90</span><span class="p">,</span> <span class="s1">&#39;b = </span><span class="si">{0:0.2f}</span><span class="s1">$\pm$</span><span class="si">{1:0.2f}</span><span class="s1">&#39;</span>
+         <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">db</span><span class="p">),</span> <span class="n">transform</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">transAxes</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">,</span> <span class="s1">&#39;c = </span><span class="si">{0:0.2f}</span><span class="s1">$\pm$</span><span class="si">{1:0.2f}</span><span class="s1">&#39;</span>
+         <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">dc</span><span class="p">),</span> <span class="n">transform</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">transAxes</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.80</span><span class="p">,</span> <span class="s1">&#39;P = </span><span class="si">{0:0.1f}</span><span class="s1">$\pm$</span><span class="si">{1:0.1f}</span><span class="s1">&#39;</span>
+         <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">dP</span><span class="p">),</span> <span class="n">transform</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">transAxes</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="s1">&#39;fp = </span><span class="si">{0:0.1f}</span><span class="s1">$\pm$</span><span class="si">{1:0.1f}</span><span class="s1">&#39;</span>
+         <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">dfp</span><span class="p">),</span> <span class="n">transform</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">transAxes</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.70</span><span class="p">,</span> <span class="s1">&#39;fw = </span><span class="si">{0:0.1f}</span><span class="s1">$\pm$</span><span class="si">{1:0.1f}</span><span class="s1">&#39;</span>
+         <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fw</span><span class="p">,</span> <span class="n">dfw</span><span class="p">),</span> <span class="n">transform</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">transAxes</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.60</span><span class="p">,</span> <span class="s1">&#39;$\chi_r^2$ = </span><span class="si">{0:0.2f}</span><span class="s1">&#39;</span>
+         <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">redchisqr</span><span class="p">),</span><span class="n">transform</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">transAxes</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;$s(f) = a+bf+cf^2+P\,e^{-(f-f_p)^2/2f_w^2}$&#39;</span><span class="p">)</span>
+
+<span class="c1"># Bottom plot: residuals</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">resids</span><span class="p">,</span> <span class="n">yerr</span> <span class="o">=</span> <span class="n">ds</span><span class="p">,</span> <span class="n">ecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;ro&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;frequency (THz)&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;residuals&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">((</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The above code also plots the difference between the data and fit, known
+as the <em>residuals</em> in the subplot below the plot of the data and fit.
+Plotting the residuals in this way gives a graphical representation of
+the goodness of the fit. To the extent that the residuals vary randomly
+about zero and do not show any overall upward or downward curvature, or
+any long wavelength oscillations, the fit would seem to be a good fit.</p>
+<figure>
+<img src="attachment:FitSpectrum.png" class="align-center" alt="" /><figcaption>Fit to Gaussian with quadratic polynomial background.</figcaption>
+</figure>
+<p>Finally, we note that we have used the MatPlotLib package <code class="docutils literal notranslate"><span class="pre">gridspec</span></code> to
+create the two subplots with different heights. The <code class="docutils literal notranslate"><span class="pre">gridspec</span></code> are made
+in lines 3 (where the package is imported), 36 (where 2 rows and 1
+column are specified with relative heights of 6 to 2), 39 (where the
+first <code class="docutils literal notranslate"><span class="pre">gs[0]</span></code> height is specified), and 54 (where the second <code class="docutils literal notranslate"><span class="pre">gs[1]</span></code>
+height is specified). More details about the <code class="docutils literal notranslate"><span class="pre">gridspec</span></code> package can be
+found at the MatPlotLib web site.</p>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<ol>
+<li><p>When a voltage source is connected across a resistor and inductor in
+series, the voltage across the inductor <span class="math notranslate nohighlight">\(V_i(t)\)</span> is predicted to
+obey the equation</p>
+<div class="math notranslate nohighlight">
+\[V(t) = V_0 e^{-\Gamma t}\]</div>
+<p>where <span class="math notranslate nohighlight">\(t\)</span> is the time and the decay rate <span class="math notranslate nohighlight">\(\Gamma=R/L\)</span> is the ratio
+of the resistance <span class="math notranslate nohighlight">\(R\)</span> to the inductance <span class="math notranslate nohighlight">\(L\)</span> of the circuit. In this
+problem, you are to write a Python routine that fits the above
+equation to the data below for the voltage measured across an
+inductor after it is connected in series with a resistor to a
+voltage source. Following the example in the text, linearize the
+<code class="docutils literal notranslate"><span class="pre">eq:inductorDecay</span></code> and use a linear fitting routine, either the one
+you wrote from the previous chapter or one from NumPy or SciPy.</p>
+<ol>
+<li><p>Find the best values of <span class="math notranslate nohighlight">\(\Gamma\)</span> and <span class="math notranslate nohighlight">\(V_0\)</span> and the uncertainties
+in their values <span class="math notranslate nohighlight">\(\sigma_\Gamma\)</span> and <span class="math notranslate nohighlight">\(\sigma_{V_0}\)</span>.</p></li>
+<li><p>Find the value of <span class="math notranslate nohighlight">\(\chi_r^2\)</span> for your fit. Does it make sense?</p></li>
+<li><p>Make a semi-log plot of the data using symbols with error bars
+(no line) and of the fit (line only). The fit should appear as a
+straight line that goes through the data points.</p></li>
+<li><p>If the resistor has a value of 10.0 <span class="math notranslate nohighlight">\(\mathrm{k}\Omega\)</span>, what is
+the value of the inductance and its uncertainty according to
+your fit, assuming that the error in the resistance is
+negligibly small.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Data for decay of voltage across an inductor
+in an RL circuit
+Date: 24-Oct-2012
+Data taken by D. M. Blantogg and T. P. Chaitor
+
+time (ns)   voltage (volts)  uncertainty (volts)
+    0.0        5.08e+00        1.12e-01
+   32.8        3.29e+00        9.04e-02
+   65.6        2.23e+00        7.43e-02
+   98.4        1.48e+00        6.05e-02
+  131.2        1.11e+00        5.25e-02
+  164.0        6.44e-01        4.00e-02
+  196.8        4.76e-01        3.43e-02
+  229.6        2.73e-01        2.60e-02
+  262.4        1.88e-01        2.16e-02
+  295.2        1.41e-01        1.87e-02
+  328.0        9.42e-02        1.53e-02
+  360.8        7.68e-02        1.38e-02
+  393.6        3.22e-02        8.94e-03
+  426.4        3.22e-02        8.94e-03
+  459.2        1.98e-02        7.01e-03
+  492.0        1.98e-02        7.01e-03
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+<li><p>Small nanoparticles of soot suspended in water start to aggregate
+when salt is added. The average radius <span class="math notranslate nohighlight">\(r\)</span> of the aggregates is
+predicted to grow as a power law in time <span class="math notranslate nohighlight">\(t\)</span> according to the
+equation <span class="math notranslate nohighlight">\(r = r_0t^n\)</span>. Taking the logarithm of this equation gives
+<span class="math notranslate nohighlight">\(\ln r = n\ln t + \ln r_0\)</span>. Thus the data should fall on a straight
+line if <span class="math notranslate nohighlight">\(\ln r\)</span> is plotted <em>vs</em> <span class="math notranslate nohighlight">\(\ln t\)</span>.</p>
+<ol>
+<li><p>Plot the data below on a graph of <span class="math notranslate nohighlight">\(\ln r\)</span> <em>vs</em> <span class="math notranslate nohighlight">\(\ln t\)</span> to see if
+the data fall approximately on a straight line.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Size of growing aggregate
+Date: 19-Nov-2013
+Data taken by M. D. Gryart and M. L. Waites
+time (m)   size (nm)    unc (nm)
+  0.12        115         10
+  0.18        130         12
+  0.42        202         14
+  0.90        335         18
+  2.10        510         20
+  6.00        890         30
+ 18.00       1700         40
+ 42.00       2600         50
+</pre></div>
+</div>
+</li>
+<li><p>Defining <span class="math notranslate nohighlight">\(y = \ln r\)</span> and <span class="math notranslate nohighlight">\(x = \ln t\)</span>, use the linear fitting
+routine you wrote for the previous problem to fit the data and
+find the optimal values for the slope and <span class="math notranslate nohighlight">\(y\)</span> intercept, as well
+as their uncertainties. Use these fitted values to find the
+optimal values of the the amplitude <span class="math notranslate nohighlight">\(r_0\)</span> and the power <span class="math notranslate nohighlight">\(n\)</span> in
+the fitting function <span class="math notranslate nohighlight">\(r = r_0t^n\)</span>. What are the fitted values of
+<span class="math notranslate nohighlight">\(r_0\)</span> and <span class="math notranslate nohighlight">\(n\)</span>? What is the value of <span class="math notranslate nohighlight">\(\chi_r^2\)</span>? Does a power law
+provide an adequate model for the data?</p></li>
+</ol>
+</li>
+<li><p>In this problem you explore using a non-linear least square fitting
+routine to fit the data shown in the figure below. The data,
+including the uncertainties in the <span class="math notranslate nohighlight">\(y\)</span> values, are provided in the
+table below. Your task is to fit the function</p>
+<div class="math notranslate nohighlight">
+\[d(t) = A (1+B\,\cos\omega t) e^{-t^2/2\tau^2} + C\]</div>
+<p>to the data, where the fitting parameters are <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(C\)</span>,
+<span class="math notranslate nohighlight">\(\omega\)</span>, and <span class="math notranslate nohighlight">\(\tau\)</span>.</p>
+<figure>
+<img src="attachment:DataOscDecay.png" class="align-center" alt="" />
+</figure>
+<ol>
+<li><p>Write a Python program that (<em>i</em>) reads the data in from a data
+file, (<em>ii</em>) defines a function
+<code class="docutils literal notranslate"><span class="pre">oscDecay(t,</span> <span class="pre">A,</span> <span class="pre">B,</span> <span class="pre">C,</span> <span class="pre">tau,</span> <span class="pre">omega)</span></code> for the function <span class="math notranslate nohighlight">\(d(t)\)</span>
+above, and (<em>iii</em>) produces a plot of the data and the function
+<span class="math notranslate nohighlight">\(d(t)\)</span>. Choose the fitting parameters <code class="docutils literal notranslate"><span class="pre">A</span></code>, <code class="docutils literal notranslate"><span class="pre">B</span></code>, <code class="docutils literal notranslate"><span class="pre">C</span></code>, <code class="docutils literal notranslate"><span class="pre">tau</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">omega</span></code> to produce an approximate fit “by eye” to the data. You
+should be able estimate reasonable values for these parameters
+just by looking at the data and thinking about the behavior of
+<span class="math notranslate nohighlight">\(d(t)\)</span>. For example, <span class="math notranslate nohighlight">\(d(0)=A(1+B)+C\)</span> while <span class="math notranslate nohighlight">\(d(\infty)=C\)</span>. What
+parameter in <span class="math notranslate nohighlight">\(d(t)\)</span> controls the period of the peaks observed in
+the data? Use that information to estimate the value of that
+parameter.</p></li>
+<li><p>Following the example in section <code class="docutils literal notranslate"><span class="pre">sec:nonlinfit</span></code>, write a
+program using the SciPy function <code class="docutils literal notranslate"><span class="pre">scipy.optimize.curve_fit</span></code> to
+fit Eq. <code class="docutils literal notranslate"><span class="pre">eq:OscDecay</span></code> to the data and thus find the optimal
+values of the fitting parameters <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(C\)</span>, <span class="math notranslate nohighlight">\(\omega\)</span>, and
+<span class="math notranslate nohighlight">\(\tau\)</span>. Your program should plot the data along with the fitting
+function using the optimal values of the fitting parameters.
+Write a function to calculate the reduced <span class="math notranslate nohighlight">\(\chi^2\)</span>. Print out
+the value of the reduced <span class="math notranslate nohighlight">\(\chi^2\)</span> on your plot along with the
+optimal values of the fitting parameters. You can use the
+results from part (a) to estimate good starting values of the
+fitting parameters</p></li>
+<li><p>Once you have found the optimal fitting parameters, run your
+fitting program again using for starting values the optimal
+values of the fitting parameters <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(C\)</span>, and <span class="math notranslate nohighlight">\(\tau\)</span>, but
+set the starting value of <span class="math notranslate nohighlight">\(\omega\)</span> to be 3 times the optimal
+value. You should find that the program converges to a different
+set of fitting parameters than the ones you found in part (b).
+Using the program you wrote for part (b) make a plot of the data
+and the fit like the one you did for part (a). The fit should be
+noticeably worse. What is the value of the reduced <span class="math notranslate nohighlight">\(\chi^2\)</span> for
+this fit; it should be much larger than the one you found for
+part (c). The program has found a local minimum in
+<span class="math notranslate nohighlight">\(\chi^2\)</span>—one that is obviously is not the best fit!</p></li>
+<li><p>Setting the fitting parameters <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(C\)</span>, and <span class="math notranslate nohighlight">\(\tau\)</span> to the
+optimal values you found in part (b), plot <span class="math notranslate nohighlight">\(\chi_r^2\)</span> as a
+function of <span class="math notranslate nohighlight">\(\omega\)</span> for <span class="math notranslate nohighlight">\(\omega\)</span> spanning the range from 0.05
+to 3.95. You should observe several local minima for different
+values of <span class="math notranslate nohighlight">\(\chi_r^2\)</span>; the global minimum in <span class="math notranslate nohighlight">\(\chi_r^2\)</span> should
+occur for the optimal value of <span class="math notranslate nohighlight">\(\omega\)</span> you found in part (b).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Data for absorption spectrum
+Date: 21-Nov-2012
+Data taken by P. Dubson and M. Sparks
+time (ms)  signal  uncertainty
+  0.2      41.1       0.9 
+  1.4      37.2       0.9 
+  2.7      28.3       0.9 
+  3.9      24.8       1.1 
+  5.1      27.8       0.8 
+  6.4      34.5       0.7 
+  7.6      39.0       0.9 
+  8.8      37.7       0.8 
+ 10.1      29.8       0.9 
+ 11.3      22.2       0.7 
+ 12.5      22.3       0.6 
+ 13.8      26.7       1.1 
+ 15.0      30.4       0.7 
+ 16.2      32.6       0.8 
+ 17.5      28.9       0.8 
+ 18.7      22.9       1.3 
+ 19.9      21.7       0.9 
+ 21.1      22.1       1.0 
+ 22.4      22.3       1.0 
+ 23.6      26.3       1.0 
+ 24.8      26.2       0.8 
+ 26.1      21.4       0.9 
+ 27.3      20.0       1.0 
+ 28.5      20.1       1.2 
+ 29.8      21.2       0.5 
+ 31.0      22.0       0.9 
+ 32.2      21.6       0.7 
+ 33.5      21.0       0.7 
+ 34.7      19.7       0.9 
+ 35.9      17.9       0.9 
+ 37.2      18.1       0.8 
+ 38.4      18.9       1.1 
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="chap9_scipy.html" class="btn btn-neutral float-right" title="Numerical Routines: SciPy and NumPy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="chap7_funcs.html" class="btn btn-neutral float-left" title="Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Numeric project
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
