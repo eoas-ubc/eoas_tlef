@@ -23,7 +23,7 @@ cd pyman
 
 ### Publishing this Jupyter Book
 
-- Run `ghp-import -n -p -f book/_build`
+- Run `ghp-import -n -p -f ../_build`
 
 - open https://eoas-ubc.github.io/eoas_tlef/pyman/index.html
   to see a sample build -- substitute your forked repo-address for
