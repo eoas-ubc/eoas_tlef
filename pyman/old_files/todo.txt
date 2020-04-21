@@ -1,0 +1,9 @@
+Introduce docstrings
+
+finding zeros (roots) of nonlinear equations
+
+spline fits
+
+Chapter on classes
+
+more examples on loops

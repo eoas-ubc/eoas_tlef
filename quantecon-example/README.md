@@ -27,5 +27,7 @@ Run the following command in your terminal: `jb build book/`.
 
 Run `ghp-import -n -p -f book/_build/html`
 
-open https://eoas-ubc.github.io/eoas_tlef/docs/index.html
+open https://eoas-ubc.github.io/eoas_tlef/ebp/docs/index.html
+
+open https://eoas-ubc.github.io/eoas_tlef/pyman/index.html
 
