@@ -1,290 +1,209 @@
 
 
 <!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Strings, Lists, Arrays, and Dictionaries &mdash; Numeric course 0.1 documentation</title>
+  
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta charset="utf-8" />
-    <title>Strings, Lists, Arrays, and Dictionaries &#8212; Numeric course 0.1 documentation</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
-    <link href="../_static/css/index.css" rel="stylesheet">
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/togglebutton.js"></script>
+        <script src="../_static/mystnb.js"></script>
+        <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/mystnb.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Input and Output" href="chap4_io.html" />
-    <link rel="prev" title="First Steps" href="chap2_basics.html" />
+    <link rel="prev" title="First Steps" href="chap2_basics.html" /> 
+</head>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
+<body class="wy-body-for-nav">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+   
+  <div class="wy-grid-for-nav">
     
-    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
 
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-</button>
+          
+            <a href="../index.html" class="icon icon-home"> Numeric course
+          
 
-<div id="navbar-menu" class="collapse navbar-collapse">
-  <ul id="navbar-main-elements" class="navbar-nav mr-auto">
-    <li class="nav-item">
-        <a class="nav-link" href="../index.html">Home</a>
-    </li>
-    
-    
-    <li class="nav-item ">
-        <a class="nav-link" href="chap1_intro.html">Chapter 1: Introduction</a>
-    </li>
-    
-    <li class="nav-item ">
-        <a class="nav-link" href="chap2_basics.html">Chapter 2: First Steps</a>
-    </li>
-    
-    <li class="nav-item active">
-        <a class="nav-link" href="">Chapter 3: Arrays</a>
-    </li>
-    
-    <li class="nav-item ">
-        <a class="nav-link" href="chap4_io.html">Chapter 4: Input and Output</a>
-    </li>
-    
-    <li class="nav-item ">
-        <a class="nav-link" href="chap5_plot.html">Chapter 5: Plotting</a>
-    </li>
-    
-    <li class="nav-item ">
-        <a class="nav-link" href="chap6_loopsconds.html">Chapter 6: Flow control</a>
-    </li>
-    
-    <li class="nav-item ">
-        <a class="nav-link" href="chap7_funcs.html">Chapter 7: Functions</a>
-    </li>
-    
-    <li class="nav-item ">
-        <a class="nav-link" href="chap8_fitting.html">Chapter 8: Curve Fitting</a>
-    </li>
-    
-    <li class="nav-item ">
-        <a class="nav-link" href="chap9_scipy.html">Chapter 9: Scipy</a>
-    </li>
-    
-    <li class="nav-item ">
-        <a class="nav-link" href="apdx1_install.html">Appendix 1: Installation</a>
-    </li>
-    
-    <li class="nav-item ">
-        <a class="nav-link" href="apdx2_ipynb.html">Appendix 2: Jupyter</a>
-    </li>
-    
-    <li class="nav-item ">
-        <a class="nav-link" href="apdx3_resources.html">Appendix 3: Resources</a>
-    </li>
-    
-    
-  </ul>
-  <ul class="navbar-nav ml-auto">
-    
-    
-  </ul>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
 </div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="chap1_intro.html">Chapter 1: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap2_basics.html">Chapter 2: First Steps</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Chapter 3: Arrays</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#strings">Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lists">Lists</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#slicing-lists">Slicing lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-and-modifying-lists">Creating and modifying lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tuples">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multidimensional-lists-and-tuples">Multidimensional lists and tuples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#numpy-arrays">NumPy arrays</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-arrays-1-d">Creating arrays (1-d)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#recap-of-ways-to-create-a-1-d-array">Recap of ways to create a 1-d array</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#mathematical-operations-with-arrays">Mathematical operations with arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#slicing-and-addressing-arrays">Slicing and addressing arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multi-dimensional-arrays-and-matrices">Multi-dimensional arrays and matrices</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#creating-numpy-arrays">Creating NumPy arrays</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#indexing-multidimensional-arrays">Indexing multidimensional arrays</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#matrix-operations">Matrix operations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#differences-between-lists-and-arrays">Differences between lists and arrays</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dictionaries">Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#random-numbers">Random numbers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#uniformly-distributed-random-numbers">Uniformly distributed random numbers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#normally-distributed-random-numbers">Normally distributed random numbers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#random-distribution-of-integers">Random distribution of integers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loading-random-number-functions">Loading random number functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#recap-of-random-number-generators">Recap of random number generators</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chap4_io.html">Chapter 4: Input and Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap5_plot.html">Chapter 5: Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap6_loopsconds.html">Chapter 6: Flow control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap7_funcs.html">Chapter 7: Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap8_fitting.html">Chapter 8: Curve Fitting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap9_scipy.html">Chapter 9: Scipy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apdx1_install.html">Appendix 1: Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apdx2_ipynb.html">Appendix 2: Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apdx3_resources.html">Appendix 3: Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
     </nav>
-    
 
-    <div class="container-fluid">
-      <div class="row">
-          
-          <div class="col-12 col-md-3 col-xl-2 bd-sidebar">
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
-<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
-</form>
-
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-
-  <div class="bd-toc-item active">
-  
-
-  <ul class="nav bd-sidenav">
       
-      
-      
-      
-      
-      
+      <nav class="wy-nav-top" aria-label="top navigation">
         
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-    </ul>
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Numeric course</a>
+        
+      </nav>
 
-</nav>
-          </div>
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
           
 
-          
-          <div class="d-none d-xl-block col-xl-2 bd-toc">
-              
 
 
-<div class="tocsection onthispage"><i class="fas fa-list"></i> On this page</div>
-<nav id="bd-toc-nav">
-    <ul class="nav section-nav flex-column">
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#strings" class="nav-link">Strings</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#lists" class="nav-link">Lists</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#slicing-lists" class="nav-link">Slicing lists</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#creating-and-modifying-lists" class="nav-link">Creating and modifying lists</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#tuples" class="nav-link">Tuples</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#multidimensional-lists-and-tuples" class="nav-link">Multidimensional lists and tuples</a>
-        </li>
-    
-            </ul>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#numpy-arrays" class="nav-link">NumPy arrays</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#creating-arrays-1-d" class="nav-link">Creating arrays (1-d)</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h4">
-            <a href="#recap-of-ways-to-create-a-1-d-array" class="nav-link">Recap of ways to create a 1-d array</a>
-        </li>
-    
-            </ul>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#mathematical-operations-with-arrays" class="nav-link">Mathematical operations with arrays</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#slicing-and-addressing-arrays" class="nav-link">Slicing and addressing arrays</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#multi-dimensional-arrays-and-matrices" class="nav-link">Multi-dimensional arrays and matrices</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h4">
-            <a href="#creating-numpy-arrays" class="nav-link">Creating NumPy arrays</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h4">
-            <a href="#indexing-multidimensional-arrays" class="nav-link">Indexing multidimensional arrays</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h4">
-            <a href="#matrix-operations" class="nav-link">Matrix operations</a>
-        </li>
-    
-            </ul>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#differences-between-lists-and-arrays" class="nav-link">Differences between lists and arrays</a>
-        </li>
-    
-            </ul>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#dictionaries" class="nav-link">Dictionaries</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#random-numbers" class="nav-link">Random numbers</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#uniformly-distributed-random-numbers" class="nav-link">Uniformly distributed random numbers</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#normally-distributed-random-numbers" class="nav-link">Normally distributed random numbers</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#random-distribution-of-integers" class="nav-link">Random distribution of integers</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#loading-random-number-functions" class="nav-link">Loading random number functions</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h4">
-            <a href="#recap-of-random-number-generators" class="nav-link">Recap of random number generators</a>
-        </li>
-    
-            </ul>
-        </li>
-    
-            </ul>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#exercises" class="nav-link">Exercises</a>
-        </li>
-    
-    </ul>
-</nav>
-              
-          </div>
-          
 
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Strings, Lists, Arrays, and Dictionaries</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/notebooks/chap3_arrays.ipynb.txt" rel="nofollow"> View page source</a>
           
-          <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
-              
-              <div>
-                
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
   <div class="section" id="strings-lists-arrays-and-dictionaries">
 <h1>Strings, Lists, Arrays, and Dictionaries<a class="headerlink" href="#strings-lists-arrays-and-dictionaries" title="Permalink to this headline">¶</a></h1>
 <p>The most import data structure for scientific computing in Python is the
@@ -2248,30 +2167,52 @@ length array?</p>
 </div>
 
 
-              </div>
-              
-              
-              <div class='prev-next-bottom'>
-                
-    <a class='left-prev' id="prev-link" href="chap2_basics.html" title="previous page">First Steps</a>
-    <a class='right-next' id="next-link" href="chap4_io.html" title="next page">Input and Output</a>
-
-              </div>
-              
-          </main>
-          
-
-      </div>
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="chap4_io.html" class="btn btn-neutral float-right" title="Input and Output" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="chap2_basics.html" class="btn btn-neutral float-left" title="First Steps" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
+  
 
-    <script src="../_static/js/index.js"></script>
-    <footer class="footer">
-  <div class="container">
+  <hr/>
+
+  <div role="contentinfo">
     <p>
-          &copy; Copyright Numeric project.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        &copy; Copyright Numeric project
+
     </p>
   </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
 </footer>
-  </body>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
 </html>
