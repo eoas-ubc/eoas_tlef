@@ -20,6 +20,8 @@
 
 - [Top down vs. bottom up learning](top_down_learning.md)
 
+- [Link to TLEF proposal](Quant-TLEF-2019.docx.pdf)
+
 - The crucial components (for both research and teaching)
 
   - git for low friction curation/collaboration
