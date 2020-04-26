@@ -2,7 +2,7 @@
 
 ## The view from 1995
 
-- [Allen, Stockie and Austin, BAMS, 1997](bams_allen_numeric_course.pdf)
+- [Allen, Stockie and Austin, BAMS, 1997](https://github.com/eoas-ubc/eoas_tlef/blob/master/docs/bams_allen_numeric_course.pdf)
 
 - Remembering the wreck of the [SS. Britanic](https://www.capitalismmagazine.com/2000/12/how-encyclopedia-britannica-was-blown-to-bits/)
   - [(and the epilogue)](https://bits.blogs.nytimes.com/2009/03/30/microsoft-encarta-dies-after-long-battle-with-wikipedia/)
