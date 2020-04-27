@@ -9,6 +9,7 @@
 - Remembering the wreck of the [SS. Britanic](https://www.capitalismmagazine.com/2000/12/how-encyclopedia-britannica-was-blown-to-bits/)
   - [(and the epilogue)](https://bits.blogs.nytimes.com/2009/03/30/microsoft-encarta-dies-after-long-battle-with-wikipedia/)
 
+- What's changed in the last 25 years?
 
 ## Current state of the art
 
