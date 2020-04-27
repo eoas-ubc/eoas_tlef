@@ -13,6 +13,8 @@
 
 ## Current state of the art
 
+- [DSCI 100](https://ubc-dsci.github.io/introduction-to-datascience/)
+
 - [A pandoc markdown book](https://introtcs.org/public/)
 
 - [The executable book project](https://beta.jupyterbook.org/intro.html#use)
