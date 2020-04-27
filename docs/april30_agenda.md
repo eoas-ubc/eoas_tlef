@@ -1,7 +1,7 @@
 # Agenda notes for April 30 zoom
 
 ## Introductions
-Including round-the-table introductions, and who's who for the comming few months? 
+Including round-the-room introductions, and who's who for the coming few months
 
 ## The view from 1995
 
