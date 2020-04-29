@@ -18,7 +18,7 @@ Including round-the-room introductions, and who's who for the coming few months
 
 - [A pandoc markdown book](https://introtcs.org/public/)
 
-- [The executable book project](https://beta.jupyterbook.org/intro.html#use)
+- [The executable book project](https://executablebooks.org/en/latest/)
 
 - [manubot.org](https://manubot.org/)
 
