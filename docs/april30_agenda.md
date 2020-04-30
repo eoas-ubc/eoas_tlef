@@ -14,7 +14,7 @@ Including round-the-room introductions, and who's who for the coming few months
 
 ## Current state of the art
 
-- [DSCI 100](https://ubc-dsci.github.io/introduction-to-datascience/)
+- [DSCI 100](https://ubc-dsci.github.io/introduction-to-datascience/) and [reposistory](https://github.com/UBC-DSCI/introduction-to-datascience)
 
 - [A pandoc markdown book](https://introtcs.org/public/)
 
