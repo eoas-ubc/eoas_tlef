@@ -1,0 +1,267 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting started &mdash; Numeric course 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/togglebutton.js"></script>
+        <script src="../_static/mystnb.js"></script>
+        <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/mystnb.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Student installs" href="course_bootstrap/installing_jupytext.html" />
+    <link rel="prev" title="Pyman" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Numeric course
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">First steps:</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="course_bootstrap/installing_jupytext.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference external" href="Python introduction `&lt;https://phaustin.github.io/pyman&gt;`_">Python introduction `&lt;https://phaustin.github.io/pyman&gt;`_</a></li>
+<li class="toctree-l2"><a class="reference external" href="  (note these notebooks are available at `&lt;https://github.com/phaustin/pyman.git&gt;`_ )">  (note these notebooks are available at `&lt;https://github.com/phaustin/pyman.git&gt;`_ )</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course_bootstrap/python.html">The command line shell and git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course_bootstrap/python.html#books-and-tutorials">Books and tutorials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course_bootstrap/vscode.html">VS code notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chap1_intro.html">Chapter 1: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap2_basics.html">Chapter 2: First Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap3_arrays.html">Chapter 3: Arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap4_io.html">Chapter 4: Input and Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap5_plot.html">Chapter 5: Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap6_loopsconds.html">Chapter 6: Flow control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap7_funcs.html">Chapter 7: Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap8_fitting.html">Chapter 8: Curve Fitting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chap9_scipy.html">Chapter 9: Scipy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apdx1_install.html">Appendix 1: Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apdx2_ipynb.html">Appendix 2: Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apdx3_resources.html">Appendix 3: Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Numeric course</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Getting started</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/notebooks/getting_started.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-started">
+<h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="course_bootstrap/installing_jupytext.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="course_bootstrap/installing_jupytext.html#for-macos-new-installs">For MacOS new installs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course_bootstrap/installing_jupytext.html#for-windows-new-installs">For Windows new installs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course_bootstrap/installing_jupytext.html#git-install">Git install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course_bootstrap/installing_jupytext.html#setting-up-the-course-repository">Setting up the course repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course_bootstrap/installing_jupytext.html#creating-the-course-environment">Creating the course environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course_bootstrap/installing_jupytext.html#opening-the-notebook-folder">Opening the notebook folder</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="Python introduction `&lt;https://phaustin.github.io/pyman&gt;`_">Python introduction `&lt;https://phaustin.github.io/pyman&gt;`_</a></li>
+<li class="toctree-l1"><a class="reference external" href="  (note these notebooks are available at `&lt;https://github.com/phaustin/pyman.git&gt;`_ )">  (note these notebooks are available at `&lt;https://github.com/phaustin/pyman.git&gt;`_ )</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_bootstrap/python.html">The command line shell and git</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="course_bootstrap/python.html#using-the-command-line">Using the command line</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="course_bootstrap/python.html#powershell-and-bash-common-commands">Powershell and Bash common commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="course_bootstrap/python.html#to-configure-powershell-on-windows">To configure  powershell on windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="course_bootstrap/python.html#to-configure-bash-or-zsh-on-macos">To configure bash or zsh on MacOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="course_bootstrap/python.html#bash-and-powershell-command-reference">Bash and powershell command reference</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="course_bootstrap/python.html#git">Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course_bootstrap/python.html#pulling-changes-from-the-github-repository">Pulling changes from the github repository</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="course_bootstrap/python.html#books-and-tutorials">Books and tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course_bootstrap/vscode.html">VS code notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="course_bootstrap/vscode.html#first-make-sure-conda-forge-is-your-preferred-channel">First, make sure conda-forge is your preferred channel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course_bootstrap/vscode.html#next-install-vscode-from-https-code-visualstudio-com-download">Next install vscode from https://code.visualstudio.com/download</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course_bootstrap/vscode.html#some-definitions">Some definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course_bootstrap/vscode.html#possible-workflows">Possible workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course_bootstrap/vscode.html#next-steps">Next steps</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="course_bootstrap/installing_jupytext.html" class="btn btn-neutral float-right" title="Student installs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Pyman" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Numeric project
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

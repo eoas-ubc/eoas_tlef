@@ -1,0 +1,312 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Student installs &mdash; Numeric course 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script src="../../_static/mystnb.js"></script>
+        <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/mystnb.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="The command line shell and git" href="python.html" />
+    <link rel="prev" title="Getting started" href="../getting_started.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Numeric course
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../getting_started.html">First steps:</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#for-macos-new-installs">For MacOS new installs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#for-windows-new-installs">For Windows new installs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#git-install">Git install</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-the-course-repository">Setting up the course repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-the-course-environment">Creating the course environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opening-the-notebook-folder">Opening the notebook folder</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference external" href="Python introduction `&lt;https://phaustin.github.io/pyman&gt;`_">Python introduction `&lt;https://phaustin.github.io/pyman&gt;`_</a></li>
+<li class="toctree-l2"><a class="reference external" href="  (note these notebooks are available at `&lt;https://github.com/phaustin/pyman.git&gt;`_ )">  (note these notebooks are available at `&lt;https://github.com/phaustin/pyman.git&gt;`_ )</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python.html">The command line shell and git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python.html#books-and-tutorials">Books and tutorials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vscode.html">VS code notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chap1_intro.html">Chapter 1: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chap2_basics.html">Chapter 2: First Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chap3_arrays.html">Chapter 3: Arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chap4_io.html">Chapter 4: Input and Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chap5_plot.html">Chapter 5: Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chap6_loopsconds.html">Chapter 6: Flow control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chap7_funcs.html">Chapter 7: Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chap8_fitting.html">Chapter 8: Curve Fitting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chap9_scipy.html">Chapter 9: Scipy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apdx1_install.html">Appendix 1: Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apdx2_ipynb.html">Appendix 2: Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apdx3_resources.html">Appendix 3: Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Numeric course</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../getting_started.html">Getting started</a> &raquo;</li>
+        
+      <li>Student installs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/notebooks/course_bootstrap/installing_jupytext.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="student-installs">
+<h1>Student installs<a class="headerlink" href="#student-installs" title="Permalink to this headline">¶</a></h1>
+<p><strong>If you already have conda or anaconda installed, skip to <code class="docutils literal notranslate"><span class="pre">Git</span> <span class="pre">install</span></code> below</strong></p>
+<div class="section" id="for-macos-new-installs">
+<h2>For MacOS new installs<a class="headerlink" href="#for-macos-new-installs" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Download miniconda from  https://docs.conda.io/en/latest/miniconda.html  – choose the <code class="docutils literal notranslate"><span class="pre">Miniconda3</span> <span class="pre">MacOSX</span> <span class="pre">64-bit</span> <span class="pre">pkg</span></code> file from the menu and run it, agreeing to the licences and accepting all defaults. You should install for “just me”</p></li>
+<li><p>To test your installation, open a fresh terminal window and at the prompt type <code class="docutils literal notranslate"><span class="pre">which</span> <span class="pre">conda</span></code>.  You should see something resembling the following output, with your username instead of <code class="docutils literal notranslate"><span class="pre">phil</span></code>:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">which</span> <span class="n">conda</span>
+<span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">phil</span><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">miniconda3</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">conda</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="for-windows-new-installs">
+<h2>For Windows new installs<a class="headerlink" href="#for-windows-new-installs" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Download miniconda from  https://docs.conda.io/en/latest/miniconda.html  – choose the <code class="docutils literal notranslate"><span class="pre">Miniconda3</span> <span class="pre">Windows</span> <span class="pre">64-bit</span></code>. download from the menu and run it, agreeing to the licences and accepting all defaults.</p></li>
+</ol>
+<p>The installer should suggest installing in a path that looks like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">phil</span>\<span class="n">Miniconda3</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Once the install completes hit the windows key and start typing <code class="docutils literal notranslate"><span class="pre">anaconda</span></code>.  You should see a shortcut that looks like:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Anaconda</span> <span class="n">Powershell</span> <span class="n">Prompt</span>
+<span class="p">(</span><span class="n">Miniconda3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Note that Windows comes with two different terminals <code class="docutils literal notranslate"><span class="pre">cmd</span></code> (old) and <code class="docutils literal notranslate"><span class="pre">powershell</span></code> (new).  Always select the powershell version of the anaconda terminal</strong></p>
+<ol class="simple">
+<li><p>Select the short cut.  If the install was successful you should see something like:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">base</span><span class="p">)</span> <span class="p">(</span><span class="n">Miniconda3</span><span class="p">):</span><span class="n">Users</span><span class="o">/</span><span class="n">phil</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>with your username substituted for phil.</p>
+</div>
+<div class="section" id="git-install">
+<h2>Git install<a class="headerlink" href="#git-install" title="Permalink to this headline">¶</a></h2>
+<p>Inside your powershell or MacOs terminal, install git using conda:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">git</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="setting-up-the-course-repository">
+<h2>Setting up the course repository<a class="headerlink" href="#setting-up-the-course-repository" title="Permalink to this headline">¶</a></h2>
+<p>In the terminal, change directories to your home directory (called <code class="docutils literal notranslate"><span class="pre">~</span></code> for short) and make a new directory
+called <code class="docutils literal notranslate"><span class="pre">repos</span></code> to hold the course notebook repository.  Change into <code class="docutils literal notranslate"><span class="pre">repos</span></code> and clone the course:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~</span>
+<span class="n">mkdir</span> <span class="n">repos</span>
+<span class="n">cd</span> <span class="n">repos</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">phaustin</span><span class="o">/</span><span class="n">numeric_students</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-the-course-environment">
+<h2>Creating the course environment<a class="headerlink" href="#creating-the-course-environment" title="Permalink to this headline">¶</a></h2>
+<p>In the terminal, execute the following commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">numeric_students</span><span class="o">/</span><span class="n">utils</span>
+<span class="n">conda</span> <span class="n">env</span> <span class="n">create</span> <span class="o">-</span><span class="n">f</span> <span class="n">numeric</span><span class="o">.</span><span class="n">yml</span>
+<span class="n">conda</span> <span class="n">activate</span> <span class="n">numeric</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="opening-the-notebook-folder">
+<h2>Opening the notebook folder<a class="headerlink" href="#opening-the-notebook-folder" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">repos</span><span class="o">/</span><span class="n">numeric_students</span><span class="o">/</span><span class="n">numeric_notebooks</span>
+<span class="n">jupyter</span> <span class="n">notebook</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="python.html" class="btn btn-neutral float-right" title="The command line shell and git" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../getting_started.html" class="btn btn-neutral float-left" title="Getting started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Numeric project
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

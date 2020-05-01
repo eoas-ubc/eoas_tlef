@@ -4,7 +4,7 @@ Pyman
 .. toctree::
    :maxdepth: 1
 
-
+   Preliminaries <notebooks/getting_started.rst>
    Chapter 1: Introduction <notebooks/chap1_intro.ipynb>
    Chapter 2: First Steps <notebooks/chap2_basics.ipynb>
    Chapter 3: Arrays <notebooks/chap3_arrays.ipynb>

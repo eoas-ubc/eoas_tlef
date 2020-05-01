@@ -1,0 +1,299 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>VScode notes &mdash; Numeric course 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script src="../../_static/mystnb.js"></script>
+        <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/mystnb.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Introduction" href="../chap1_intro.html" />
+    <link rel="prev" title="The command line shell and git" href="python.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Numeric course
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../getting_started.html">First steps:</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="installing_jupytext.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference external" href="Python introduction `&lt;https://phaustin.github.io/pyman&gt;`_">Python introduction `&lt;https://phaustin.github.io/pyman&gt;`_</a></li>
+<li class="toctree-l2"><a class="reference external" href="  (note these notebooks are available at `&lt;https://github.com/phaustin/pyman.git&gt;`_ )">  (note these notebooks are available at `&lt;https://github.com/phaustin/pyman.git&gt;`_ )</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python.html">The command line shell and git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python.html#books-and-tutorials">Books and tutorials</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">VS code notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#first-make-sure-conda-forge-is-your-preferred-channel">First, make sure conda-forge is your preferred channel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#next-install-vscode-from-https-code-visualstudio-com-download">Next install vscode from https://code.visualstudio.com/download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#some-definitions">Some definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#possible-workflows">Possible workflows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#next-steps">Next steps</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chap1_intro.html">Chapter 1: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chap2_basics.html">Chapter 2: First Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chap3_arrays.html">Chapter 3: Arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chap4_io.html">Chapter 4: Input and Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chap5_plot.html">Chapter 5: Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chap6_loopsconds.html">Chapter 6: Flow control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chap7_funcs.html">Chapter 7: Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chap8_fitting.html">Chapter 8: Curve Fitting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chap9_scipy.html">Chapter 9: Scipy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apdx1_install.html">Appendix 1: Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apdx2_ipynb.html">Appendix 2: Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apdx3_resources.html">Appendix 3: Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Numeric course</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../getting_started.html">Getting started</a> &raquo;</li>
+        
+      <li>VScode notes</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/notebooks/course_bootstrap/vscode.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="vscode-notes">
+<h1>VScode notes<a class="headerlink" href="#vscode-notes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="first-make-sure-conda-forge-is-your-preferred-channel">
+<h2>First, make sure conda-forge is your preferred channel<a class="headerlink" href="#first-make-sure-conda-forge-is-your-preferred-channel" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">conda</span> <span class="n">config</span> <span class="o">--</span><span class="n">show</span> <span class="n">channels</span>
+<span class="n">channels</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+  <span class="o">-</span> <span class="n">defaults</span>
+</pre></div>
+</div>
+<p>If defaults is above conda-forge, revers this with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">conda</span> <span class="n">config</span> <span class="o">--</span><span class="n">prepend</span> <span class="n">channels</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="ne">Warning</span><span class="p">:</span> <span class="s1">&#39;conda-forge&#39;</span> <span class="n">already</span> <span class="ow">in</span> <span class="s1">&#39;channels&#39;</span> <span class="nb">list</span><span class="p">,</span> <span class="n">moving</span> <span class="n">to</span> <span class="n">the</span> <span class="n">top</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="next-install-vscode-from-https-code-visualstudio-com-download">
+<h2>Next install vscode from https://code.visualstudio.com/download<a class="headerlink" href="#next-install-vscode-from-https-code-visualstudio-com-download" title="Permalink to this headline">¶</a></h2>
+<p>Install the command line version as well. On windows, this should be done as part of
+the install.  On MacOS, you need to open the vscode command pallette (⌘shift-P) and type</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Shell</span> <span class="n">Command</span><span class="p">:</span> <span class="n">Install</span> <span class="s1">&#39;code&#39;</span> 
+</pre></div>
+</div>
+<p>once that is done, you should be able to start vscode from the command line in a particular
+folder by typing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">code</span> <span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="some-definitions">
+<h2>Some definitions<a class="headerlink" href="#some-definitions" title="Permalink to this headline">¶</a></h2>
+<p>In vscode a “workspace” is any folder containing a folder named .vscode or a file ending in <code class="docutils literal notranslate"><span class="pre">code-workspace</span></code>.
+The .vscode folder denotes a “single root” workspace, in which everything in the tree below
+the folder containing the .vscode file has the same default specifications.  If instead the folder contains
+a “code-workspace” file, then the workspace is “multiroot” and can have independent toplevel .vscode settings.
+Here is an example of a <a class="reference external" href="https://github.com/phaustin/numeric/blob/master/utils/numeric.code-workspace">workspace file for numeric</a> and here is an example
+of a <a class="reference external" href="https://github.com/phaustin/numeric/tree/master/utils/.vscode">vscode folder</a></p>
+</div>
+<div class="section" id="possible-workflows">
+<h2>Possible workflows<a class="headerlink" href="#possible-workflows" title="Permalink to this headline">¶</a></h2>
+<p>First, install the <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">python extension</a>.</p>
+<p>Next, as demonstrated in class, if you open a file ending in “.py”, and set the python interpeter to the
+conda numeric environment, you can then save workspace called “numeric”, add flake8 as your linter,
+and black as your formatter.  At that point you are getting both intellisense command competions and
+linting and formatting.  Another possible route is to install ipython:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">ipython</span>
+</pre></div>
+</div>
+<p>and start ipython in a bash terminal with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ipython</span> <span class="o">--</span><span class="n">matplotlib</span>
+</pre></div>
+</div>
+<p>so that you can pop up figures that are much larger than the vscode window.</p>
+</div>
+<div class="section" id="next-steps">
+<h2>Next steps<a class="headerlink" href="#next-steps" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Using git with vscode</p></li>
+<li><p>Writing markdown with vscode</p></li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../chap1_intro.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="python.html" class="btn btn-neutral float-left" title="The command line shell and git" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Numeric project
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
