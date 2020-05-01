@@ -1,2 +1,2 @@
 #!/bin/bash
-ghp-import -n -p -f ../_build
+ghp-import -r upstream -n -p -f ../_build
