@@ -1,7 +1,7 @@
 ---
 jupytext:
   cell_metadata_filter: all
-  formats: ipynb,py:percent
+  formats: ipynb,myst
   notebook_metadata_filter: all,-language_info,-toc,-latex_envs
   text_representation:
     extension: .md

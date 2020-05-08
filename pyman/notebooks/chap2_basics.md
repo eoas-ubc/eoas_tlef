@@ -2,17 +2,13 @@
 jupytext:
   cell_metadata_filter: all
   encoding: '# -*- coding: utf-8 -*-'
-  formats: ipynb,py:percent
+  formats: ipynb,md:myst
   notebook_metadata_filter: all,-language_info
   text_representation:
     extension: .md
     format_name: myst
     format_version: '0.8'
-    jupytext_version: 1.4.2
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
+    jupytext_version: 1.5.0-dev
 language_info:
   codemirror_mode:
     name: ipython
@@ -23,6 +19,10 @@ language_info:
   nbconvert_exporter: python
   pygments_lexer: ipython3
   version: 3.7.6
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
 ---
 
 First Steps
@@ -35,7 +35,6 @@ If you haven't already installed Python on your computer, see `apdx1` ,
 which includes instructions for installing Python on Macs running under
 MacOSX and on PCs running under Windows.
 
-single: miniconda
 
 ### Launching IPython
 
