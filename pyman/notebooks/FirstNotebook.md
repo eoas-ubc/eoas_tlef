@@ -8,16 +8,6 @@ jupytext:
     format_name: myst
     format_version: '0.8'
     jupytext_version: 1.4.2
-language_info:
-  codemirror_mode:
-    name: ipython
-    version: 3
-  file_extension: .py
-  mimetype: text/x-python
-  name: python
-  nbconvert_exporter: python
-  pygments_lexer: ipython3
-  version: 3.7.6
 kernelspec:
   display_name: Python 3
   language: python
@@ -55,7 +45,8 @@ plt.plot([1,2,3,2,3,4,3,4,5])
 # Calculates time, gallons of gas used, and cost of gasoline for
 # a trip
 
-distance = float(input("Input distance of trip in miles: "))
+#distance = float(input("Input distance of trip in miles: "))
+distance=10
 mpg = 30.               # car mileage
 speed = 60.             # average speed
 costPerGallon = 4.10    # price of gas

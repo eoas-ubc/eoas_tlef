@@ -51,7 +51,7 @@ for getting input from the user and assigning it a variable name. It has
 the form
 
 ```{code-cell} ipython3
-strname = input("prompt to user ")
+#strname = input("prompt to user ")
 ```
 
 When the `input` statement is executed, it prints the text in the
@@ -63,7 +63,8 @@ the right of the assignment operator `=`.
 Let's try it out this snippet of code in the IPython shell.
 
 ```{code-cell} ipython3
-distance = input("Input distance of trip in miles: ")
+#distance = input("Input distance of trip in miles: ")
+distance=10
 ```
 
 Python prints out the string argument of the `input` function and
@@ -82,7 +83,7 @@ distance, we need to convert it from a string to a number. We can do
 that with the `eval` function by writing
 
 ```{code-cell} ipython3
-distance = eval(distance)
+#distance = eval(distance)
 distance
 ```
 
@@ -98,7 +99,7 @@ which would ensure that `distance` is a floating point variable. Thus,
 our code would look like this (including the user response):
 
 ```{code-cell} ipython3
-distance = input("Input distance of trip in miles: ")
+#distance = input("Input distance of trip in miles: ")
 distance
 ```
 
@@ -113,7 +114,7 @@ Now let's incorporate what we have learned into the code we wrote for
 ```{code-cell} ipython3
 # Calculates time, gallons of gas used, and cost of gasoline for a trip
 
-distance = input("Input distance of trip in miles: ")
+#distance = input("Input distance of trip in miles: ")
 distance = float(distance)
 
 mpg = 30.               # car mileage
@@ -129,7 +130,7 @@ Lines 4 and 5 can be combined into a single line, which is a little more
 efficient:
 
 ```{code-cell} ipython3
-distance = float(input("Input distance of trip in miles: "))
+#distance = float(input("Input distance of trip in miles: "))
 ```
 
 Whether you use `float` or `int` or `eval` depends on whether you want a
@@ -182,7 +183,7 @@ more user friendly. The program below demonstrates how to do this.
 # Calculates time, gallons of gas used, and cost of gasoline for
 # a trip
 
-distance = float(input("Input distance of trip in miles: "))
+#distance = float(input("Input distance of trip in miles: "))
 mpg = 30.               # car mileage
 speed = 60.             # average speed
 costPerGallon = 4.10    # price of gas
