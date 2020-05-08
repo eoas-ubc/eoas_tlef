@@ -1,1 +1,0 @@
-.. _whirlwind.zip: http://clouds.eos.ubc.ca/~phil/courses/atsc301/downloads/WhirlwindTourOfPython-notebooks.zip

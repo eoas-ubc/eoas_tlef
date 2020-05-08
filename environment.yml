@@ -20,9 +20,12 @@ dependencies:
   - nbsphinx
   - pip
   - pip:
-    - git+https://github.com/ExecutableBookProject/MyST-NB.git
+    - git+https://github.com/executablebooks/MyST-NB.git
+    - git+https://github.com/executablebooks/MyST-Parser.git
     - jupyter-cache[cli]
     - git+https://github.com/mwouts/jupytext.git
-    - git+https://github.com/ExecutableBookProject/cli
-    - git+https://github.com/ExecutableBookProject/sphinx-book-theme
+    - git+https://github.com/executablebooks/jupyter-book
+    - git+https://github.com/executablebooks/sphinx-book-theme
     
+
+

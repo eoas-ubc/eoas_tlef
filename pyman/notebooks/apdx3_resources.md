@@ -7,33 +7,28 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: '0.8'
-    jupytext_version: 1.5.0-dev
+    jupytext_version: 1.4.2
 kernelspec:
   display_name: Python 3
   language: python
   name: python3
-toc:
-  base_numbering: 1
-  nav_menu: {}
-  number_sections: true
-  sideBar: true
-  skip_h1_title: false
-  title_cell: Table of Contents
-  title_sidebar: Contents
-  toc_cell: true
-  toc_position: {}
-  toc_section_display: true
-  toc_window_display: true
+language_info:
+  codemirror_mode:
+    name: ipython
+    version: 3
+  file_extension: .py
+  mimetype: text/x-python
+  name: python
+  nbconvert_exporter: python
+  pygments_lexer: ipython3
+  version: 3.7.6
 ---
 
-+++ {"toc": true}
 
-<h1>Table of Contents<span class="tocSkip"></span></h1>
-<div class="toc"><ul class="toc-item"><li><span><a href="#Python-Resources" data-toc-modified-id="Python-Resources-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Python Resources</a></span><ul class="toc-item"><li><span><a href="#Web-resources" data-toc-modified-id="Web-resources-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Web resources</a></span></li><li><span><a href="#Books" data-toc-modified-id="Books-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Books</a></span></li></ul></li></ul></div>
 
 +++
 
-python
+
 
 Python Resources
 ================

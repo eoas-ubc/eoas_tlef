@@ -7,29 +7,22 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: '0.8'
-    jupytext_version: 1.5.0-dev
+    jupytext_version: 1.4.2
+language_info:
+  codemirror_mode:
+    name: ipython
+    version: 3
+  file_extension: .py
+  mimetype: text/x-python
+  name: python
+  nbconvert_exporter: python
+  pygments_lexer: ipython3
+  version: 3.7.6
 kernelspec:
   display_name: Python 3
   language: python
   name: python3
-toc:
-  base_numbering: 1
-  nav_menu: {}
-  number_sections: true
-  sideBar: true
-  skip_h1_title: false
-  title_cell: Table of Contents
-  title_sidebar: Contents
-  toc_cell: true
-  toc_position: {}
-  toc_section_display: true
-  toc_window_display: true
 ---
-
-+++ {"toc": true}
-
-<h1>Table of Contents<span class="tocSkip"></span></h1>
-<div class="toc"><ul class="toc-item"><li><span><a href="#Conditionals-and-Loops" data-toc-modified-id="Conditionals-and-Loops-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Conditionals and Loops</a></span><ul class="toc-item"><li><span><a href="#Conditionals" data-toc-modified-id="Conditionals-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Conditionals</a></span><ul class="toc-item"><li><span><a href="#if,-elif,-and-else-statements" data-toc-modified-id="if,-elif,-and-else-statements-1.1.1"><span class="toc-item-num">1.1.1&nbsp;&nbsp;</span><code>if</code>, <code>elif</code>, and <code>else</code> statements</a></span></li><li><span><a href="#Logical-operators" data-toc-modified-id="Logical-operators-1.1.2"><span class="toc-item-num">1.1.2&nbsp;&nbsp;</span>Logical operators</a></span></li></ul></li><li><span><a href="#Loops" data-toc-modified-id="Loops-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Loops</a></span><ul class="toc-item"><li><span><a href="#for-loops" data-toc-modified-id="for-loops-1.2.1"><span class="toc-item-num">1.2.1&nbsp;&nbsp;</span><code>for</code> loops</a></span></li><li><span><a href="#Accumulators" data-toc-modified-id="Accumulators-1.2.2"><span class="toc-item-num">1.2.2&nbsp;&nbsp;</span>Accumulators</a></span></li><li><span><a href="#while-loops" data-toc-modified-id="while-loops-1.2.3"><span class="toc-item-num">1.2.3&nbsp;&nbsp;</span><code>while</code> loops</a></span></li><li><span><a href="#Loops-and-array-operations" data-toc-modified-id="Loops-and-array-operations-1.2.4"><span class="toc-item-num">1.2.4&nbsp;&nbsp;</span>Loops and array operations</a></span></li></ul></li><li><span><a href="#List-Comprehensions" data-toc-modified-id="List-Comprehensions-1.3"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>List Comprehensions</a></span></li><li><span><a href="#Exercises" data-toc-modified-id="Exercises-1.4"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>Exercises</a></span></li></ul></li></ul></div>
 
 +++
 

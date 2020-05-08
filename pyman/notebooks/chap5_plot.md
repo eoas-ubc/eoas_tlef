@@ -8,33 +8,23 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: '0.8'
-    jupytext_version: 1.5.0-dev
+    jupytext_version: 1.4.2
 kernelspec:
   display_name: Python 3
   language: python
   name: python3
-toc:
-  base_numbering: 1
-  nav_menu: {}
-  number_sections: true
-  sideBar: true
-  skip_h1_title: false
-  title_cell: Table of Contents
-  title_sidebar: Contents
-  toc_cell: true
-  toc_position: {}
-  toc_section_display: true
-  toc_window_display: true
+language_info:
+  codemirror_mode:
+    name: ipython
+    version: 3
+  file_extension: .py
+  mimetype: text/x-python
+  name: python
+  nbconvert_exporter: python
+  pygments_lexer: ipython3
+  version: 3.7.6
 ---
-
-+++ {"toc": true}
-
-<h1>Table of Contents<span class="tocSkip"></span></h1>
-<div class="toc"><ul class="toc-item"><li><span><a href="#Plotting" data-toc-modified-id="Plotting-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Plotting</a></span><ul class="toc-item"><li><span><a href="#An-interactive-session-with-pyplot" data-toc-modified-id="An-interactive-session-with-pyplot-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>An interactive session with <code>pyplot</code></a></span></li><li><span><a href="#Basic-plotting" data-toc-modified-id="Basic-plotting-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Basic plotting</a></span><ul class="toc-item"><li><span><a href="#Specifying-line-and-symbol-types-and-colors" data-toc-modified-id="Specifying-line-and-symbol-types-and-colors-1.2.1"><span class="toc-item-num">1.2.1&nbsp;&nbsp;</span>Specifying line and symbol types and colors</a></span></li><li><span><a href="#Error-bars" data-toc-modified-id="Error-bars-1.2.2"><span class="toc-item-num">1.2.2&nbsp;&nbsp;</span>Error bars</a></span></li><li><span><a href="#Setting-plotting-limits-and-excluding-data" data-toc-modified-id="Setting-plotting-limits-and-excluding-data-1.2.3"><span class="toc-item-num">1.2.3&nbsp;&nbsp;</span>Setting plotting limits and excluding data</a></span></li><li><span><a href="#Subplots" data-toc-modified-id="Subplots-1.2.4"><span class="toc-item-num">1.2.4&nbsp;&nbsp;</span>Subplots</a></span></li></ul></li><li><span><a href="#Logarithmic-plots" data-toc-modified-id="Logarithmic-plots-1.3"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>Logarithmic plots</a></span><ul class="toc-item"><li><span><a href="#Semi-log-plots" data-toc-modified-id="Semi-log-plots-1.3.1"><span class="toc-item-num">1.3.1&nbsp;&nbsp;</span>Semi-log plots</a></span></li><li><span><a href="#Log-log-plots" data-toc-modified-id="Log-log-plots-1.3.2"><span class="toc-item-num">1.3.2&nbsp;&nbsp;</span>Log-log plots</a></span></li></ul></li><li><span><a href="#More-advanced-graphical-output" data-toc-modified-id="More-advanced-graphical-output-1.4"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>More advanced graphical output</a></span></li><li><span><a href="#Exercises" data-toc-modified-id="Exercises-1.5"><span class="toc-item-num">1.5&nbsp;&nbsp;</span>Exercises</a></span></li></ul></li></ul></div>
-
 +++
-
-python
 
 Plotting
 ========
