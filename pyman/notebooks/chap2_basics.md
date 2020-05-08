@@ -9,16 +9,6 @@ jupytext:
     format_name: myst
     format_version: '0.8'
     jupytext_version: 1.5.0-dev
-language_info:
-  codemirror_mode:
-    name: ipython
-    version: 3
-  file_extension: .py
-  mimetype: text/x-python
-  name: python
-  nbconvert_exporter: python
-  pygments_lexer: ipython3
-  version: 3.7.6
 kernelspec:
   display_name: Python 3
   language: python
@@ -1254,7 +1244,7 @@ last line. If you leave out the `import numpy as np` line and remove the
 message
 
 ```{code-cell} ipython3
-dr = sqrt( (x2-x1)**2 + (y2-y1)**2 + (z2-z1)**2 )
+dr = np.sqrt( (x2-x1)**2 + (y2-y1)**2 + (z2-z1)**2 )
 ```
 
 The reason for the error is that the `sqrt` function is not a part of

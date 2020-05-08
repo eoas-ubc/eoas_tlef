@@ -1,21 +1,12 @@
 ---
 jupytext:
   formats: ipynb,myst
+  notebook_metadata_filter: all,-language_info
   text_representation:
     extension: .md
     format_name: myst
     format_version: '0.8'
     jupytext_version: 1.4.2
-language_info:
-  codemirror_mode:
-    name: ipython
-    version: 3
-  file_extension: .py
-  mimetype: text/x-python
-  name: python
-  nbconvert_exporter: python
-  pygments_lexer: ipython3
-  version: 3.7.6
 kernelspec:
   display_name: Python 3
   language: python
@@ -291,18 +282,17 @@ You can add one or more elements to the beginning or end of a list using
 the "`+`" operator:
 
 ```{code-cell} ipython3
-a = range(1,10,3)
+a = list(range(1,10,3))
 a
 ```
 
 ```{code-cell} ipython3
-# The following doesn't work on Python 3, where range() returns 
-# iterators, whereas in Python 2, it returns lists -- Loren.
+
 a += [16, 31, 64, 127]
 ```
 
 ```{code-cell} ipython3
-a = list(a) + [16, 31, 64, 127]
+a = a + [16, 31, 64, 127]
 a
 ```
 
@@ -335,7 +325,10 @@ c[4]
 ```
 
 ```{code-cell} ipython3
-c[4] = 7
+try:
+   c[4] = 7
+except TypeError:
+   print("this didn't work")
 ```
 
 When we tried to change `c[4]`, the system returned an error because we

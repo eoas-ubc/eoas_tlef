@@ -8,16 +8,6 @@ jupytext:
     format_name: myst
     format_version: '0.8'
     jupytext_version: 1.4.2
-language_info:
-  codemirror_mode:
-    name: ipython
-    version: 3
-  file_extension: .py
-  mimetype: text/x-python
-  name: python
-  nbconvert_exporter: python
-  pygments_lexer: ipython3
-  version: 3.7.6
 kernelspec:
   display_name: Python 3
   language: python
@@ -86,10 +76,10 @@ $d < 0$. The program below implements the above logic in a Python
 program.
 
 ``` python
-a = float(input("What is the coefficients a? "))
-b = float(input("What is the coefficients b? "))
-c = float(input("What is the coefficients c? "))
-
+#a = float(input("What is the coefficients a? "))
+#b = float(input("What is the coefficients b? "))
+#c = float(input("What is the coefficients c? "))
+a,b,c = 1,2,3
 d = b*b - 4.*a*c
 
 if d >= 0.0:

@@ -1,8 +1,8 @@
 ---
 jupytext:
   cell_metadata_filter: all
-  formats: ipynb,md:myst
-  notebook_metadata_filter: all
+  formats: ipynb,myst
+  notebook_metadata_filter: all,-language_info
   text_representation:
     extension: .md
     format_name: myst
@@ -12,16 +12,6 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-language_info:
-  codemirror_mode:
-    name: ipython
-    version: 3
-  file_extension: .py
-  mimetype: text/x-python
-  name: python
-  nbconvert_exporter: python
-  pygments_lexer: ipython3
-  version: 3.7.6
 ---
 
 Introduction
