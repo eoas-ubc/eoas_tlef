@@ -1,6 +1,6 @@
 ---
 jupytext:
-  formats: ipynb,py:percent
+  formats: ipynb,myst
   text_representation:
     extension: .md
     format_name: myst

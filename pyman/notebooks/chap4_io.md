@@ -1,23 +1,13 @@
 ---
 jupytext:
   cell_metadata_filter: all
-  formats: ipynb,py:percent
+  formats: ipynb,md:myst
   notebook_metadata_filter: all,-language_info
   text_representation:
     extension: .md
     format_name: myst
     format_version: '0.8'
-    jupytext_version: 1.4.2
-language_info:
-  codemirror_mode:
-    name: ipython
-    version: 3
-  file_extension: .py
-  mimetype: text/x-python
-  name: python
-  nbconvert_exporter: python
-  pygments_lexer: ipython3
-  version: 3.7.6
+    jupytext_version: 1.5.0-dev
 kernelspec:
   display_name: Python 3
   language: python

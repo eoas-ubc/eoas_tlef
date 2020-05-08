@@ -18,6 +18,7 @@ dependencies:
   - networkx
   - numba
   - nbsphinx
+  - jupyter_nbextensions_configurator
   - pip
   - pip:
     - git+https://github.com/executablebooks/MyST-NB.git
