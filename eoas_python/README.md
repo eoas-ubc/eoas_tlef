@@ -21,7 +21,7 @@ MyST-syntax markdown, then build the book by following the instructions in the
 1. `conda env create -f environment.yml`
 2.  `conda activte ebp`
 
-### Building a Jupyter Book  (the copies html to a subdirectory so all books in the project are separated)
+### Building a Jupyter Book  (this copies html to a subdirectory ../_build/eoas_python)
 
 Run the following commands in your (Unix) terminal: 
 
@@ -30,12 +30,12 @@ cd eoas_python
 ./build_website.sh
 ```
 
-### Building a Jupyter Book  (this build the book in book/_build/html)
+### Building a Jupyter Book  (this builds the book in book/_build/html)
 
 Run the following command in your terminal: `jb build book/`.
 If you would like to work with a clean build, you can empty the build folder by running `jb clean book/`. If the jupyter execution is cached, this command will not delete the cached folder. To remove the build folder, you can run `jb clean --all book/`.
 
-To view the book point your browser at book/_build/html
+To view the book: point your browser at book/_build/html
 
 ### Publishing this Jupyter Book
 
