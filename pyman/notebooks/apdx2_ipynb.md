@@ -7,35 +7,25 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: '0.8'
-    jupytext_version: 1.5.0-dev
+    jupytext_version: 1.4.2
 kernelspec:
   display_name: Python 3
   language: python
   name: python3
-toc:
-  base_numbering: 1
-  nav_menu: {}
-  number_sections: true
-  sideBar: true
-  skip_h1_title: false
-  title_cell: Table of Contents
-  title_sidebar: Contents
-  toc_cell: true
-  toc_position: {}
-  toc_section_display: true
-  toc_window_display: true
+language_info:
+  codemirror_mode:
+    name: ipython
+    version: 3
+  file_extension: .py
+  mimetype: text/x-python
+  name: python
+  nbconvert_exporter: python
+  pygments_lexer: ipython3
+  version: 3.7.6
 ---
-
-+++ {"toc": true}
-
-<h1>Table of Contents<span class="tocSkip"></span></h1>
-<div class="toc"><ul class="toc-item"><li><span><a href="#IPython-Notebooks" data-toc-modified-id="IPython-Notebooks-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>IPython Notebooks</a></span><ul class="toc-item"><li><span><a href="#An-interactive-interface" data-toc-modified-id="An-interactive-interface-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>An interactive interface</a></span></li><li><span><a href="#Installing-and-launching-an-IPython-notebook" data-toc-modified-id="Installing-and-launching-an-IPython-notebook-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Installing and launching an IPython notebook</a></span></li><li><span><a href="#Using-an-IPython-Notebook" data-toc-modified-id="Using-an-IPython-Notebook-1.3"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>Using an IPython Notebook</a></span></li><li><span><a href="#Running-programs-in-an-IPython-Notebook" data-toc-modified-id="Running-programs-in-an-IPython-Notebook-1.4"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>Running programs in an IPython Notebook</a></span></li><li><span><a href="#Annotating-an-IPython-Notebook" data-toc-modified-id="Annotating-an-IPython-Notebook-1.5"><span class="toc-item-num">1.5&nbsp;&nbsp;</span>Annotating an IPython Notebook</a></span></li><li><span><a href="#Editing-and-rerunning-a-notebook" data-toc-modified-id="Editing-and-rerunning-a-notebook-1.6"><span class="toc-item-num">1.6&nbsp;&nbsp;</span>Editing and rerunning a notebook</a></span></li><li><span><a href="#Quitting-an-IPython-notebook" data-toc-modified-id="Quitting-an-IPython-notebook-1.7"><span class="toc-item-num">1.7&nbsp;&nbsp;</span>Quitting an IPython notebook</a></span></li><li><span><a href="#Working-with-an-existing-IPython-notebook" data-toc-modified-id="Working-with-an-existing-IPython-notebook-1.8"><span class="toc-item-num">1.8&nbsp;&nbsp;</span>Working with an existing IPython notebook</a></span></li></ul></li></ul></div>
 
 +++
 
-python
-
-single: IPython; IPython Notebook
 
 IPython Notebooks
 =================

@@ -7,33 +7,25 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: '0.8'
-    jupytext_version: 1.5.0-dev
+    jupytext_version: 1.4.2
+language_info:
+  codemirror_mode:
+    name: ipython
+    version: 3
+  file_extension: .py
+  mimetype: text/x-python
+  name: python
+  nbconvert_exporter: python
+  pygments_lexer: ipython3
+  version: 3.7.6
 kernelspec:
   display_name: Python 3
   language: python
   name: python3
-toc:
-  base_numbering: 1
-  nav_menu: {}
-  number_sections: true
-  sideBar: true
-  skip_h1_title: false
-  title_cell: Table of Contents
-  title_sidebar: Contents
-  toc_cell: true
-  toc_position: {}
-  toc_section_display: true
-  toc_window_display: true
 ---
-
-+++ {"toc": true}
-
-<h1>Table of Contents<span class="tocSkip"></span></h1>
-<div class="toc"><ul class="toc-item"><li><span><a href="#Numerical-Routines:-SciPy-and-NumPy" data-toc-modified-id="Numerical-Routines:-SciPy-and-NumPy-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Numerical Routines: SciPy and NumPy</a></span><ul class="toc-item"><li><span><a href="#Special-functions" data-toc-modified-id="Special-functions-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Special functions</a></span></li><li><span><a href="#Numerical-integration" data-toc-modified-id="Numerical-integration-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Numerical integration</a></span><ul class="toc-item"><li><span><a href="#Single-integrals" data-toc-modified-id="Single-integrals-1.2.1"><span class="toc-item-num">1.2.1&nbsp;&nbsp;</span>Single integrals</a></span></li><li><span><a href="#Double-integrals" data-toc-modified-id="Double-integrals-1.2.2"><span class="toc-item-num">1.2.2&nbsp;&nbsp;</span>Double integrals</a></span></li></ul></li><li><span><a href="#Solving-ODEs" data-toc-modified-id="Solving-ODEs-1.3"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>Solving ODEs</a></span></li><li><span><a href="#Discrete-(fast)-Fourier-transforms" data-toc-modified-id="Discrete-(fast)-Fourier-transforms-1.4"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>Discrete (fast) Fourier transforms</a></span><ul class="toc-item"><li><span><a href="#Continuous-and-discrete-Fourier-transforms" data-toc-modified-id="Continuous-and-discrete-Fourier-transforms-1.4.1"><span class="toc-item-num">1.4.1&nbsp;&nbsp;</span>Continuous and discrete Fourier transforms</a></span></li><li><span><a href="#The-SciPy-FFT-library" data-toc-modified-id="The-SciPy-FFT-library-1.4.2"><span class="toc-item-num">1.4.2&nbsp;&nbsp;</span>The SciPy FFT library</a></span></li></ul></li><li><span><a href="#Linear-algebra" data-toc-modified-id="Linear-algebra-1.5"><span class="toc-item-num">1.5&nbsp;&nbsp;</span>Linear algebra</a></span><ul class="toc-item"><li><span><a href="#Basic-computations-in-linear-algebra" data-toc-modified-id="Basic-computations-in-linear-algebra-1.5.1"><span class="toc-item-num">1.5.1&nbsp;&nbsp;</span>Basic computations in linear algebra</a></span></li><li><span><a href="#Solving-systems-of-linear-equations" data-toc-modified-id="Solving-systems-of-linear-equations-1.5.2"><span class="toc-item-num">1.5.2&nbsp;&nbsp;</span>Solving systems of linear equations</a></span></li><li><span><a href="#Eigenvalue-problems" data-toc-modified-id="Eigenvalue-problems-1.5.3"><span class="toc-item-num">1.5.3&nbsp;&nbsp;</span>Eigenvalue problems</a></span></li></ul></li><li><span><a href="#Solving-non-linear-equations" data-toc-modified-id="Solving-non-linear-equations-1.6"><span class="toc-item-num">1.6&nbsp;&nbsp;</span>Solving non-linear equations</a></span><ul class="toc-item"><li><span><a href="#Single-equations-of-a-single-variable" data-toc-modified-id="Single-equations-of-a-single-variable-1.6.1"><span class="toc-item-num">1.6.1&nbsp;&nbsp;</span>Single equations of a single variable</a></span></li><li><span><a href="#Solving-systems-of-nonlinear-equations" data-toc-modified-id="Solving-systems-of-nonlinear-equations-1.6.2"><span class="toc-item-num">1.6.2&nbsp;&nbsp;</span>Solving systems of nonlinear equations</a></span></li></ul></li><li><span><a href="#Exercises" data-toc-modified-id="Exercises-1.7"><span class="toc-item-num">1.7&nbsp;&nbsp;</span>Exercises</a></span></li></ul></li></ul></div>
 
 +++
 
-python
 
 Numerical Routines: SciPy and NumPy
 ===================================

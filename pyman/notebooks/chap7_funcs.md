@@ -8,33 +8,26 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: '0.8'
-    jupytext_version: 1.5.0-dev
+    jupytext_version: 1.4.2
 kernelspec:
   display_name: Python 3
   language: python
   name: python3
-toc:
-  base_numbering: 1
-  nav_menu: {}
-  number_sections: true
-  sideBar: true
-  skip_h1_title: false
-  title_cell: Table of Contents
-  title_sidebar: Contents
-  toc_cell: true
-  toc_position: {}
-  toc_section_display: true
-  toc_window_display: true
+language_info:
+  codemirror_mode:
+    name: ipython
+    version: 3
+  file_extension: .py
+  mimetype: text/x-python
+  name: python
+  nbconvert_exporter: python
+  pygments_lexer: ipython3
+  version: 3.7.6
 ---
 
-+++ {"toc": true}
-
-<h1>Table of Contents<span class="tocSkip"></span></h1>
-<div class="toc"><ul class="toc-item"><li><span><a href="#Functions" data-toc-modified-id="Functions-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Functions</a></span><ul class="toc-item"><li><span><a href="#User-defined-functions" data-toc-modified-id="User-defined-functions-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>User-defined functions</a></span><ul class="toc-item"><li><span><a href="#Looping-over-arrays-in-user-defined-functions" data-toc-modified-id="Looping-over-arrays-in-user-defined-functions-1.1.1"><span class="toc-item-num">1.1.1&nbsp;&nbsp;</span>Looping over arrays in user-defined functions</a></span></li><li><span><a href="#Fast-array-processing-in-user-defined-functions" data-toc-modified-id="Fast-array-processing-in-user-defined-functions-1.1.2"><span class="toc-item-num">1.1.2&nbsp;&nbsp;</span>Fast array processing in user-defined functions</a></span></li><li><span><a href="#Functions-with-more-(or-less)-than-one-input-or-output" data-toc-modified-id="Functions-with-more-(or-less)-than-one-input-or-output-1.1.3"><span class="toc-item-num">1.1.3&nbsp;&nbsp;</span>Functions with more (or less) than one input or output</a></span></li><li><span><a href="#Positional-and-keyword-arguments" data-toc-modified-id="Positional-and-keyword-arguments-1.1.4"><span class="toc-item-num">1.1.4&nbsp;&nbsp;</span>Positional and keyword arguments</a></span></li><li><span><a href="#Variable-number-of-arguments" data-toc-modified-id="Variable-number-of-arguments-1.1.5"><span class="toc-item-num">1.1.5&nbsp;&nbsp;</span>Variable number of arguments</a></span></li><li><span><a href="#Passing-data-to-and-from-functions" data-toc-modified-id="Passing-data-to-and-from-functions-1.1.6"><span class="toc-item-num">1.1.6&nbsp;&nbsp;</span>Passing data to and from functions</a></span></li></ul></li><li><span><a href="#Methods-and-attributes" data-toc-modified-id="Methods-and-attributes-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Methods and attributes</a></span></li><li><span><a href="#Example:-linear-least-squares-fitting" data-toc-modified-id="Example:-linear-least-squares-fitting-1.3"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>Example: linear least squares fitting</a></span><ul class="toc-item"><li><span><a href="#Linear-regression" data-toc-modified-id="Linear-regression-1.3.1"><span class="toc-item-num">1.3.1&nbsp;&nbsp;</span>Linear regression</a></span></li><li><span><a href="#Linear-regression-with-weighting:-$\chi^2$" data-toc-modified-id="Linear-regression-with-weighting:-$\chi^2$-1.3.2"><span class="toc-item-num">1.3.2&nbsp;&nbsp;</span>Linear regression with weighting: $\chi^2$</a></span></li></ul></li><li><span><a href="#Anonymous-functions-(lambda)" data-toc-modified-id="Anonymous-functions-(lambda)-1.4"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>Anonymous functions (lambda)</a></span></li><li><span><a href="#Exercises" data-toc-modified-id="Exercises-1.5"><span class="toc-item-num">1.5&nbsp;&nbsp;</span>Exercises</a></span></li></ul></li></ul></div>
 
 +++
 
-python
 
 Functions
 =========

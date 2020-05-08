@@ -8,33 +8,26 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: '0.8'
-    jupytext_version: 1.5.0-dev
+    jupytext_version: 1.4.2
 kernelspec:
   display_name: Python 3
   language: python
   name: python3
-toc:
-  base_numbering: 1
-  nav_menu: {}
-  number_sections: true
-  sideBar: true
-  skip_h1_title: false
-  title_cell: Table of Contents
-  title_sidebar: Contents
-  toc_cell: true
-  toc_position: {}
-  toc_section_display: true
-  toc_window_display: true
+language_info:
+  codemirror_mode:
+    name: ipython
+    version: 3
+  file_extension: .py
+  mimetype: text/x-python
+  name: python
+  nbconvert_exporter: python
+  pygments_lexer: ipython3
+  version: 3.7.6
 ---
 
-+++ {"toc": true}
-
-<h1>Table of Contents<span class="tocSkip"></span></h1>
-<div class="toc"><ul class="toc-item"><li><span><a href="#Getting-started" data-toc-modified-id="Getting-started-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Getting started</a></span><ul class="toc-item"><li><span><a href="#The-bash-command-shell" data-toc-modified-id="The-bash-command-shell-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>The bash command shell</a></span><ul class="toc-item"><li><span><a href="#1.-Installing-the-bash-shell" data-toc-modified-id="1.-Installing-the-bash-shell-1.1.1"><span class="toc-item-num">1.1.1&nbsp;&nbsp;</span>1. Installing the bash shell</a></span></li><li><span><a href="#2.-Working-with-the-shell" data-toc-modified-id="2.-Working-with-the-shell-1.1.2"><span class="toc-item-num">1.1.2&nbsp;&nbsp;</span>2. Working with the shell</a></span></li></ul></li><li><span><a href="#Installing-the-atom-file-editor" data-toc-modified-id="Installing-the-atom-file-editor-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Installing the atom file editor</a></span></li><li><span><a href="#Installing-python" data-toc-modified-id="Installing-python-1.3"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>Installing python</a></span></li><li><span><a href="#Installing-python-modules" data-toc-modified-id="Installing-python-modules-1.4"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>Installing python modules</a></span></li><li><span><a href="#Running-Python" data-toc-modified-id="Running-Python-1.5"><span class="toc-item-num">1.5&nbsp;&nbsp;</span>Running Python</a></span></li></ul></li></ul></div>
 
 +++
 
-python
 
 Getting started
 ===============
