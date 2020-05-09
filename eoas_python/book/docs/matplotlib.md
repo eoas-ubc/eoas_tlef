@@ -300,15 +300,15 @@ The output should look like this
 Here\'s one solution
 
 ```{code-cell} ipython3
-def f(x, theta):
-    return np.cos(np.pi * theta * x ) * np.exp(- x)
+def f(x, θ):
+    return np.cos(np.pi * θ * x ) * np.exp(- x)
 
-theta_vals = np.linspace(0, 2, 10)
+θ_vals = np.linspace(0, 2, 10)
 x = np.linspace(0, 5, 200)
 fig, ax = plt.subplots()
 
-for theta in theta_vals:
-    ax.plot(x, f(x, theta))
+for θ in θ_vals:
+    ax.plot(x, f(x, θ))
 
 plt.show()
 ```
