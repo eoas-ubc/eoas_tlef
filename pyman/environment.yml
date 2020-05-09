@@ -19,5 +19,5 @@ dependencies:
     - git+https://github.com/executablebooks/MyST-NB.git
     - jupyter-cache[cli]
     - git+https://github.com/mwouts/jupytext.git
-    
+    - git+https://github.com/phaustin/jupyter-sphinx.git@debug
     
