@@ -81,4 +81,4 @@ html_static_path = ["_static"]
 
 # -- Extension configuration -------------------------------------------------
 nbsphinx_allow_errors = True
-#jupyter_execute_notebooks = "off"
+jupyter_execute_notebooks = "cache"
