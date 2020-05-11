@@ -42,7 +42,6 @@ import os
 
 ## Set the Access-Control-Allow-Credentials: true header
 c.NotebookApp.allow_credentials = False
-c.NotebookApp.browser = u"chrome"  # noqa
 c.NotebookApp.contents_manager_class = "jupytext.TextFileContentsManager"  # noqa
 c.ContentsManager.preferred_jupytext_formats_save = "myst"  # noqa
 c.ContentsManager.default_jupytext_formats = "ipynb,myst"  # noqa
