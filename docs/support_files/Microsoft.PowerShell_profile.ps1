@@ -3,7 +3,8 @@
 (& "C:\Users\phil\miniwin\Scripts\conda.exe" "shell.powershell" "hook") | Out-String | Invoke-Expression
 #endregion
 #conda activate eosc
-$tlef = "~\repos\eoas_tlef"
+$env:tlef = "~\repos\eoas_tlef"
+$tl =  "~\repos\eoas_tlef"
 Set-PSReadLineOption -EditMode Emacs
 function prompt 
 {
@@ -25,6 +26,5 @@ function strip_file
 $options = Get-PSReadLineOption
 $options.StringColor = 'DarkBlue'
 $options.StringColor = 'White'
-cd $tlef
 conda activate ebp
 write-output "through $profile"

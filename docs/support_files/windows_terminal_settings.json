@@ -1,0 +1,178 @@
+
+// To view the default settings, hold "alt" while clicking on the "Settings" button.
+// For documentation on these settings, see: https://aka.ms/terminal-documentation
+
+{
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+
+    "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+
+    "profiles":
+    {
+        "defaults":
+        {
+            // Put settings here that you want to apply to all profiles
+            "colorScheme": "solarized-pha"
+        },
+        "list":
+        [
+            {
+                // Make changes here to the powershell.exe profile
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "name": "Windows PowerShell",
+                "commandline": "powershell.exe",
+                "colorScheme": "Belafonte Day",
+                "fontFace": "Cascadia Code"
+            },
+            {
+                // Make changes here to the cmd.exe profile
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "name": "cmd",
+                "commandline": "cmd.exe",
+                "hidden": false
+            },
+            {
+                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+                "hidden": false,
+                "name": "Azure Cloud Shell",
+                "source": "Windows.Terminal.Azure"
+            },
+            {
+                "guid": "{c6eaf9f4-32a7-5fdc-b5cf-066e8a4b1e40}",
+                "hidden": false,
+                "name": "Ubuntu-18.04",
+                "source": "Windows.Terminal.Wsl"
+            }
+        ]
+    },
+
+    // Add custom color schemes to this array
+    "schemes": [
+        {
+        "name" : "tango-pha",
+        "background": "#040200",
+        "black": "#3d0d0d",
+        "blue": "#349ca4",
+        "brightBlack": "#555753",
+        "brightBlue": "#729fcf",
+        "brightCyan": "#34e2e2",
+        "brightGreen": "#8ae234",
+        "brightPurple": "#ad7fa8",
+        "brightRed": "#ef2929",
+        "brightWhite": "#eeeeec",
+        "brightYellow": "#fce94f",
+        "cyan": "#06989a",
+        "foreground": "#d3d7cf",
+        "green": "#4e9a06",
+        "purple": "#75507b",
+        "red": "#cc0000",
+        "white": "#d3d7cf",
+        "yellow": "#c4a000"
+        },
+        {
+        "name" : "Dracula",
+        "background" : "#636469",
+        "black" : "#272935",
+        "blue" : "#BD93F9",
+        "brightBlack" : "#555555",
+        "brightBlue" : "#BD93F9",
+        "brightCyan" : "#8BE9FD",
+        "brightGreen" : "#50FA7B",
+        "brightPurple" : "#FF79C6",
+        "brightRed" : "#FF5555",
+        "brightWhite" : "#FFFFFF",
+        "brightYellow" : "#F1FA8C",
+        "cyan" : "#6272A4",
+        "foreground" : "#F8F8F2",
+        "green" : "#50FA7B",
+        "purple" : "#6272A4",
+        "red" : "#FF5555",
+        "white" : "#F8F8F2",
+        "yellow" : "#FFB86C"
+    },{
+        "name" : "flat-ui-v1",
+        "background":"#000000",
+        "black":"#000000",
+        "blue":"#2980b9",
+        "brightBlack":"#7f8c8d",
+        "brightBlue":"#3498db",
+        "brightCyan":"#1abc9c",
+        "brightGreen":"#2ecc71",
+        "brightPurple":"#9b59b6",
+        "brightRed":"#e74c3c",
+        "brightWhite":"#ecf0f1",
+        "brightYellow":"#f1c40f",
+        "cyan":"#16a085",
+        "foreground":"#ecf0f1",
+        "green":"#27ae60",
+        "purple":"#8e44ad",
+        "red":"#c0392b",
+        "white":"#ecf0f1",
+        "yellow":"#f39c12"
+     },{
+        "name": "solarized-pha",
+        "foreground": "#657B83",
+        "background": "#fdfbe3",
+        "cursorColor": "#002B36",
+        "black": "#073642",
+        "red": "#DC322F",
+        "green": "#859900",
+        "yellow": "#B58900",
+        "blue": "#268BD2",
+        "purple": "#D33682",
+        "cyan": "#2AA198",
+        "white": "#EEE8D5",
+        "brightBlack": "#002B36",
+        "brightRed": "#CB4B16",
+        "brightGreen": "#586E75",
+        "brightYellow": "#657B83",
+        "brightBlue": "#839496",
+        "brightPurple": "#6C71C4",
+        "brightCyan": "#93A1A1",
+        "brightWhite": "#FDF6E3"
+    },{
+        "name": "BirdsOfParadise",
+        "black": "#573d26",
+        "red": "#be2d26",
+        "green": "#6ba18a",
+        "yellow": "#e99d2a",
+        "blue": "#5a86ad",
+        "purple": "#ac80a6",
+        "cyan": "#74a6ad",
+        "white": "#e0dbb7",
+        "brightBlack": "#9b6c4a",
+        "brightRed": "#e84627",
+        "brightGreen": "#95d8ba",
+        "brightYellow": "#d0d150",
+        "brightBlue": "#b8d3ed",
+        "brightPurple": "#d19ecb",
+        "brightCyan": "#93cfd7",
+        "brightWhite": "#fff9d5",
+        "background": "#2a1f1d",
+        "foreground": "#e0dbb7"
+      },{
+        "name": "Belafonte Day",
+        "black": "#20111b",
+        "red": "#be100e",
+        "green": "#858162",
+        "yellow": "#ea5c49",
+        "blue": "#426a79",
+        "purple": "#97522c",
+        "cyan": "#989a9c",
+        "white": "#968c83",
+        "brightBlack": "#5e5252",
+        "brightRed": "#be100e",
+        "brightGreen": "#858162",
+        "brightYellow": "#ea6149",
+        "brightBlue": "#426a79",
+        "brightPurple": "#97522c",
+        "brightCyan": "#989a9c",
+        "brightWhite": "#af8839",
+        "background": "#d5ccba",
+        "foreground": "#45373c"
+      }],
+
+    // Add any keybinding overrides to this array.
+    // To unbind a default keybinding, set the command to "unbound"
+    "keybindings": []
+}
