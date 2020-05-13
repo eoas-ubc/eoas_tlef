@@ -113,7 +113,7 @@
         "name": "solarized-pha",
         "foreground": "#657B83",
         "background": "#fdfbe3",
-        "cursorColor": "#002B36",
+        "cursorColor": "#e01134",
         "black": "#073642",
         "red": "#DC322F",
         "green": "#859900",
@@ -152,6 +152,7 @@
         "foreground": "#e0dbb7"
       },{
         "name": "Belafonte Day",
+        "cursorColor": "#ec0c1f",
         "black": "#20111b",
         "red": "#be100e",
         "green": "#858162",
@@ -168,7 +169,7 @@
         "brightPurple": "#97522c",
         "brightCyan": "#989a9c",
         "brightWhite": "#af8839",
-        "background": "#d5ccba",
+        "background": "#e9e3d7",
         "foreground": "#45373c"
       }],
 
