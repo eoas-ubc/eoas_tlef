@@ -1,5 +1,27 @@
-# learning git
+# Learning Git
 
-Are the introductions already made for eosc courses by Phil and Roger suitable? 
+## Step 1: managing a solo project
 
-They are likely at least a good start. It may be there are more streamlined and transparent working sequences that would be less reliant on command line (eg using GitHub desktop, or just the online GitHub environment itself) but that can be considered later when faculty training actually begins. 
+An annotated step-by-step command line sequence is needed. To work up from easy to more complicated:
+
+### Step 1a: no branching; just sync between local and GitHub.
+
+- From GitHub: make a new repository or fork one from someone's public. In our case, fork the eoas-ubc/eoas_tlef repo. 
+- Clone this new or forked repository to local: in local cmdline go to the root folder where you want the project folder to go.
+- `git clone FULL PATH TO DESIRED REPO`
+- `git status` - always a good thing to see what's what.
+- Make some edits in one or more files and 'save'.
+- `git 
+
+
+### Step 1b: edit a branch; use pull request to add edits from branch to master. 
+
+## Step 2: Collaborate on someone else's project
+
+## Step 3: Have a collaborator help on _your_ project
+
+## Resources
+
+- Downloadable book: [Pro Git](https://git-scm.com/book/en/v2)
+- Same author has four short videos [here](https://git-scm.com/videos) although I've not seen them.
+- 1hr intro [video](https://www.youtube.com/watch?v=SWYqp7iY_Tc), although some parts are less necessary for rank beginners (such as the "ignore" file).
