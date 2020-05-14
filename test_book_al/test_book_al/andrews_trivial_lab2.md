@@ -25,7 +25,10 @@ kernelspec:
     the "command" key together with the a space, then type the word
     "terminal" into the spotlight search bar).
 
-+++
+```{code-cell} ipython3
+Δ=5
+print(Δ)
+```
 
 ## Another very easy lab
 In addition to linear and quadratic functions, we can also define *cubic* functions:
