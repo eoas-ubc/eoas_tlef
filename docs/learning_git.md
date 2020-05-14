@@ -2,7 +2,7 @@
 
 ## Step 1: managing a solo project
 
-An annotated step-by-step command line sequence is needed. To work up from easy to more complicated:
+Here's an annotated step-by-step command line sequence:
 
 ### Step 1a: no branching; just sync between local and GitHub
 
