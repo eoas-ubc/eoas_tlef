@@ -21,6 +21,16 @@ Here's an annotated step-by-step command line sequence:
 
 ## Step 2: Collaborate on someone else's project
 
+- Several items to go here.
+- Getting my fork caught up with the master: see help.github.com's section [merging an upstream repository into your fork](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/merging-an-upstream-repository-into-your-fork). For example: 
+
+```
+git checkout master
+git pull https://github.com/eoas-ubc/eoas_tlef master
+git commit -m 'message'
+```
+
+
 ## Step 3: Have a collaborator help on _your_ project
 
 ## Resources

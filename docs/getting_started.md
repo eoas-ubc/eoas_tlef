@@ -1,15 +1,15 @@
 # Working on the TLEF project
 
-Making this outline will help establish priorities for bringing new colleagues on board, including other developers or instructors.
+This outline will help establish priorities for bringing new colleagues on board, including other developers or instructors.
 
 Even if new contributors are up to speed with one or more of these techniques, checking this sequence should ensure clarity during "onboarding".
 
 ## Workflow
 
-Tasks and steps for making progress on this TLEF project:
+Tasks and steps for making progress on this TLEF project. These are best checked and learned in the order shown because they increase in both complexity and dependancy with outside resources or people.
 
 - Be able to run Jupyter Python on local computer.
-- Choose and practice using a text editor, preferrably VS code. (Capabilities to be learned as projects progress.)
+- Choose and practice using a text editor, preferrably VS code. (Capabilities and integration with workflow, Git and other IDE aspects can be learned as projects progress.)
 - Add Jupytext to Python environment and check it causes a save to update both the .ipynb and .md files together.
 - Make a book using Jupyter Book (command line). Gain preliminary familiarity all the parts (files) of a "book".
 - Gain familiarity with managing version control for your OWN project using Git and GitHub.
