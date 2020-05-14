@@ -10,7 +10,7 @@ Then to convert to "github flavored markdown (gfm)" saving all figures in a fold
 pandoc --to gfm --extract-media='.' week01WS01.docx -o week01S01.md
 ```
 
-The result:  [week01S01.md](week01S01.md)
+The result:  [week01S01.md](week01WS01.md)
 
 
 Issues
