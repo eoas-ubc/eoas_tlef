@@ -2,7 +2,9 @@
 
 ## docx
 
-conda install pandoc to convert to "github flavored markdown (gfm)" saving all figures in a folder called "media" in the current directory.
+`conda install pandoc`
+
+Then to convert to "github flavored markdown (gfm)" saving all figures in a folder called "media" in the current directory.
 
 ```
 pandoc --to gfm --extract-media='.' week01WS01.docx -o week01S01.md
