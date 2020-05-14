@@ -2,7 +2,7 @@
 jupytext:
   cell_metadata_filter: all
   encoding: '# -*- coding: utf-8 -*-'
-  formats: ipynb,myst
+  formats: ipynb,md:myst
   notebook_metadata_filter: all,-language_info
   text_representation:
     extension: .md

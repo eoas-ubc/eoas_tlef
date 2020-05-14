@@ -1,16 +1,17 @@
 ---
 jupytext:
-  text_representation:
   cell_metadata_filter: all
   encoding: '# -*- coding: utf-8 -*-'
-  formats: ipynb,myst
+  formats: ipynb,md:myst
   notebook_metadata_filter: all,-language_info
+  text_representation:
     extension: .md
     format_name: myst
     format_version: '0.8'
     jupytext_version: 1.4.2
 kernelspec:
   display_name: Python 3
+  language: python
   name: python3
 ---
 
