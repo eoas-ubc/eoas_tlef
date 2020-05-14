@@ -8,7 +8,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: '0.8'
-    jupytext_version: 1.5.0-dev
+    jupytext_version: 1.4.2
 kernelspec:
   display_name: Python 3
   language: python
@@ -27,6 +27,11 @@ $$
     y = mx + b\tag{equation of a line}
 $$
 
+$$
+y = mx + b
+$$(eq:line)
+
+As we see on {eq}`eq:line`
 
 Edit the cell below by entering your values for $m$, $x$ and $b$. The output of the cell will be the value of $y$ corresponding to the values you enter.
 
