@@ -1,6 +1,10 @@
 ---
 jupytext:
   text_representation:
+  cell_metadata_filter: all
+  encoding: '# -*- coding: utf-8 -*-'
+  formats: ipynb,myst
+  notebook_metadata_filter: all,-language_info
     extension: .md
     format_name: myst
     format_version: '0.8'
