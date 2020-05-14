@@ -1,3 +1,7 @@
+'''
+conda install python-pptx
+'''
+
 from pathlib import Path
 from pptx import Presentation
 
