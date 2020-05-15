@@ -32,8 +32,9 @@ class dump_pics:
                 with Image.open(full_path) as im:
                     im.load()
                     im.save(png_path)
-            except OSError:
+            except OSError as e:
                 print(f"converion failed -- only works on windows")
+                print(e)
 
     def visitor(self,shape):
         if shape.shape_type == MSO_SHAPE_TYPE.GROUP:
