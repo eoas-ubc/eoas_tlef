@@ -4,19 +4,26 @@ from pptx import Presentation
 from pptx.enum.shapes import MSO_SHAPE_TYPE
 from pathlib import Path
 from PIL import Image
+import click
 
 class Extract_Pics:
     def __init__(self,filename,media_dir):
         """
-        set global state
+        filename: name of pptx file
+
         """
-        self.filename=filename
+        self.filename=Path(filename)
         self.image_num = 0
-        self.deck_name = filename.stem
+        self.deck_name = self.filename.stem
         self.slidenum = -1
-        self.media_dir = media_dir
+        self.media_dir = Path(media_dir)
         
     def write_image(self,shape):
+        """
+        write the image in shape to a file, converting it
+        to a png file if possible (this will work with jpg files,
+        fail with wmf files)
+        """
         image = shape.image
         # ---get image "file" contents---
         image_bytes = image.blob
@@ -40,6 +47,10 @@ class Extract_Pics:
                 print(f"conversion failed {e}")
 
     def visitor(self,shape):
+        """
+        recursively find multiple shapes in a group and write
+        them out to image files
+        """
         if shape.shape_type == MSO_SHAPE_TYPE.GROUP:
             print(f"in a group")
             for count,s in enumerate(shape.shapes):
@@ -50,16 +61,32 @@ class Extract_Pics:
             self.write_image(shape)
 
     def find_images(self):
+        """
+        find all group and individual images in a powerpoint
+        presentations and write them out to media_dir
+        """
         prs = Presentation(self.filename)
         for slidenum, slide in enumerate(prs.slides):
             self.slidenum=slidenum
             for shape in slide.shapes:
                 self.visitor(shape)
 
-if __name__ == "__main__":
-    media_dir = Path('media')
+
+@click.command()
+@click.argument("pptx_file", type=str, nargs=1)
+@click.argument("media_directory", type=str, nargs=1)
+def main(pptx_file, media_directory):
+    """\b
+    usage: python image_extract.py pptx_file media_directory
+    pptx_file: powerpoint file to convert
+    media_directory: folder of png files to hold images from pptx
+    """
+    media_dir = Path(media_directory)
     media_dir.mkdir(parents=True,exist_ok=True)
-    the_files = Path().glob("*.pptx")
-    for a_file in the_files:
-        do_job = Extract_Pics(a_file,media_dir)
-        do_job.find_images()
+    pptx_file = Path(pptx_file)
+    do_job = Extract_Pics(pptx_file,media_dir)
+    do_job.find_images()
+
+                
+if __name__ == "__main__":
+    main()

@@ -20,9 +20,10 @@ dependencies:
   - nbsphinx
   - jupyter_nbextensions_configurator
   - pillow
-  - python-pptx
+  - click
   - pip
   - pip:
+    - python-pptx
     - git+https://github.com/executablebooks/MyST-NB.git
     - git+https://github.com/executablebooks/MyST-Parser.git
     - jupyter-cache[cli]
