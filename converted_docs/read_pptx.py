@@ -14,8 +14,6 @@ def get_text(slide):
                 text_list.append(shape.text)
     return text_list
 
-def get_images(slide):
-    
 
 the_files = Path().glob("*.pptx")
 for a_file in the_files:

@@ -1,12 +1,15 @@
-# #https://stackoverflow.com/questions/52491656/extracting-images-from-presentation-file
+# based on https://stackoverflow.com/questions/52491656/extracting-images-from-presentation-file
 
 from pptx import Presentation
 from pptx.enum.shapes import MSO_SHAPE_TYPE
 from pathlib import Path
 from PIL import Image
 
-class dump_pics:
+class Extract_Pics:
     def __init__(self,filename,media_dir):
+        """
+        set global state
+        """
         self.filename=filename
         self.image_num = 0
         self.deck_name = filename.stem
@@ -32,9 +35,9 @@ class dump_pics:
                 with Image.open(full_path) as im:
                     im.load()
                     im.save(png_path)
+                    print(f"saved converted file to {png_path}")
             except OSError as e:
-                print(f"converion failed -- only works on windows")
-                print(e)
+                print(f"conversion failed {e}")
 
     def visitor(self,shape):
         if shape.shape_type == MSO_SHAPE_TYPE.GROUP:
@@ -58,5 +61,5 @@ if __name__ == "__main__":
     media_dir.mkdir(parents=True,exist_ok=True)
     the_files = Path().glob("*.pptx")
     for a_file in the_files:
-        do_job = dump_pics(a_file,media_dir)
+        do_job = Extract_Pics(a_file,media_dir)
         do_job.find_images()
