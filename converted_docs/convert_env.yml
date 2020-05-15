@@ -1,0 +1,35 @@
+name: convert
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.7.*
+  - git
+  - jupyter
+  - sphinx=2.4.4
+  - pydata-sphinx-theme
+  - ghp-import
+  - sphinx_rtd_theme
+  - matplotlib
+  - numpy
+  - scipy
+  - sympy
+  - pandas
+  - networkx
+  - numba
+  - nbsphinx
+  - jupyter_nbextensions_configurator
+  - pillow
+  - click
+  - pip
+  - pip:
+    - python-pptx
+    - git+https://github.com/executablebooks/MyST-NB.git
+    - git+https://github.com/executablebooks/MyST-Parser.git
+    - jupyter-cache[cli]
+    - git+https://github.com/mwouts/jupytext.git
+    - git+https://github.com/executablebooks/jupyter-book
+    - git+https://github.com/executablebooks/sphinx-book-theme
+    
+
+
