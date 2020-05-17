@@ -1,0 +1,24 @@
+package:
+    name: jbwin
+    version: 0.1
+
+build:
+  number: 0
+
+source:
+  path: ../
+
+requirements:
+  build:
+
+
+test:
+  commands:
+    - doit.sh # [not win]
+    - doit.ps1 # [win]
+
+
+about:
+  summary: powershell and bash tools
+  license_file: LICENSE
+
