@@ -8,7 +8,7 @@ turn all tex files nto markdown files
 remove all media files
    python run_pandoc.py clean-media
 remove all markdown files
-   python run_pandoc clean-markdown
+   python run_pandoc.py clean-markdown
 """
 import contextlib
 import os, sys
