@@ -4,7 +4,7 @@ usage:
 turn all docx files into markdown files
    python run_pandoc.py transform-docs
 turn all tex files nto markdown files
-   python run_pandoc.py transform-docs --doctype=texp
+   python run_pandoc.py transform-docs --doctype=tex
 remove all media files
    python run_pandoc.py clean-media
 remove all markdown files
