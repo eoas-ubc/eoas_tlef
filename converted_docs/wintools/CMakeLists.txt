@@ -1,4 +1,4 @@
-project(wintools)
+project(wintools NONE)
 cmake_minimum_required(VERSION 3.17.0)
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules")
 message("the module path is ${CMAKE_SOURCE_DIR}/cmake_modules")
