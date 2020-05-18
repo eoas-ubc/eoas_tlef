@@ -23,7 +23,7 @@ test:
 about:
   home: https://github.com/eoas-ubc/eoas_tlef/tree/master/converted_docs/wintools
   license: BSD-3-Clause
-  license_file: LICENSE.txt
+  license_file: https://github.com/eoas-ubc/eoas_tlef/tree/master/converted_docs/wintools/LICENSE.txt
   summary: 'shell wrappers for sphinx and jupyer-book'
   description: |
     On windows runjb.ps1 and runmyst.ps1 export PYTHONUTF8=1 before running

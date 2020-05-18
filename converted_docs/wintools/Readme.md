@@ -35,8 +35,8 @@ and
 
 - [runjb.ps1](binwin/runmyst.ps1)
 
-- [runmyst.sh](bin/runmyst.ps1)
+- [runmyst.sh](bin/runmyst.sh)
 
-- [runjb.sh](bin/runjb.ps1)
+- [runjb.sh](bin/runjb.sh)
 
 
