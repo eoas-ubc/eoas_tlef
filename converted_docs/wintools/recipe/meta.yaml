@@ -4,6 +4,7 @@ package:
 
 build:
   number: 0
+  script: python copy_file.py
 
 source:
   path: ../
@@ -11,6 +12,7 @@ source:
 requirements:
   build:
     - python ==3.7.*
+
 
 
 test:
