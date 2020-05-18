@@ -1,5 +1,5 @@
 package:
-    name: jbwin
+    name: runjb
     version: 0.1
 
 build:
@@ -13,13 +13,12 @@ requirements:
   build:
     - python ==3.7.*
 
-
-
 test:
   commands:
-    - testbin.sh # [not win]
-    - testbin.bat # [win]
-
+    - if exist %PREFIX%\bin\runjb.ps1 (exit 0) else (exit 1)  # [win]
+    - if exist %PREFIX%\bin\runmyst.ps1 (exit 0) else (exit 1)  # [win]
+    - test -f ${PREFIX}/bin/runmyst.sh  # [unix]
+    - test -f ${PREFIX}/bin/runjb.sh  # [unix]
 
 about:
   summary: powershell and bash tools
