@@ -1,6 +1,6 @@
 package:
     name: runjb
-    version: 0.1
+    version: 0.2
 
 build:
   number: 0
@@ -21,6 +21,15 @@ test:
     - test -f ${PREFIX}/bin/runjb.sh  # [unix]
 
 about:
-  summary: powershell and bash tools
-  license_file: LICENSE
+  home: https://github.com/eoas-ubc/eoas_tlef/tree/master/converted_docs/wintools
+  license: BSD-3-Clause
+  license_file: LICENSE.txt
+  summary: 'shell wrappers for sphinx and jupyer-book'
+  description: |
+    On windows runjb.ps1 and runmyst.ps1 export PYTHONUTF8=1 before running
+    sphinx or jupyter book.  Unix bash wrappers runjb.sh and runmyst.sh
+    included for symmetry.
 
+extra:
+  recipe-maintainers:
+    - phaustin
