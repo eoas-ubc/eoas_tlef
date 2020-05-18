@@ -10,12 +10,13 @@ source:
 
 requirements:
   build:
+    - python ==3.7.*
 
 
 test:
   commands:
-    - doit.sh # [not win]
-    - doit.ps1 # [win]
+    - testbin.sh # [not win]
+    - testbin.bat # [win]
 
 
 about:

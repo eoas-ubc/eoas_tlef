@@ -1,1 +1,2 @@
-Powershell.exe -executionpolicy remotesigned -File  copyfiles.ps1
+python copy_file.py
+
