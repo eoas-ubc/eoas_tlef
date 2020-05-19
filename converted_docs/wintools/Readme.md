@@ -24,6 +24,7 @@ dependencies:
   - pip
   - pip:
     - sphinx_rtd_theme
+    - git+https://github.com/executablebooks/jupyter-book
     - git+https://github.com/executablebooks/MyST-NB.git
     - jupyter-cache[cli]
     - git+https://github.com/mwouts/jupytext.git
