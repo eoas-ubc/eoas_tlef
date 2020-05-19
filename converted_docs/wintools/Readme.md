@@ -5,6 +5,39 @@ windowns.
 
 **Usage**:
 
+## here's a sample environment.yml
+
+```
+name: myst
+channels:
+  - eoas_ubc
+  - conda-forge
+  - defaults
+dependencies:
+  - git
+  - python=3.7.*
+  - jupyter
+  - runjb
+  - sphinx=2.4.4
+  - pydata-sphinx-theme
+  - ghp-import
+  - pip
+  - pip:
+    - sphinx_rtd_theme
+    - git+https://github.com/executablebooks/MyST-NB.git
+    - jupyter-cache[cli]
+    - git+https://github.com/mwouts/jupytext.git
+```
+At an anaconda powershell prompt do:
+
+```
+conda env create -f environment.yml
+conda activate myst
+```
+
+then:
+
+
 ## windows
 
 at a powershell prompt:
