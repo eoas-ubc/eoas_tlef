@@ -1,7 +1,7 @@
 # simple wrappers for jupyter-book and sphinx
 
 These wrappers guarantee that jupyter-book and jupyter-sphinx run with utf8 throughout on
-windowns.
+windows.
 
 **Usage**:
 
