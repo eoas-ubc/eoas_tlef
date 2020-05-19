@@ -1,0 +1,35 @@
+package:
+    name: runjb
+    version: 0.2
+
+build:
+  number: 1
+  script: python copy_file.py
+
+source:
+  path: ../
+
+requirements:
+  build:
+    - python ==3.7.*
+
+test:
+  commands:
+    - if exist %PREFIX%\bin\runjb.ps1 (exit 0) else (exit 1)  # [win]
+    - if exist %PREFIX%\bin\runmyst.ps1 (exit 0) else (exit 1)  # [win]
+    - test -f ${PREFIX}/bin/runmyst.sh  # [unix]
+    - test -f ${PREFIX}/bin/runjb.sh  # [unix]
+
+about:
+  home: https://github.com/eoas-ubc/eoas_tlef/tree/master/converted_docs/wintools
+  license: BSD-3-Clause
+  license_file: LICENSE.txt
+  summary: 'shell wrappers for sphinx and jupyer-book'
+  description: |
+    On windows runjb.ps1 and runmyst.ps1 export PYTHONUTF8=1 before running
+    sphinx or jupyter book.  Unix bash wrappers runjb.sh and runmyst.sh
+    included for symmetry.
+
+extra:
+  recipe-maintainers:
+    - phaustin
