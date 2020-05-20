@@ -18,6 +18,8 @@ import pprint
 import shutil
 import click
 from collections import defaultdict
+import copy
+import json
 
 pp=pprint.PrettyPrinter(indent=4)
 
@@ -70,31 +72,91 @@ def clean_media():
             pass
 
 @main.command()
-def move_markdown():
+def move_files():
     """
-    move all markdown files and figures into a book folder
+    move all files with a particular suffix to Book, creating a new subfolder
+    for each suffix.  Any duplicate filenames are renamed by adding an integer counter to
+    the name in the form of "dup-counter"
+
+    A json file Book/file_catalog.json is written with the filelist
     """
-    keep_dict=defaultdict(list)
-    md_files = list(Path().glob("**/*.md"))
+    all_files = list(Path().glob("**/*"))
+    #
+    # don't double count files in the Book directory
+    #
+    all_files = [item for item in all_files
+                      if str(item).find("Book") == -1]
+    all_files = [item for item in all_files
+                      if str(item).find(".git") == -1]
+    all_files = [item for item in all_files if item.suffix not in ['.docx','pptx']]
+    all_files = [item for item in all_files if item.is_file()]
+    all_files = [item for item in all_files if item.name[-1:] not in ['#','~']]
+    all_suffixes = [item.suffix for item in all_files]
+    #
+    # renove duplicates
+    #
+    unique_suffixes = set(all_suffixes)
+    #
+    # remove the leading period
+    #
+    unique_suffixes = [item[1:] for item in unique_suffixes]
+    #
+    # make a subfolder to hold each suffix
+    #
     Book = Path() / 'Book'
     Book.mkdir(parents=True,exist_ok=True)
-    for the_file in md_files:
-        keep_dict[the_file.name].append(the_file)
+    for subdir in unique_suffixes:
+        new_dir = Book / subdir
+        new_dir.mkdir(parents=True,exist_ok = True)
+    #
+    # put all files in a dictionary indexed by filename
+    #
+    keep_dict=defaultdict(list)
+    for a_file in all_files:
+        keep_dict[a_file.name].append(a_file)
+    keep_dict.pop( "'.'",None)
+    keep_dict.pop('.DS_Store',None)
+    #
+    # build a new dictionary adding
+    #  unique names for any duplicates
+    #
+    working_dict = copy.deepcopy(keep_dict)
+    bad_keys=[]
     for key,value in keep_dict.items():
-        print(key,value)
         if len(value) > 1:
-            raise ValueError(f'more than 1 file: {value}')
-        shutil.copy(value[0],Book)
-    # md_files = Path().glob("**/*.m")
-    # Book = Path() / 'Book'
-    # Book.mkdir(parents=True,exist_ok=True)
-    # for item in md_files:
-    #     shutil.copy(item,Book)
-    # print(all_suffixes)
-    # fig_list=['.png', '.pdf', 'jpeg','jpg']
-        
-    
-        
+            for count,item in enumerate(value):
+                print(f"processing duplicate name: {item}")
+                new_name=f"dup-{count}-{item.name}"
+                working_dict[new_name]=[item]
+                bad_keys.append(key)
+                count+=1
+    #
+    # remove the keys that had duplocate names
+    #
+    for key in bad_keys:
+        working_dict.pop(key,None)
+    out_dict = defaultdict(dict)
+    for key, value in working_dict.items():
+        filepath = value[0]
+        #
+        # drop the leading . in suffix
+        #
+        suffix=filepath.suffix[1:]
+        out_dict[suffix][key]=str(filepath)
+    #
+    # convert back to ordinary dict for json
+    #
+    out_dict = dict(out_dict)
+    pp.pprint(out_dict)
+    json_file = Book / 'file_catalog.json'
+    with open(json_file,'w') as outfile:
+        json.dump(out_dict,outfile,indent=4)
+    for key,file_dict in out_dict.items():
+        write_dir = Book / key
+        for unique_name, file_path in file_dict.items():
+            new_path = write_dir / unique_name
+            shutil.copy(file_path, new_path)
+            
 @main.command()
 def clean_markdown():
     all_markdown_files = Path().glob("**/*.md")
