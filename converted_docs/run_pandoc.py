@@ -4,11 +4,11 @@ usage:
 turn all docx files into markdown files
    python run_pandoc.py transform-docs
 turn all tex files nto markdown files
-   python run_pandoc.py transform-docs --doctype=tex
+   python run_pandoc.py transform-docs --doctype=texp
 remove all media files
    python run_pandoc.py clean-media
 remove all markdown files
-   python run_pandoc.py clean-markdown
+   python run_pandoc clean-markdown
 """
 import contextlib
 import os, sys
@@ -17,6 +17,7 @@ import subprocess
 import pprint
 import shutil
 import click
+from collections import defaultdict
 
 pp=pprint.PrettyPrinter(indent=4)
 
@@ -68,6 +69,32 @@ def clean_media():
         except FileNotFoundError:
             pass
 
+@main.command()
+def move_markdown():
+    """
+    move all markdown files and figures into a book folder
+    """
+    keep_dict=defaultdict(list)
+    md_files = list(Path().glob("**/*.md"))
+    Book = Path() / 'Book'
+    Book.mkdir(parents=True,exist_ok=True)
+    for the_file in md_files:
+        keep_dict[the_file.name].append(the_file)
+    for key,value in keep_dict.items():
+        print(key,value)
+        if len(value) > 1:
+            raise ValueError(f'more than 1 file: {value}')
+        shutil.copy(value[0],Book)
+    # md_files = Path().glob("**/*.m")
+    # Book = Path() / 'Book'
+    # Book.mkdir(parents=True,exist_ok=True)
+    # for item in md_files:
+    #     shutil.copy(item,Book)
+    # print(all_suffixes)
+    # fig_list=['.png', '.pdf', 'jpeg','jpg']
+        
+    
+        
 @main.command()
 def clean_markdown():
     all_markdown_files = Path().glob("**/*.md")
