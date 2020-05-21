@@ -3,7 +3,7 @@
 What are the three lexical elements (building blocks) of the MATLAB
 programming language? (TEXT: pg 45-46)
 
-1\. names
+1\. Names
 
 2\. special characters
 
