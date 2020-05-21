@@ -2,11 +2,22 @@
 usage:
 
 turn all docx files into markdown files
+
    python run_pandoc.py transform-docs
+   
 turn all tex files nto markdown files
-   python run_pandoc.py transform-docs --doctype=texp
+   python run_pandoc.py transform-docs --doctype=tex
+   
+move all csv, md, pptx, docx, png, jpeg, jpg etc.
+into Book/subdir folders, where subdir is the suffix filename
+and write a file catlog Book/file_catalog.json
+
+   python run_pandoc.py move-files
+  
 remove all media files
+
    python run_pandoc.py clean-media
+   
 remove all markdown files
    python run_pandoc clean-markdown
 """
@@ -46,7 +57,12 @@ def main():
        python run_pandoc.py transform-docs
     \b
     to turn all tex files nto markdown files\b
-       python run_pandoc.py transform-docs --doctype=texp
+       python run_pandoc.py transform-docs --doctype=tex
+    \b   
+    move all csv, md, pptx, docx, png, jpeg, jpg etc.
+    into Book/subdir folders, where subdir is the suffix filename
+    and write a file catlog Book/file_catalog.json
+          python run_pandoc.py move-files
     \b
     to remove all media files\b
        npython run_pandoc.py clean-media
