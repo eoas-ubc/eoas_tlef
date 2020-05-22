@@ -26,7 +26,7 @@ Issues
 ```
 conda env create -f convert_env.yml
 conda activate convert
-python extact_images.py week01_C1_Introduction2018.pptx media
+python image_extract.py week01_C1_Introduction2018.pptx media
 ```
 
 ### Step 2: convert any wmf files to png using snaggit
