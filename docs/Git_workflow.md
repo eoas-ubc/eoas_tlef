@@ -1,8 +1,16 @@
 # A Pull Request Workflow tutorial
 
-Knowing how to properly fork and generate pull requests is essential for working on open source projects or collaborating with peers. Unfortunately, it's quite easy to make mistakes or not know what you should do when you're initially learning the process. 
+Knowing how to properly fork and generate pull requests is essential for working on open source projects or collaborating with peers. Unfortunately, it is easy to make mistakes or not know what you should do when you're initially learning the process.
 
-This short tutorial, adapted from Chase Pettit's [original](https://gist.github.com/Chaser324/ce0505fbed06b947d962), covers a fairly standard procedure for creating a fork, doing your work, issuing a pull request, and merging that pull request back into the original project. This workflow assumes you are NOT the "owner" of the original repository, although how the owner will accept and merge a pull request is discussed last. 
+This short tutorial, adapted from Chase Pettit's [original](https://gist.github.com/Chaser324/ce0505fbed06b947d962), covers a fairly standard procedure for creating a fork, doing your work locally, and issuing a pull request. The workflow assumes you are NOT the "owner" of the original repository, although how the owner will accept and merge a pull request is discussed last.
+
+Some questions we would eventually like addressed in this document:
+1. Why we don't recommend that you use the default git pull
+2. If we don't recommend you use it, why is it the default?
+3. What should you do instead?
+4. What problems does that avoid?
+
+----
 
 ## Creating a Fork
 
@@ -100,67 +108,24 @@ This will open up a text editor where you can specify which commits to squash.
 
 Once you've committed and pushed all of your changes to GitHub, go to the page for your fork on GitHub, select your development branch, and click the pull request button. If you need to make any adjustments to your pull request, just push the updates to GitHub. Your pull request will automatically track the changes on your development branch and update.
 
-## Accepting and Merging a Pull Request
+## Managing upstream repos: accepting / merging pull requests
 
-Take note that unlike the previous sections which were written from the perspective of someone that created a fork and generated a pull request, this section is written from the perspective of the original repository owner who is handling an incoming pull request. Thus, where the "forker" was referring to the original repository as `upstream`, we're now looking at it as the owner of that original repository and the standard `origin` remote.
+**Note that** sections above were written from the perspective of someone that created a fork and generated a pull request. This section is written from the perspective of the **original** repository owner who handles incoming pull requests.
 
-### Checking Out and Testing Pull Requests
-Open up the `.git/config` file and add a new line under `[remote "origin"]`:
+Thus, where the "forker" was referring to the original repository as `upstream`, we're now looking at it as the owner of that original repository and the standard `origin` remote.
 
-```
-fetch = +refs/pull/*/head:refs/pull/origin/*
-```
+If you are interested in details please see Chase Pettit's [original](https://gist.github.com/Chaser324/ce0505fbed06b947d962) tutorial.
 
-Now you can fetch and checkout any pull request so that you can test them:
-
-```shell
-# Fetch all pull request branches
-git fetch origin
-
-# Checkout out a given pull request branch based on its number
-git checkout -b 999 pull/origin/999
-```
-
-Keep in mind that these branches will be read only and you won't be able to push any changes.
-
-### Automatically Merging a Pull Request
-In cases where the merge would be a simple fast-forward, you can automatically do the merge by just clicking the button on the pull request page on GitHub.
-
-### Manually Merging a Pull Request
-To do the merge manually, you'll need to checkout the target branch in the source repo, pull directly from the fork, and then merge and push.
-
-```shell
-# Checkout the branch you're merging to in the target repo
-git checkout master
-
-# Pull the development branch from the fork repo where the pull request development was done.
-git pull https://github.com/forkuser/forkedrepo.git newfeature
-
-# Merge the development branch
-git merge newfeature
-
-# Push master with the new feature merged into it
-git push origin master
-```
-
-Now that you're done with the development branch, you're free to delete it.
-
-```shell
-git branch -d newfeature
-```
-
-
-
-**Copyright**
+### **Copyright**
 
 Copyright 2017, Chase Pettit
 
 MIT License, http://www.opensource.org/licenses/mit-license.php
  
-**Additional Reading**
+### **Additional Reading**
 * [Atlassian - Merging vs. Rebasing](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)
 
-**Sources**
+### **Sources**
 * [GitHub - Fork a Repo](https://help.github.com/articles/fork-a-repo)
 * [GitHub - Syncing a Fork](https://help.github.com/articles/syncing-a-fork)
 * [GitHub - Checking Out a Pull Request](https://help.github.com/articles/checking-out-pull-requests-locally)
