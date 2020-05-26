@@ -1,9 +1,11 @@
-# working with vscode
+# Working with VS-Code
 
+See VS-Code [documentation](https://code.visualstudio.com/docs).
+
+* Managing version control from within VS Code is explained [here](https://code.visualstudio.com/docs/editor/versioncontrol) and there is a [video based on this](https://www.youtube.com/watch?v=wMqukSKYcvU) page. 
+* Working with GitHub from inside VS-Code is outlined [here](https://code.visualstudio.com/docs/editor/github).
 * [stackoverflow: saving and loading extensions](https://stackoverflow.com/questions/35773299/how-can-you-export-the-visual-studio-code-extension-list)
-
 * [austin_vscode.txt extension list](support_files/austin_vscode.txt)
-
 * loading these extensions with powershell:
 
 ```

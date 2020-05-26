@@ -1,8 +1,8 @@
-by Chase Pettit. Original url:  https://gist.github.com/Chaser324/ce0505fbed06b947d962 -- 
+# A Pull Request Workflow tutorial
 
-Whether you're trying to give back to the open source community or collaborating on your own projects, knowing how to properly fork and generate pull requests is essential. Unfortunately, it's quite easy to make mistakes or not know what you should do when you're initially learning the process. I know that I certainly had considerable initial trouble with it, and I found a lot of the information on GitHub and around the internet to be rather piecemeal and incomplete - part of the process described here, another there, common hangups in a different place, and so on.
+Knowing how to properly fork and generate pull requests is essential for working on open source projects or collaborating with peers. Unfortunately, it's quite easy to make mistakes or not know what you should do when you're initially learning the process. 
 
-In an attempt to coallate this information for myself and others, this short tutorial is what I've found to be fairly standard procedure for creating a fork, doing your work, issuing a pull request, and merging that pull request back into the original project.
+This short tutorial, adapted from Chase Pettit's [original](https://gist.github.com/Chaser324/ce0505fbed06b947d962), covers a fairly standard procedure for creating a fork, doing your work, issuing a pull request, and merging that pull request back into the original project. This workflow assumes you are NOT the "owner" of the original repository, although how the owner will accept and merge a pull request is discussed last. 
 
 ## Creating a Fork
 
@@ -15,7 +15,7 @@ git clone git@github.com:USERNAME/FORKED-PROJECT.git
 
 ## Keeping Your Fork Up to Date
 
-While this isn't an absolutely necessary step, if you plan on doing anything more than just a tiny quick fix, you'll want to make sure you keep your fork up to date by tracking the original "upstream" repo that you forked. To do this, you'll need to add a remote:
+Make sure you keep your fork up to date by tracking the original "upstream" repo that you forked. To do this, you'll need to add a remote:
 
 ```shell
 # Add 'upstream' repo to list of remotes
