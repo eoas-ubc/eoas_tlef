@@ -1,0 +1,53 @@
+file: Class2_miniquiz1_withans
+title: Class2 Miniquiz1 Withans
+sections:
+- file: content
+  title: Content
+- file: intro
+  title: Intro
+- file: markdown
+  title: Markdown
+- file: notebooks
+  title: Notebooks
+- file: Notes_on_class
+  title: Notes On Class
+- file: Notes_on_class_W4
+  title: Notes On Class W4
+- file: Notes_on_class_W5
+  title: Notes On Class W5
+- file: Notes_on_class_W6
+  title: Notes On Class W6
+- file: syntax
+  title: Syntax
+- file: week01WS01
+  title: Week01ws01
+- file: week02WS01
+  title: Week02ws01
+- file: week02WS02
+  title: Week02ws02
+- file: week03WS01
+  title: Week03ws01
+- file: week03WS02
+  title: Week03ws02
+- file: week03_miniquiz1
+  title: Week03 Miniquiz1
+- file: week08-worksheet1
+  title: Week08-worksheet1
+- file: week08-worksheet2
+  title: Week08-worksheet2
+- file: week08Quiz
+  title: Week08quiz
+- file: week09preQuiz
+  title: Week09prequiz
+- file: week11WS01
+  title: Week11ws01
+- file: week11WS02
+  title: Week11ws02
+- file: week11WS03
+  title: Week11ws03
+- file: week11WS4A3
+  title: Week11ws4a3
+- file: week12WS01
+  title: Week12ws01
+- file: week12WS02
+  title: Week12ws02
