@@ -10,8 +10,6 @@ Some questions we would eventually like addressed in this document:
 3. What should you do instead?
 4. What problems does that avoid?
 
-----
-
 ## Creating a Fork
 
 Just head over to the GitHub page and click the "Fork" button. It's just that simple. Once you've done that, you can use your favorite git client to clone your repo or just head straight to the command line:
