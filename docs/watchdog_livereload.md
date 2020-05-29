@@ -6,7 +6,7 @@
 pip install watchdog
 ```
 
-2. install Node.js from [here](https://nodejs.org/en/) or using:
+2. install Node.js from [here](https://nodejs.org/en/) or using [chocolately](https://chocolatey.org/docs/installation):
 ```
 choco install nodejs
 ```
