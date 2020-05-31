@@ -6,7 +6,13 @@
 conda install watchdog
 ```
 
-2. install Node.js from [here](https://nodejs.org/en/) or using [chocolately](https://chocolatey.org/docs/installation):
+2. install Node.js either from conda-forge:
+
+```
+conda install nodejs
+```
+
+or using [chocolately](https://chocolatey.org/docs/installation):
 ```
 choco install nodejs
 ```
