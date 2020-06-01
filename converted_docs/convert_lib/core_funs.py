@@ -72,7 +72,7 @@ class Extract_Pics:
 
 
 
-def extract_it(media_directory):
+def extract_it(pptx_file,media_directory):
     media_dir = Path(media_directory)
     media_dir.mkdir(parents=True,exist_ok=True)
     pptx_file = Path(pptx_file)
