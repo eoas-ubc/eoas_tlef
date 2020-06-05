@@ -14,7 +14,7 @@
 
 **Cloud computing support:**  Charles Krzysik, Henryk Modzelewski
 
-**Data science minor TLEF/DSCI 100:**  Tiffany Timbers
+**Data science minor TLEF/DSCI 100/Masters in Data Science:**  Tiffany Timbers, Firas Moosvi
 
 
 +++
