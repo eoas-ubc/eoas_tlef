@@ -24,37 +24,70 @@
 
 Some definitions:  
 
+* Quantitative earth scientist
+
+* [Jupyter notebooks](https://jupyterbook.org/intro.html)
+
 * [Top-down and bottom up learning](https://en.wikipedia.org/wiki/Top-down_and_bottom-up_design)
+
+* [Instructional scaffolding](https://en.wikipedia.org/wiki/Instructional_scaffolding)
+
+* Course transformation
+
+* [Voila Dashboard](https://github.com/voila-dashboards/voila)
 
 comments:  
 
 - bottom up instruction worked very well for the participants in this project
 - when it works, students gain implicit knowledge  (i.e. "how to think like a physicist")
 - but it takes time (10,000 hours, graduate school) and a particular kind of motivation
-
-- more common outcome:  the failure of the "calculus marinade"
+- more common outcome:  mathematical tourists
 
 We (i.e. faculty) were taught bottom up, but we solve research problems top-down
 
-Can a top-down approach involving computation and visualization replace/improve the
-calculus marinade?
-
-+++
-# Solving the prerequsite problem
-
-* [Instructional scaffolding](https://en.wikipedia.org/wiki/Instructional_scaffolding)
-
-  Obvious advantages to modular prerequisites, the problem is logistical.
-
+Can a top-down approach involving computation and visualization improve learning on
+quantitative subjects?
 
 
 # Why now?
 
 - The easy problems in research, industry, teaching have been solved.  Current problems
-  involve complex systems, reproducibility, decision making in the face of uncertainty
+  involve complex systems, reproducibility, decision making in the face of uncertainty.
+  Each of these topics requires code fluency.
 
-- Over the last 5 years, there's been a kind of informational phase transition involving
+- Cloud computing removes the physical constraint of the computer lab.
+
+- Over the last 5 years, there's been a kind of phase transition involving
   communication via code and literate programming.  Research, industry and teaching have
   converged on a common way to develop and communicate quantitative information.
 
-# Our work so far
+- These open source development tools allow the rapid creation/testing/maintainence of
+  instructional material customized for individual student preparation and interest.
+
+- Our workflow for teaching quantitative topics itself provides an example of how problems
+  get solved by practioners.  Students can actively participate in 
+  a live scientific community, getting them out of the "sandbox".
+
+
+# Current status
+
+* Examples of transformed undergraduate courses:
+  (open source license, community workflow, jupyter notebooks)
+
+- [Berkely data 8](https://github.com/data-8/textbook)
+
+- [Helsinki Earth Sciences](https://github.com/introqg-2019)
+
+- [UBC DSCI 100](https://github.com/UBC-DSCI/introduction-to-datascience)
+
+- [UBC MATH 210](https://github.com/ubc-math210/2019)
+
+- [UBC EOSC 350](https://github.com/geoscixyz/gpgLabs)
+
+- [UBC ATSC 409](https://github.com/phaustin/numeric)
+
+- [EOAS TLEF](https://eoas-ubc.github.io/)
+
+
+
+
