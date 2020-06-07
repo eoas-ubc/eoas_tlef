@@ -71,7 +71,8 @@ quantitative subjects?
 
 # Current status
 
-* Examples of transformed undergraduate courses:
+## Examples of transformed undergraduate courses:
+
   (open source license, community workflow, jupyter notebooks)
 
 - [Berkely data 8](https://github.com/data-8/textbook)
@@ -85,6 +86,8 @@ quantitative subjects?
 - [UBC EOSC 350](https://github.com/geoscixyz/gpgLabs)
 
 - [UBC ATSC 409](https://github.com/phaustin/numeric)
+
+## Our website and 3-year schedule
 
 - [EOAS TLEF](https://eoas-ubc.github.io/)
 
