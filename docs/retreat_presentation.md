@@ -1,3 +1,28 @@
+---
+jupytext:
+  cell_metadata_filter: all
+  notebook_metadata_filter: all,-toc,-latex_envs
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: '0.8'
+    jupytext_version: 1.4.2
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+language_info:
+  codemirror_mode:
+    name: ipython
+    version: 3
+  file_extension: .py
+  mimetype: text/x-python
+  name: python
+  nbconvert_exporter: python
+  pygments_lexer: ipython3
+  version: 3.7.6
+---
+
 # The Jupyter TLEF project
 
 **Title****:  Embedding Open-source Computational Tools into the Quantitative Earth Science Specializations
@@ -16,6 +41,7 @@
 
 **Data science minor TLEF/DSCI 100/Masters in Data Science:**  Tiffany Timbers, Firas Moosvi
 
++++
 
 +++
 # Proposal pull quote
@@ -48,6 +74,7 @@ We (i.e. faculty) were taught bottom up, but we solve research problems top-down
 Can a top-down approach involving computation and visualization improve learning on
 quantitative subjects?
 
++++
 
 # Why now?
 
@@ -68,6 +95,7 @@ quantitative subjects?
   get solved by practioners.  Students can actively participate in 
   a live scientific community, getting them out of the "sandbox".
 
++++
 
 # Current status
 
@@ -90,7 +118,3 @@ quantitative subjects?
 ## Our website and 3-year schedule
 
 - [EOAS TLEF](https://eoas-ubc.github.io/)
-
-
-
-
