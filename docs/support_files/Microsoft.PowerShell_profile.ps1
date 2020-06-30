@@ -1,8 +1,7 @@
 #region conda initialize
 # !! Contents within this block are managed by 'conda init' !!
-(& "C:\Users\phil\miniwin\Scripts\conda.exe" "shell.powershell" "hook") | Out-String | Invoke-Expression
+(& "C:\Users\phil\minjn20\Scripts\conda.exe" "shell.powershell" "hook") | Out-String | Invoke-Expression
 #endregion
-#conda activate eosc
 $env:tlef = "~\repos\eoas_tlef"
 $tl =  "~\repos\eoas_tlef"
 Set-PSReadLineOption -EditMode Emacs
@@ -26,5 +25,9 @@ function strip_file
 $options = Get-PSReadLineOption
 $options.StringColor = 'DarkBlue'
 $options.StringColor = 'White'
-conda activate ebp
 write-output "through $profile"
+# Chocolatey profile
+$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+if (Test-Path($ChocolateyProfile)) {
+  Import-Module "$ChocolateyProfile"
+}
